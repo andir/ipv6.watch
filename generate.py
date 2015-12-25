@@ -1,4 +1,4 @@
-#/usr/bin/env python3
+#!/usr/bin/env python3
 import yaml
 from jinja2 import Environment, FileSystemLoader
 import argparse
@@ -6,30 +6,31 @@ import jsonschema
 import asyncio
 import aiodns
 import os
-import shutil
 
 config_schema = {
     'type': 'Object',
     'attributes': {
-       'nameservers': {
-           'type':'Object'
-       },
-       'targets': {
-           'type': 'Object'
-       },
-       'messages': {
-           'type': 'Object'
-       }
+        'nameservers': {
+            'type': 'Object'
+        },
+        'targets': {
+            'type': 'Object'
+        },
+        'messages': {
+            'type': 'Object'
+        }
     }
 }
 
+
 def writeable_dir(values):
-    prospective_dir=values
+    prospective_dir = values
     if not os.path.isdir(prospective_dir):
         raise argparse.ArgumentTypeError("writeable_dir:{0} is not a valid path".format(prospective_dir))
     if not os.access(prospective_dir, os.W_OK | os.R_OK):
         raise argparse.ArgumentTypeError("writeable_dir:{0} is not a writeable dir".format(prospective_dir))
     return prospective_dir
+
 
 def prepare_resolvers(nameservers, loop=None):
     if not loop:
@@ -41,38 +42,40 @@ def prepare_resolvers(nameservers, loop=None):
 
     return resolvers
 
+
 def resolve_host(target, resolver, context=None):
     try:
         response = yield from resolver.query(target, 'AAAA')
-    except aiodns.error.DNSError as e:
-        return (False, context)
+    except aiodns.error.DNSError:
+        return False, context
     if len(response) == 0:
-        return (False, context)
-    return (True, context)
+        return False, context
+    return True, context
+
 
 def resolve_target(target, resolvers, loop):
     tasks = []
     for host in target['hosts']:
         for name, r in resolvers.items():
-                for resolver in r:
-                     tasks.append(resolve_host(host, resolver[1], (host, name, resolver[0])))
-    
+            for resolver in r:
+                tasks.append(resolve_host(host, resolver[1], (host, name, resolver[0])))
+
     results = {}
     for task in tasks:
         result = loop.run_until_complete(task)
         response, context = result
         host, resolver_name, nameserver = context
-        
+
         h = results[host] = results.get(host, {})
         r = h[resolver_name] = h.get(resolver_name, {})
         r[nameserver] = response
-    
+
     return results
 
 
 def generate_message(media, target, conf, result):
     if media in conf:
-        
+
         return template.render(target=target, conf=conf, result=result, media=media)
     else:
         raise RuntimeError('Invalid media {} for {}'.format(media, target))
@@ -83,52 +86,45 @@ def main():
     parser.add_argument('-c', '--config', dest='config', default='conf.yaml', type=argparse.FileType('r'))
     parser.add_argument('dest', default='dist', type=writeable_dir)
 
-
     args = parser.parse_args()
 
     config = yaml.load(args.config)
-    #TODO: add item validation
+    # TODO: add item validation
     jsonschema.validate(config_schema, config)
 
- 
     nameservers = config['nameservers']
     targets = config['targets']
-    
-    results = {}
-    
-    resolvers = {}
-
 
     loop = asyncio.get_event_loop()
 
     resolvers = prepare_resolvers(nameservers, loop)
 
-    results = {}     
+    results = {}
     for name, target in targets.items():
         result = resolve_target(target, resolvers, loop)
         summary_all = all(
-            success
-            for host, rs in result.items()
-            for resolver, servers in rs.items()
-            for server, success in servers.items()
+                success
+                for host, rs in result.items()
+                for resolver, servers in rs.items()
+                for server, success in servers.items()
         )
 
         summary_any = any(
-            success
-            for host, rs in result.items()
-            for resolver, servers in rs.items()
-            for server, success in servers.items()
-        ) 
+                success
+                for host, rs in result.items()
+                for resolver, servers in rs.items()
+                for server, success in servers.items()
+        )
 
         results[name] = dict(hosts=result, all=summary_all, any=summary_any)
 
-    results = sorted(results.items(), key=lambda x:x[0])
-
+    results = sorted(results.items(), key=lambda x: x[0])
 
     jinja_env = Environment(loader=FileSystemLoader('templates/'))
     template = jinja_env.get_template('index.jinja2')
     with open(os.path.join(args.dest, 'index.html'), 'w') as fh:
         fh.write(template.render(results=results, targets=targets))
+
 
 if __name__ == "__main__":
     main()
