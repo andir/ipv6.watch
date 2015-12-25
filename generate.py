@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 import yaml
-from jinja2 import Environment, FileSystemLoader
+from jinja2 import Environment, FileSystemLoader, Template
 import argparse
 import jsonschema
 import asyncio
 import aiodns
 import os
+import logging
+
+logger = logging.getLogger(__name__)
 
 config_schema = {
     'type': 'Object',
@@ -66,6 +69,11 @@ def resolve_target(target, resolvers, loop):
         response, context = result
         host, resolver_name, nameserver = context
 
+        if response:
+            logger.info('\033[0;32m✓\033[0m\t%s @ %s', host, nameserver)
+        else:
+            logger.info('\033[0;31m✗\033[0m\t%s @ %s', host, nameserver)
+
         h = results[host] = results.get(host, {})
         r = h[resolver_name] = h.get(resolver_name, {})
         r[nameserver] = response
@@ -75,7 +83,7 @@ def resolve_target(target, resolvers, loop):
 
 def generate_message(media, target, conf, result):
     if media in conf:
-
+        template = Template(media.get(result))
         return template.render(target=target, conf=conf, result=result, media=media)
     else:
         raise RuntimeError('Invalid media {} for {}'.format(media, target))
@@ -84,9 +92,13 @@ def generate_message(media, target, conf, result):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--config', dest='config', default='conf.yaml', type=argparse.FileType('r'))
+    parser.add_argument('-l', '--log-level', dest='log_level', choices=['DEBUG','ERROR', 'INFO', 'WARN'], help='Debug level', default='INFO')
     parser.add_argument('dest', default='dist', type=writeable_dir)
 
     args = parser.parse_args()
+
+    log_level = getattr(logging, args.log_level)
+    logging.basicConfig(level=log_level)
 
     config = yaml.load(args.config)
     # TODO: add item validation
