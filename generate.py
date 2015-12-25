@@ -7,6 +7,7 @@ import asyncio
 import aiodns
 import os
 import logging
+import datetime
 
 logger = logging.getLogger(__name__)
 
@@ -135,7 +136,7 @@ def main():
     jinja_env = Environment(loader=FileSystemLoader('templates/'))
     template = jinja_env.get_template('index.jinja2')
     with open(os.path.join(args.dest, 'index.html'), 'w') as fh:
-        fh.write(template.render(results=results, targets=targets))
+        fh.write(template.render(results=results, targets=targets, date=datetime.datetime.utcnow()))
 
 
 if __name__ == "__main__":

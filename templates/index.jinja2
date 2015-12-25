@@ -1,45 +1,66 @@
 <!DOCTYPE html>
 <html>
-    <head>
-       <title>IPv6.watch</title>
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    </head>
-    <body>
-       <div class="container">
-	   <p>
-	   It is late 2015 (December actually) and the IPv6 adoption at major websites is bad... Most of those websites have the money, time and people to enable IPv6 but still instead they are only reachable via IPv4....
-	   </p>
-           <table class="table table-dense">
-	     <tr>
-                 <th></th>
-                 <th>Site</th>
-                 <th>IPv6 Support</th>
-		 <th>Tell them about it!</th>
-             </tr>
-             {% for target, result in results %}
-             <tr class="{% if result['all'] %}success{% elif result['any'] %}info{%else%}warning{%endif%}">
-                     
-                <td>{% if targets[target]['icon'] %}<img class="center-block" style="max-height: 40px; max-width: 64px;" src="{{ targets[target]['icon'] }}">{% endif %}</td>
-                <td>{{target}}</td>
-		<td>
-			{% if result['all'] %}
-				Yay! IPv6 is supported!
-			{% elif result['any'] %}
-				Well, there is some IPv6 support. Can't you do better?
-			{% else %}
-				Nope. Ever thought about gardening instead?
-			{% endif %}
-		</td>
-		<td>
-			{% if targets[target]['twitter'] %}
-			<a target="_blank" href="http://twitter.com/home/?status=Hey {{ targets[target]['twitter'] }} have you thought about enabling #IPv6 yet?">Twitter</a>
-			{% endif %}
-		</td>
-             </tr>
-             {% endfor %}
-           </table>
-       </div>
-       <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-f2005fe98e1862aec9c7decf22a993c0b3e29f8871233430e5a0e6520fc30e1ba5f5f1696db2dc2e1de74c820324a871" crossorigin="anonymous"></script>
-       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
-    </body>
+<head>
+    <title>IPv6.watch</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h1><a href="/">ipv6.watch</a></>
+    </div>
+    <div class="row">
+        <p>
+            It is late 2015 (December actually) and the IPv6 adoption at major websites is bad... Most of those websites
+            have the money, time and people to enable IPv6 but still they are only reachable via IPv4....
+        </p>
+        <table class="table table-dense">
+            <tr>
+                <th></th>
+                <th>Site</th>
+                <th>IPv6 Support</th>
+                <th>Tell them about it!</th>
+            </tr>
+            {% for target, result in results %}
+                <tr class="{% if result['all'] %}success{% elif result['any'] %}info{% else %}warning{% endif %}">
+
+                    <td>{% if targets[target]['icon'] %}
+                        <img class="center-block" style="max-height: 40px; max-width: 64px;"
+                             src="{{ targets[target]['icon'] }}">{% endif %}</td>
+                    <td>{{ target }}</td>
+                    <td>
+                        {% if result['all'] %}
+                            Yay! IPv6 is supported!
+                        {% elif result['any'] %}
+                            Well, there is some IPv6 support. Can't you do better?
+                        {% else %}
+                            Nope. Ever thought about gardening instead?
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if targets[target]['twitter'] %}
+                            <a target="_blank"
+                               href="http://twitter.com/home/?status=Hey {{ targets[target]['twitter'] }} have you thought about enabling #IPv6 yet?">Twitter</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <hr/>
+    <div class="row">
+        <p>
+            This page is regenerated every minute. Last update was at {{ date }} (UTC)
+        </p>
+        <p>
+            <a href="https://github.com/andir/ipv6.watch">
+                <img style="max-height: 90px;" src="images/github.png" alt="GitHub">
+            </a>
+        </p>
+    </div>
+</div>
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-f2005fe98e1862aec9c7decf22a993c0b3e29f8871233430e5a0e6520fc30e1ba5f5f1696db2dc2e1de74c820324a871" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+</body>
 </html>
