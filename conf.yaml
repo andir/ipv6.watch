@@ -1,0 +1,48 @@
+---
+nameservers:
+  Google DNS:
+    - 8.8.8.8
+    - 8.8.4.4
+    - 2001:4860:4860::8888
+    - 2001:4860:4860::8844
+  OpenDNS:
+    - 208.67.220.220
+    - 208.67.222.222
+  Level3:
+    - 4.2.2.2
+    - 4.2.2.1
+
+messages:
+  twitter:
+    all: "Hey {{ target['twitter'] }} thank you for enabling #IPv6"
+    any: "Hey {{ target['twitter'] }} are you going to expand your #IPv6 support?"
+    none: "Hey {{ target['twitter'] }} any plans to support #IPv6. Isn't it about time?"
+
+targets:
+   Twitter:
+     hosts:
+       - www.twitter.com
+       - twitter.com
+       - tweetdeck.twitter.com
+     icon: images/twitter.png
+     twitter: '@twitter @tweetdeck'
+   GitHub:
+     hosts:
+       - github.com
+       - www.github.com
+     icon: images/github.png
+     twitter: '@GitHub'
+   JetBrains:
+     hosts:
+       - jetbrains.com
+     icon: images/jetbrains.svg
+   Facebook:
+     hosts:
+       - www.facebook.com
+       - facebook.com
+     icon: images/facebook.png
+     twitter: '@facebook'
+   Google:
+     hosts:
+       - google.com
+     icon: images/google.png
