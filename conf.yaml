@@ -49,3 +49,6 @@ targets:
      hosts:
        - google.com
      icon: images/google.png
+   Strava:
+     hosts:
+       - strava.com
