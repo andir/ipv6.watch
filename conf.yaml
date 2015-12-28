@@ -52,3 +52,7 @@ targets:
    Strava:
      hosts:
        - strava.com
+   Reddit:
+     hosts:
+       - reddit.com
+     icon: images/reddit.png
