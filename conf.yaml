@@ -86,3 +86,7 @@ targets:
        - my.number26.de
        - number26.de
      twitter: '@number26'
+   Reddit:
+     hosts:
+       - reddit.com
+     icon: images/reddit.png
