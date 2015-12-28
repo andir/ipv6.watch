@@ -122,14 +122,14 @@ def main():
                 for server, success in servers.items()
         )
 
-        summary_any = any(
+        summary_some = any(
                 success
                 for host, rs in result.items()
                 for resolver, servers in rs.items()
                 for server, success in servers.items()
         )
 
-        results[name] = dict(hosts=result, all=summary_all, any=summary_any)
+        results[name] = dict(hosts=result, all=summary_all, some=summary_some)
 
     results = sorted(results.items(), key=lambda x: x[0])
 
