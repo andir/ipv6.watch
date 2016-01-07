@@ -57,3 +57,8 @@ targets:
      hosts:
        - reddit.com
      icon: images/reddit.png
+   Gravatar:
+     hosts:
+       - gravatar.com
+       - secure.gravatar.com
+     twitter: '@gravatar'
