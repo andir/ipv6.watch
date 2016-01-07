@@ -52,3 +52,4 @@ targets:
    Strava:
      hosts:
        - strava.com
+     twitter: '@Strava'
