@@ -52,6 +52,7 @@ targets:
    Strava:
      hosts:
        - strava.com
+     twitter: '@Strava'
    Reddit:
      hosts:
        - reddit.com
