@@ -23,25 +23,26 @@
                 <th>Tell them about it!</th>
             </tr>
             {% for target, result in results %}
-                <tr class="{% if result['all'] %}success{% elif result['any'] %}info{% else %}warning{% endif %}">
+            {% set tt = targets[target] %}
+            <tr class="{% if result['summary']=='all' %}success{% elif result['summary']=='some' %}info{% else %}warning{% endif %}">
 
-                    <td>{% if targets[target]['icon'] %}
+                    <td>{% if tt['icon'] %}
                         <img class="center-block" style="max-height: 40px; max-width: 64px;"
-                             src="{{ targets[target]['icon'] }}">{% endif %}</td>
+                             src="{{ tt['icon'] }}">{% endif %}</td>
                     <td>{{ target }}</td>
                     <td>
-                        {% if result['all'] %}
+                        {% if result['summary'] == 'all' %}
                             Yay! IPv6 is supported!
-                        {% elif result['any'] %}
+                        {% elif result['summary'] == 'some' %}
                             Well, there is some IPv6 support. Can't you do better?
                         {% else %}
                             Nope. Ever thought about gardening instead?
                         {% endif %}
                     </td>
                     <td>
-                        {% if targets[target]['twitter'] %}
+                        {% if tt['twitter'] %}
                             <a target="_blank"
-                               href="http://twitter.com/home/?status=Hey {{ targets[target]['twitter'] }} have you thought about enabling #IPv6 yet?">Twitter</a>
+                               href="http://twitter.com/home/?status={{ ( messages['twitter'][result['summary']] % ( tt['twitter'] ) ) | urlencode }}">Twitter</a>
                         {% endif %}
                     </td>
                 </tr>
