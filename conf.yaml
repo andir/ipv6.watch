@@ -58,3 +58,16 @@ targets:
        - gravatar.com
        - secure.gravatar.com
      twitter: '@gravatar'
+   Paypal:
+     hosts:
+       - www.paypal.com
+     twitter: '@AskPayPal'
+   Fiducia:
+     hosts:
+       - finanzportal.fiducia.de
+     twitter: '@fiducia_gad'
+   Number26:
+     hosts:
+       - my.number26.de
+       - number26.de
+     twitter: '@Number26de'
