@@ -8,6 +8,7 @@ import aiodns
 import os
 import logging
 import datetime
+from pprint import pprint
 
 logger = logging.getLogger(__name__)
 
@@ -115,28 +116,30 @@ def main():
     results = {}
     for name, target in targets.items():
         result = resolve_target(target, resolvers, loop)
-        summary_all = all(
+        msg = "none"
+
+        if any(
                 success
                 for host, rs in result.items()
                 for resolver, servers in rs.items()
                 for server, success in servers.items()
-        )
+        ): msg = "some"
 
-        summary_some = any(
+        if all(
                 success
                 for host, rs in result.items()
                 for resolver, servers in rs.items()
                 for server, success in servers.items()
-        )
+        ): msg = "all"
 
-        results[name] = dict(hosts=result, all=summary_all, some=summary_some)
+        results[name] = dict(hosts=result, summary=msg)
 
     results = sorted(results.items(), key=lambda x: x[0])
-
+    pprint(results)
     jinja_env = Environment(loader=FileSystemLoader('templates/'))
     template = jinja_env.get_template('index.jinja2')
     with open(os.path.join(args.dest, 'index.html'), 'w') as fh:
-        fh.write(template.render(results=results, targets=targets, date=datetime.datetime.utcnow()))
+        fh.write(template.render(results=results, targets=targets, messages=config['messages'], date=datetime.datetime.utcnow()))
 
 
 if __name__ == "__main__":

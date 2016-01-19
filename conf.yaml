@@ -17,9 +17,9 @@ nameservers:
 
 messages:
   twitter:
-    all: "Hey {{ target['twitter'] }} thank you for enabling #IPv6"
-    some: "Hey {{ target['twitter'] }} are you going to expand your #IPv6 support?"
-    none: "Hey {{ target['twitter'] }} any plans to support #IPv6. Isn't it about time?"
+    all: "Hey %s thank you for enabling #IPv6"
+    some: "Hey %s are you going to expand your #IPv6 support?"
+    none: "Hey %s any plans to support #IPv6. Isn't it about time?"
 
 targets:
    Twitter:
