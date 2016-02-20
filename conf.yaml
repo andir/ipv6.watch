@@ -35,6 +35,11 @@ targets:
        - www.github.com
      icon: images/github.png
      twitter: '@GitHub'
+   GitLab:
+     hosts:
+       - gitlab.com
+     icon: images/gitlab.svg
+     twitter: '@gitlab'
    JetBrains:
      hosts:
        - jetbrains.com
