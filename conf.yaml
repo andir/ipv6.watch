@@ -71,6 +71,12 @@ targets:
      hosts:
        - finanzportal.fiducia.de
      twitter: '@fiducia_gad'
+   Amazon:
+     hosts:
+      - amazon.com
+      - www.amazon.com
+     icon: images/amazon.png
+     twitter: '@amazon'
    Number26:
      hosts:
        - my.number26.de
