@@ -77,9 +77,10 @@ targets:
       - www.amazon.com
      icon: images/amazon.png
      twitter: '@amazon'
-   DeutscheWelle:
+   Deutsche Welle:
      hosts:
       - www.dw.com
+     icon: images/deutsche_welle.png
      twitter: '@deutschewelle'
    Number26:
      hosts:
