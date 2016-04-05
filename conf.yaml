@@ -81,8 +81,18 @@ targets:
      hosts:
       - www.dw.com
      twitter: '@deutschewelle'
+   Level3:
+     hosts:
+       - www.level3.com
+   Netcologne:
+     hosts:
+       - www.netcologne.de
    Number26:
      hosts:
        - my.number26.de
        - number26.de
      twitter: '@number26'
+   Wikipedia:
+     hosts:
+       - www.wikipedia.org
+     icon: images/wikipedia.png
