@@ -97,3 +97,7 @@ targets:
      hosts:
        - www.wikipedia.org
      icon: images/wikipedia.png
+   Twitch:
+     hosts:
+       - www.twitch.com
+     twitter: '@Twitch @TwitchSupport'
