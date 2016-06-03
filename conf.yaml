@@ -101,3 +101,6 @@ targets:
      hosts:
        - www.twitch.com
      twitter: '@Twitch @TwitchSupport'
+   Matrix.org:
+     hosts:
+       - matrix.org
