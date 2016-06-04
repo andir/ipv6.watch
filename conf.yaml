@@ -104,3 +104,6 @@ targets:
    Matrix.org:
      hosts:
        - matrix.org
+   PayPal:
+     hosts:
+       - paypal.com
