@@ -88,11 +88,11 @@ targets:
    Netcologne:
      hosts:
        - www.netcologne.de
-   Number26:
+   N26:
      hosts:
        - my.number26.de
-       - number26.de
-     twitter: '@number26'
+       - n26.com
+     twitter: '@n26'
    Wikipedia:
      hosts:
        - www.wikipedia.org
