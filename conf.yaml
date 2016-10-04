@@ -63,7 +63,7 @@ targets:
        - gravatar.com
        - secure.gravatar.com
      twitter: '@gravatar'
-   Paypal:
+   PayPal:
      hosts:
        - www.paypal.com
      twitter: '@AskPayPal'
@@ -104,6 +104,3 @@ targets:
    Matrix.org:
      hosts:
        - matrix.org
-   PayPal:
-     hosts:
-       - paypal.com
