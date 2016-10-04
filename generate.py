@@ -139,7 +139,8 @@ def main():
     jinja_env = Environment(loader=FileSystemLoader('templates/'))
     template = jinja_env.get_template('index.jinja2')
     with open(os.path.join(args.dest, 'index.html'), 'w') as fh:
-        fh.write(template.render(results=results, targets=targets, messages=config['messages'], date=datetime.datetime.utcnow()))
+        fh.write(template.render(long_date=datetime.datetime.now().strftime('%B %Y'),
+                 results=results, targets=targets, messages=config['messages'], date=datetime.datetime.utcnow()))
 
 
 if __name__ == "__main__":
