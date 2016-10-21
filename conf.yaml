@@ -104,3 +104,7 @@ targets:
    Matrix.org:
      hosts:
        - matrix.org
+   Tidal.com:
+     hosts:
+       - tidal.com
+       - listen.tidal.com
