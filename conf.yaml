@@ -108,3 +108,6 @@ targets:
      hosts:
        - tidal.com
        - listen.tidal.com
+   Bigpulse.com:
+     hosts:
+       - www.bigpluse.com
