@@ -28,13 +28,17 @@ config_schema = {
     }
 }
 
+NUMBER_OF_YEARS_TO_GET_TWEETS = 3
+
 
 def writeable_dir(values):
     prospective_dir = values
     if not os.path.isdir(prospective_dir):
-        raise argparse.ArgumentTypeError("writeable_dir:{0} is not a valid path".format(prospective_dir))
+        raise argparse.ArgumentTypeError(
+            "writeable_dir:{0} is not a valid path".format(prospective_dir))
     if not os.access(prospective_dir, os.W_OK | os.R_OK):
-        raise argparse.ArgumentTypeError("writeable_dir:{0} is not a writeable dir".format(prospective_dir))
+        raise argparse.ArgumentTypeError(
+            "writeable_dir:{0} is not a writeable dir".format(prospective_dir))
     return prospective_dir
 
 
@@ -44,7 +48,8 @@ def prepare_resolvers(nameservers, loop=None):
 
     resolvers = {}
     for name, servers in nameservers.items():
-        resolvers[name] = list((server, aiodns.DNSResolver(loop=loop, nameservers=[server])) for server in servers)
+        resolvers[name] = list((server, aiodns.DNSResolver(
+            loop=loop, nameservers=[server])) for server in servers)
 
     return resolvers
 
@@ -64,7 +69,8 @@ def resolve_target(target, resolvers, loop):
     for host in target['hosts']:
         for name, r in resolvers.items():
             for resolver in r:
-                tasks.append(resolve_host(host, resolver[1], (host, name, resolver[0])))
+                tasks.append(resolve_host(host, resolver[
+                             1], (host, name, resolver[0])))
 
     results = {}
     for task in tasks:
@@ -92,10 +98,38 @@ def generate_message(media, target, conf, result):
         raise RuntimeError('Invalid media {} for {}'.format(media, target))
 
 
+def get_tweets(handle):
+    # get_tweets returns the number of tweets that are have tweeted to the handle about ipv6
+    # for the last NUMBER_OF_YEARS_TO_GET_TWEETS years.
+    # i.e. get_tweets("facebook") returns 133 (01/01/2013 to 10/26/2016)
+    now = datetime.datetime.now()
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+    dates_to_try = []
+    for year in range(now.year - NUMBER_OF_YEARS_TO_GET_TWEETS, now.year):
+        for month in range(1, 12):
+            dates_to_try.append(str(year) + "-" + str(month))
+    for month in range(1, now.month + 1):
+        dates_to_try.append(str(now.year) + "-" + str(month))
+    # Go through tweets, one month at a time, since Twitter requires loading pages if there are too many at once
+    # (if there are too many, you may need to go one week/day at a time)
+    totalTweets = 0
+    for date_to_try in dates_to_try:
+        url = "https://twitter.com/search?f=tweets&q=ipv6%20%23" + handle + \
+            "%20since%3A" + date_to_try + "-01%20until%3A" + date_to_try + "-31"
+        r = requests.get(url, headers=headers)
+        totalTweets += r.text.count('js-tweet-text-container')
+        print(r.text.count('js-tweet-text-container'), url)
+
+    return totalTweets
+
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--config', dest='config', default='conf.yaml', type=argparse.FileType('r'))
-    parser.add_argument('-l', '--log-level', dest='log_level', choices=['DEBUG','ERROR', 'INFO', 'WARN'], help='Debug level', default='INFO')
+    parser.add_argument('-c', '--config', dest='config',
+                        default='conf.yaml', type=argparse.FileType('r'))
+    parser.add_argument('-l', '--log-level', dest='log_level', choices=[
+                        'DEBUG', 'ERROR', 'INFO', 'WARN'], help='Debug level', default='INFO')
     parser.add_argument('dest', default='dist', type=writeable_dir)
 
     args = parser.parse_args()
@@ -120,18 +154,20 @@ def main():
         msg = "none"
 
         if any(
-                success
-                for host, rs in result.items()
-                for resolver, servers in rs.items()
-                for server, success in servers.items()
-        ): msg = "some"
+            success
+            for host, rs in result.items()
+            for resolver, servers in rs.items()
+            for server, success in servers.items()
+        ):
+            msg = "some"
 
         if all(
-                success
-                for host, rs in result.items()
-                for resolver, servers in rs.items()
-                for server, success in servers.items()
-        ): msg = "all"
+            success
+            for host, rs in result.items()
+            for resolver, servers in rs.items()
+            for server, success in servers.items()
+        ):
+            msg = "all"
 
         results[name] = dict(hosts=result, summary=msg)
 
@@ -141,32 +177,8 @@ def main():
     template = jinja_env.get_template('index.jinja2')
     with open(os.path.join(args.dest, 'index.html'), 'w') as fh:
         fh.write(template.render(long_date=datetime.datetime.now().strftime('%B %Y'),
-                 results=results, targets=targets, messages=config['messages'], date=datetime.datetime.utcnow()))
+                                 results=results, targets=targets, messages=config['messages'], date=datetime.datetime.utcnow()))
 
-NUMBER_OF_YEARS_TO_GET_TWEETS = 3
-
-# GetTweets returns the number of tweets that are have tweeted to the handle about ipv6
-# for the last NUMBER_OF_YEARS_TO_GET_TWEETS years.
-# i.e. GetTweets("facebook") returns 133 (01/01/2013 to 10/26/2016)
-def GetTweets(handle):
-	now = datetime.datetime.now()
-	headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
-	datesToTry = []
-	for year in range(now.year-NUMBER_OF_YEARS_TO_GET_TWEETS,now.year):
-		for month in range(1,12):
-			datesToTry.append(str(year) + "-"+ str(month))
-	for month in range(1,now.month+1):
-		datesToTry.append(str(now.year) + "-"+ str(month))
-	# Go through tweets, one month at a time, since Twitter requires loading pages if there are too many at once
-	# (if there are too many, you may need to go one week at a time)
-	totalTweets = 0
-	for dateToTry in datesToTry:
-		url = "https://twitter.com/search?f=tweets&q=ipv6%20%23"+handle+"%20since%3A"+dateToTry+"-01%20until%3A"+dateToTry+"-31"
-		r = requests.get(url,headers=headers)
-		totalTweets += r.text.count('js-tweet-text-container')
-		print(r.text.count('js-tweet-text-container'), url)
-
-	return totalTweets
 
 if __name__ == "__main__":
     main()
