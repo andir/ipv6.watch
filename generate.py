@@ -147,7 +147,7 @@ NUMBER_OF_YEARS_TO_GET_TWEETS = 3
 
 # GetTweets returns the number of tweets that are have tweeted to the handle about ipv6
 # for the last NUMBER_OF_YEARS_TO_GET_TWEETS years.
-# i.e. GetTweets("facebook") returns 43 (as of 10/26/2016)
+# i.e. GetTweets("facebook") returns 133 (01/01/2013 to 10/26/2016)
 def GetTweets(handle):
 	now = datetime.datetime.now()
 	headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
