@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import multiprocessing
 import requests
 import yaml
 from jinja2 import Environment, FileSystemLoader, Template
@@ -28,7 +29,8 @@ config_schema = {
     }
 }
 
-NUMBER_OF_YEARS_TO_GET_TWEETS = 3
+# Change this to get more tweets (it takes a little longer)
+NUMBER_OF_YEARS_TO_GET_TWEETS = 1
 
 
 def writeable_dir(values):
@@ -98,13 +100,17 @@ def generate_message(media, target, conf, result):
         raise RuntimeError('Invalid media {} for {}'.format(media, target))
 
 
+def count_tweets_in_twitter_url(url):
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+    r = requests.get(url, headers=headers)
+    return r.text.count('js-tweet-text-container')
+
 def get_tweets(handle):
     # get_tweets returns the number of tweets that are have tweeted to the handle about ipv6
     # for the last NUMBER_OF_YEARS_TO_GET_TWEETS years.
     # i.e. get_tweets("facebook") returns 133 (01/01/2013 to 10/26/2016)
     now = datetime.datetime.now()
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
     dates_to_try = []
     for year in range(now.year - NUMBER_OF_YEARS_TO_GET_TWEETS, now.year):
         for month in range(1, 12):
@@ -113,15 +119,16 @@ def get_tweets(handle):
         dates_to_try.append(str(now.year) + "-" + str(month))
     # Go through tweets, one month at a time, since Twitter requires loading pages if there are too many at once
     # (if there are too many, you may need to go one week/day at a time)
-    totalTweets = 0
+    urls = []
     for date_to_try in dates_to_try:
-        url = "https://twitter.com/search?f=tweets&q=ipv6%20%23" + handle + \
-            "%20since%3A" + date_to_try + "-01%20until%3A" + date_to_try + "-31"
-        r = requests.get(url, headers=headers)
-        totalTweets += r.text.count('js-tweet-text-container')
-        print(r.text.count('js-tweet-text-container'), url)
-
-    return totalTweets
+        urls.append("https://twitter.com/search?f=tweets&q=ipv6%20%23" + handle + \
+            "%20since%3A" + date_to_try + "-01%20until%3A" + date_to_try + "-31")
+       
+    p = multiprocessing.Pool(multiprocessing.cpu_count())
+    total_tweets = 0
+    for tweet_num in p.map(count_tweets_in_twitter_url,urls):
+        total_tweets += tweet_num
+    return total_tweets
 
 
 def main():
@@ -171,13 +178,17 @@ def main():
 
         results[name] = dict(hosts=result, summary=msg)
 
+
     results = sorted(results.items(), key=lambda x: x[0])
     pprint(results)
+    tweets = {}
+    for result in results:
+        tweets[result[0]] = get_tweets(result[0])
     jinja_env = Environment(loader=FileSystemLoader('templates/'))
     template = jinja_env.get_template('index.jinja2')
     with open(os.path.join(args.dest, 'index.html'), 'w') as fh:
         fh.write(template.render(long_date=datetime.datetime.now().strftime('%B %Y'),
-                                 results=results, targets=targets, messages=config['messages'], date=datetime.datetime.utcnow()))
+                                 results=results, targets=targets, messages=config['messages'], date=datetime.datetime.utcnow(), tweets=tweets))
 
 
 if __name__ == "__main__":

@@ -41,7 +41,7 @@
                     <td>
                         {% if tt['twitter'] %}
                             <a target="_blank"
-                               href="http://twitter.com/home/?status={{ ( messages['twitter'][result['summary']] % ( tt['twitter'] ) ) | urlencode }}">Twitter</a>
+                               href="http://twitter.com/home/?status={{ ( messages['twitter'][result['summary']] % ( tt['twitter'] ) ) | urlencode }}">Twitter</a> ({{ tweets[target]}} tweets so far!)
                         {% endif %}
                     </td>
                 </tr>
