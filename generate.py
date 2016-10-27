@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import requests
 import yaml
 from jinja2 import Environment, FileSystemLoader, Template
 import argparse
@@ -142,6 +143,30 @@ def main():
         fh.write(template.render(long_date=datetime.datetime.now().strftime('%B %Y'),
                  results=results, targets=targets, messages=config['messages'], date=datetime.datetime.utcnow()))
 
+NUMBER_OF_YEARS_TO_GET_TWEETS = 3
+
+# GetTweets returns the number of tweets that are have tweeted to the handle about ipv6
+# for the last NUMBER_OF_YEARS_TO_GET_TWEETS years.
+# i.e. GetTweets("facebook") returns 43 (as of 10/26/2016)
+def GetTweets(handle):
+	now = datetime.datetime.now()
+	headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+	datesToTry = []
+	for year in range(now.year-NUMBER_OF_YEARS_TO_GET_TWEETS,now.year):
+		for month in range(1,12):
+			datesToTry.append(str(year) + "-"+ str(month))
+	for month in range(1,now.month+1):
+		datesToTry.append(str(now.year) + "-"+ str(month))
+	# Go through tweets, one month at a time, since Twitter requires loading pages if there are too many at once
+	# (if there are too many, you may need to go one week at a time)
+	totalTweets = 0
+	for dateToTry in datesToTry:
+		url = "https://twitter.com/search?f=tweets&q=ipv6%20%23"+handle+"%20since%3A"+dateToTry+"-01%20until%3A"+dateToTry+"-31"
+		r = requests.get(url,headers=headers)
+		totalTweets += r.text.count('js-tweet-text-container')
+		print(r.text.count('js-tweet-text-container'), url)
+
+	return totalTweets
 
 if __name__ == "__main__":
     main()
