@@ -5,4 +5,5 @@ python:
 install:
   - pip install -r requirements.txt
 script:
-  - python generate.py
+  - mkdir -p tmp
+  - python generate.py -l DEBUG -c conf.yaml tmp
