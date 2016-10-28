@@ -1,0 +1,9 @@
+language: python
+python:
+  - "3.4"
+  - "3.5"
+install:
+  - pip install -r requirements.txt
+script:
+  - mkdir -p tmp
+  - python generate.py -l DEBUG -c conf.yaml tmp
