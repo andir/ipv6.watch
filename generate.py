@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import multiprocessing
 import requests
+import random
 import yaml
 from jinja2 import Environment, FileSystemLoader, Template
 import argparse
@@ -101,9 +102,10 @@ def generate_message(media, target, conf, result):
 
 
 def count_tweets_in_twitter_url(url):
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+    useragent = ["Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36","Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36","Mozilla/5.0 (Windows NT 10.0; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Safari/602.1.50"]
+    headers = {'User-Agent': random.choice(useragent)}
     r = requests.get(url, headers=headers)
+    print(url,r.text.count('js-tweet-text-container'))
     return r.text.count('js-tweet-text-container')
 
 def get_tweets(handle):
@@ -178,12 +180,12 @@ def main():
 
         results[name] = dict(hosts=result, summary=msg)
 
-
     results = sorted(results.items(), key=lambda x: x[0])
     pprint(results)
     tweets = {}
     for result in results:
         tweets[result[0]] = get_tweets(result[0])
+
     jinja_env = Environment(loader=FileSystemLoader('templates/'))
     template = jinja_env.get_template('index.jinja2')
     with open(os.path.join(args.dest, 'index.html'), 'w') as fh:

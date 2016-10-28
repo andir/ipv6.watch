@@ -41,7 +41,8 @@
                     <td>
                         {% if tt['twitter'] %}
                             <a target="_blank"
-                               href="http://twitter.com/home/?status={{ ( messages['twitter'][result['summary']] % ( tt['twitter'] ) ) | urlencode }}">Twitter</a> ({{ tweets[target]}} tweets so far!)
+                               href="http://twitter.com/home/?status={{ ( messages['twitter'][result['summary']] % ( tt['twitter'] ) ) | urlencode }}">Twitter</a> 
+                               ({% if tweets[target]==0 %}Be the first to tweet!{% else %}<a href="https://twitter.com/search?f=tweets&vertical=default&q=ipv6%20%23{{target}}">{{ tweets[target]}} tweets so far</a>! {%endif%})
                         {% endif %}
                     </td>
                 </tr>
