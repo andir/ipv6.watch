@@ -6,4 +6,4 @@ install:
   - pip install -r requirements.txt
 script:
   - mkdir -p tmp
-  - python generate.py -l DEBUG -c conf.yaml tmp
+  - travis_wait 30 python generate.py -l DEBUG -c conf.yaml tmp
