@@ -111,3 +111,7 @@ targets:
    Bigpulse.com:
      hosts:
        - www.bigpluse.com
+   travis-ci.org:
+     hosts:
+       - travis-ci.org
+     twitter: '@travisci'
