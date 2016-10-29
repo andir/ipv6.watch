@@ -109,7 +109,7 @@ def main():
         '--config',
         dest='config',
         default='conf.yaml',
-     type=argparse.FileType('r'))
+        type=argparse.FileType('r'))
     parser.add_argument(
         '-l',
         '--log-level',
@@ -120,7 +120,7 @@ def main():
             'INFO',
             'WARN'],
         help='Debug level',
-         default='INFO')
+        default='INFO')
     parser.add_argument('dest', default='dist', type=writeable_dir)
 
     args = parser.parse_args()
