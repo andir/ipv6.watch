@@ -115,3 +115,7 @@ targets:
      hosts:
        - travis-ci.org
      twitter: '@travisci'
+   houndci.com:
+     hosts:
+       - houndci.com
+     twitter: '@houndci'
