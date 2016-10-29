@@ -51,8 +51,9 @@ def prepare_resolvers(nameservers, loop=None):
 
     resolvers = {}
     for name, servers in nameservers.items():
-        resolvers[name] = list((server, aiodns.DNSResolver(
-            loop=loop, nameservers=[server])) for server in servers)
+        resolvers[name] = list(
+            (server, aiodns.DNSResolver(loop=loop, nameservers=[server]))
+            for server in servers)
 
     return resolvers
 
@@ -72,8 +73,10 @@ def resolve_target(target, resolvers, loop):
     for host in target['hosts']:
         for name, r in resolvers.items():
             for resolver in r:
-                tasks.append(resolve_host(host, resolver[
-                             1], (host, name, resolver[0])))
+                tasks.append(
+                    resolve_host(
+                        host, resolver[1],
+                        (host, name, resolver[0])))
 
     results = {}
     for task in tasks:
@@ -96,7 +99,11 @@ def resolve_target(target, resolvers, loop):
 def generate_message(media, target, conf, result):
     if media in conf:
         template = Template(media.get(result))
-        return template.render(target=target, conf=conf, result=result, media=media)
+        return template.render(
+            target=target,
+            conf=conf,
+            result=result,
+            media=media)
     else:
         raise RuntimeError('Invalid media {} for {}'.format(media, target))
 
@@ -143,10 +150,23 @@ def get_tweets(handle):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--config', dest='config',
-                        default='conf.yaml', type=argparse.FileType('r'))
-    parser.add_argument('-l', '--log-level', dest='log_level', choices=[
-                        'DEBUG', 'ERROR', 'INFO', 'WARN'], help='Debug level', default='INFO')
+    parser.add_argument(
+        '-c',
+        '--config',
+        dest='config',
+        default='conf.yaml',
+        type=argparse.FileType('r'))
+    parser.add_argument(
+        '-l',
+        '--log-level',
+        dest='log_level',
+        choices=[
+            'DEBUG',
+            'ERROR',
+            'INFO',
+            'WARN'],
+        help='Debug level',
+        default='INFO')
     parser.add_argument('dest', default='dist', type=writeable_dir)
 
     args = parser.parse_args()
@@ -171,10 +191,10 @@ def main():
         msg = "none"
 
         if any(
-            success
-            for host, rs in result.items()
-            for resolver, servers in rs.items()
-            for server, success in servers.items()
+                success
+                for host, rs in result.items()
+                for resolver, servers in rs.items()
+                for server, success in servers.items()
         ):
             msg = "some"
 
@@ -197,8 +217,14 @@ def main():
     jinja_env = Environment(loader=FileSystemLoader('templates/'))
     template = jinja_env.get_template('index.jinja2')
     with open(os.path.join(args.dest, 'index.html'), 'w') as fh:
-        fh.write(template.render(long_date=datetime.datetime.now().strftime('%B %Y'),
-                                 results=results, targets=targets, messages=config['messages'], date=datetime.datetime.utcnow(), tweets=tweets))
+        fh.write(
+            template.render(
+                long_date=datetime.datetime.now().strftime('%B %Y'),
+                results=results,
+                targets=targets,
+		tweets=tweets,
+                messages=config['messages'],
+                date=datetime.datetime.utcnow()))
 
 
 if __name__ == "__main__":

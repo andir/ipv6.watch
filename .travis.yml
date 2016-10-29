@@ -4,6 +4,8 @@ python:
   - "3.5"
 install:
   - pip install -r requirements.txt
+  - pip install codeclimate-test-reporter
 script:
   - mkdir -p tmp
-  - travis_wait 30 python generate.py -l DEBUG -c conf.yaml tmp
+  - coverage run --source=generate.py generate.py -l DEBUG -c conf.yaml tmp
+  - codeclimate-test-reporter
