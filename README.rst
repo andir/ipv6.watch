@@ -5,7 +5,9 @@ ipv6.watch
    :target: https://travis-ci.org/andir/ipv6.watch
 .. image:: https://img.shields.io/coveralls/andir/ipv6.watch.svg
    :target: https://coveralls.io/github/andir/ipv6.watch
-
+.. image:: https://www.quantifiedcode.com/api/v1/project/b57c8b93d7e54c029981c2295f34b2e1/badge.svg
+  :target: https://www.quantifiedcode.com/app/project/b57c8b93d7e54c029981c2295f34b2e1
+  :alt: Code issues
 
 Although IPv6 has been around since 1998, some big parts of the internet are IPv4 only.
 
