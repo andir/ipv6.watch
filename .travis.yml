@@ -4,8 +4,10 @@ python:
   - "3.5"
 install:
   - pip install -r requirements.txt
-#  - pip install pep8
+  - pip install codeclimate-test-reporter
 script:
-#  - pep8 generate.py
   - mkdir -p tmp
-  - python generate.py -l DEBUG -c conf.yaml tmp
+  - coverage run --source=generate.py generate.py -l DEBUG -c conf.yaml tmp
+after_success:
+  - codeclimate-test-reporter
+
