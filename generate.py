@@ -118,11 +118,11 @@ def count_tweets_in_twitter_url(url):
 def get_tweets(handle):
     # get_tweets returns the number of tweets that are have tweeted to the handle about ipv6
     # for the last YEARS
-    YEARS = 1
+    YEARS = 0.25
     ranges = []
 
     now = datetime.datetime.now()
-    past = now - datetime.timedelta(days=365 * YEARS)
+    past = now - datetime.timedelta(days=int(365 * YEARS))
     delta = datetime.timedelta(weeks=4)
     c = past
     while c < now:
