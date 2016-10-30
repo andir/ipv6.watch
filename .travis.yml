@@ -8,6 +8,4 @@ install:
 script:
   - mkdir -p tmp
   - coverage run --source=generate.py generate.py -l DEBUG -c conf.yaml tmp
-after_success:
   - codeclimate-test-reporter
-
