@@ -109,11 +109,19 @@ def generate_message(media, target, conf, result):
 
 
 def count_tweets_in_twitter_url(url):
-    useragent = ["Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36","Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36","Mozilla/5.0 (Windows NT 10.0; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Safari/602.1.50"]
+    useragent = [
+        "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
+        "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
+        "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0",
+        "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Safari/602.1.50"]
     headers = {'User-Agent': random.choice(useragent)}
     r = requests.get(url, headers=headers)
-    print(url,r.text.count('js-tweet-text-container'))
+    print(url, r.text.count('js-tweet-text-container'))
     return r.text.count('js-tweet-text-container')
+
 
 def get_tweets(handle):
     # get_tweets returns the number of tweets that are have tweeted to the handle about ipv6
@@ -126,24 +134,37 @@ def get_tweets(handle):
     delta = datetime.timedelta(weeks=4)
     c = past
     while c < now:
-       next = c + delta
-       ranges.append((c, next))
-       c = next
+        next = c + delta
+        ranges.append((c, next))
+        c = next
 
     dates_to_try = []
     for start, end in ranges:
-       dates_to_try.append((str(start.year) + "-" + str(start.month) + "-" + str(start.day),str(end.year) + "-" + str(end.month) + "-" + str(start.day)))
-            
+        dates_to_try.append((str(start.year) +
+                             "-" +
+                             str(start.month) +
+                             "-" +
+                             str(start.day), str(end.year) +
+                             "-" +
+                             str(end.month) +
+                             "-" +
+                             str(start.day)))
+
     # Go through tweets, one month at a time, since Twitter requires loading pages if there are too many at once
     # (if there are too many, you may need to go one week/day at a time)
     urls = []
     for date_to_try in dates_to_try:
-        urls.append("https://twitter.com/search?f=tweets&q=ipv6%20%23" + handle + \
-            "%20since%3A" + date_to_try[0] + "%20until%3A" + date_to_try[1])
-       
+        urls.append(
+            "https://twitter.com/search?f=tweets&q=ipv6%20%23" +
+            handle +
+            "%20since%3A" +
+            date_to_try[0] +
+            "%20until%3A" +
+            date_to_try[1])
+
     p = multiprocessing.Pool(multiprocessing.cpu_count())
     total_tweets = 0
-    for tweet_num in p.map(count_tweets_in_twitter_url,urls):
+    for tweet_num in p.map(count_tweets_in_twitter_url, urls):
         total_tweets += tweet_num
     return total_tweets
 
@@ -222,7 +243,7 @@ def main():
                 long_date=datetime.datetime.now().strftime('%B %Y'),
                 results=results,
                 targets=targets,
-		tweets=tweets,
+                tweets=tweets,
                 messages=config['messages'],
                 date=datetime.datetime.utcnow()))
 
