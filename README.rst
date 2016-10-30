@@ -1,4 +1,4 @@
-ipv6.watch
+`ipv6.watch <https://ipv6.watch>`_
 =========
 
 .. image:: https://img.shields.io/travis/andir/ipv6.watch.svg
