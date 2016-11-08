@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>IPv6.watch</title>
-    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
 </head>
 <body>
 <div class="container">
@@ -25,9 +26,12 @@
             {% set tt = targets[target] %}
             <tr class="{% if result['summary']=='all' %}success{% elif result['summary']=='some' %}info{% else %}warning{% endif %}">
 
-                    <td>{% if tt['icon'] %}
+                    <td>{% if 'icon' in tt %}
+                        {% if tt['icon'].startswith('fa:') %}
+                        <div class="text-center"><i class="fa fa-{{ tt['icon'][3:] }} fa-3x"></i></div>
+                        {% else %}
                         <img class="center-block" style="max-height: 40px; max-width: 64px;"
-                             src="{{ tt['icon'] }}">{% endif %}</td>
+                             src="{{ tt['icon'] }}">{% endif %}{% endif %}</td>
                     <td>{{ target }}</td>
                     <td>
                         {% if result['summary'] == 'all' %}

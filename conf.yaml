@@ -66,6 +66,7 @@ targets:
    PayPal:
      hosts:
        - www.paypal.com
+     icon: fa:paypal
      twitter: '@AskPayPal'
    Fiducia:
      hosts:
@@ -100,6 +101,7 @@ targets:
    Twitch:
      hosts:
        - www.twitch.com
+     icon: fa:twitch
      twitter: '@Twitch @TwitchSupport'
    Matrix.org:
      hosts:
