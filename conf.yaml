@@ -22,102 +22,327 @@ messages:
     none: "Hey %s any plans to support #IPv6. Isn't it about time?"
 
 targets:
-   Twitter:
-     hosts:
-       - www.twitter.com
-       - twitter.com
-       - tweetdeck.twitter.com
-     icon: images/twitter.png
-     twitter: '@twitter @tweetdeck'
-   GitHub:
-     hosts:
-       - github.com
-       - www.github.com
-     icon: images/github.png
-     twitter: '@GitHub'
-   GitLab:
-     hosts:
-       - gitlab.com
-     icon: images/gitlab.svg
-     twitter: '@gitlab'
-   JetBrains:
-     hosts:
-       - jetbrains.com
-     icon: images/jetbrains.svg
-   Facebook:
-     hosts:
-       - www.facebook.com
-       - facebook.com
-     icon: images/facebook.png
-     twitter: '@facebook'
-   Google:
-     hosts:
-       - google.com
-     icon: images/google.png
-   Strava:
-     hosts:
-       - strava.com
-     twitter: '@Strava'
-   Gravatar:
-     hosts:
-       - gravatar.com
-       - secure.gravatar.com
-     twitter: '@gravatar'
-   PayPal:
-     hosts:
-       - www.paypal.com
-     icon: fa:paypal
-     twitter: '@AskPayPal'
-   Fiducia:
-     hosts:
-       - finanzportal.fiducia.de
-     twitter: '@fiducia_gad'
-   Amazon:
-     hosts:
+  Amazon:
+    hosts:
       - amazon.com
       - www.amazon.com
-     icon: images/amazon.png
-     twitter: '@amazon'
-   Deutsche Welle:
-     hosts:
+    icon: images/amazon.png
+    twitter: "@amazon"
+  Apple:
+    hosts:
+      - apple.com
+      - itunes.apple.com
+    icon: "fa:apple"
+    twitter: "@apple"
+  Bigpulse.com:
+    hosts:
+      - www.bigpluse.com
+  Bitbucket:
+    hosts:
+      - bitbucket.org
+    icon: "fa:bitbucket"
+    twitter: "@bitbucket"
+  CodePen:
+    hosts:
+      - codepen.io
+    icon: "fa:codepen"
+    twitter: "@codepen"
+  Delicious:
+    hosts:
+      - del.icio.us
+    icon: "fa:delicious"
+    twitter: "@delicious"
+  "Deutsche Welle":
+    hosts:
       - www.dw.com
-     icon: images/deutsche_welle.png
-     twitter: '@deutschewelle'
-   Level3:
-     hosts:
-       - www.level3.com
-   Netcologne:
-     hosts:
-       - www.netcologne.de
-   N26:
-     hosts:
-       - my.number26.de
-       - n26.com
-     twitter: '@n26'
-   Wikipedia:
-     hosts:
-       - www.wikipedia.org
-     icon: images/wikipedia.png
-   Twitch:
-     hosts:
-       - www.twitch.com
-     icon: fa:twitch
-     twitter: '@Twitch @TwitchSupport'
-   Matrix.org:
-     hosts:
-       - matrix.org
-   Tidal.com:
-     hosts:
-       - tidal.com
-       - listen.tidal.com
-   Bigpulse.com:
-     hosts:
-       - www.bigpluse.com
-   travis-ci.org:
-     hosts:
-       - travis-ci.org
-     twitter: '@travisci'
-   houndci.com:
-     hosts:
-       - houndci.com
-     twitter: '@houndci'
+    icon: images/deutsche_welle.png
+    twitter: "@deutschewelle"
+  DeviantArt:
+    hosts:
+      - www.deviantart.com
+    icon: "fa:deviantart"
+    twitter: "@deviantart"
+  Digg:
+    hosts:
+      - digg.com
+    icon: "fa:digg"
+    twitter: "@digg"
+  Dribbble:
+    hosts:
+      - dribble.com
+    icon: "fa:dribbble"
+    twitter: "@dribbble"
+  Dropbox:
+    hosts:
+      - www.dropbox.com
+    icon: "fa:dropbox"
+    twitter: "@dropbox"
+  Facebook:
+    hosts:
+      - www.facebook.com
+      - facebook.com
+    icon: images/facebook.png
+    twitter: "@facebook"
+  Fiducia:
+    hosts:
+      - finanzportal.fiducia.de
+    twitter: "@fiducia_gad"
+  Foursquare:
+    hosts:
+      - www.foursquare.com
+      - de.foursquare.com
+    icon: "fa:foursquare"
+    twitter: "@Foursquare"
+  GitHub:
+    hosts:
+      - github.com
+      - www.github.com
+    icon: images/github.png
+    twitter: "@GitHub"
+  GitLab:
+    hosts:
+      - gitlab.com
+    icon: images/gitlab.svg
+    twitter: "@gitlab"
+  Google:
+    hosts:
+      - google.com
+    icon: images/google.png
+  Gravatar:
+    hosts:
+      - gravatar.com
+      - secure.gravatar.com
+    twitter: "@gravatar"
+  "Hacker News":
+    hosts:
+      - news.ycombinator.com
+    icon: "fa:hacker-news"
+    twitter: "@hnstatus"
+  "Hound CI":
+    hosts:
+      - houndci.com
+    twitter: "@houndci"
+  IMDb:
+    hosts:
+      - www.imdb.com
+    icon: "fa:imdb"
+    twitter: "@imdb"
+  Instagram:
+    hosts:
+      - instagram.com
+      - www.instagram.com
+    icon: "fa:instagram"
+    twitter: "@instagram"
+  JSFiddle:
+    hosts:
+      - jsfiddle.net
+    icon: "fa:jsfiddle"
+    twitter: "@jsfiddle"
+  JetBrains:
+    hosts:
+      - jetbrains.com
+    icon: images/jetbrains.svg
+  Level3:
+    hosts:
+      - www.level3.com
+  LinkedIn:
+    hosts:
+      - www.linkedin.com
+      - de.linkedin.com
+    icon: "fa:linkedin"
+    twitter: "@linkedin"
+  Matrix.org:
+    hosts:
+      - matrix.org
+  MaxCDN:
+    hosts:
+      - maxcdn.com
+      - www.maxcdn.com
+      - maxcdn.bootstrapcdn.com
+    icon: "fa:maxcdn"
+    twitter: "@maxcdn"
+  Medium:
+    hosts:
+      - medium.com
+    icon: "fa:medium"
+    twitter: "@medium"
+  Meetup:
+    hosts:
+      - www.meetup.com
+    icon: "fa:meetup"
+    twitter: "@meetup"
+  N26:
+    hosts:
+      - my.number26.de
+      - n26.com
+    twitter: "@n26"
+  Netcologne:
+    hosts:
+      - www.netcologne.de
+  PayPal:
+    hosts:
+      - www.paypal.com
+    icon: "fa:paypal"
+    twitter: "@AskPayPal"
+  Pinterest:
+    hosts:
+      - www.pinterest.com
+      - de.pinterest.com
+    icon: "fa:pinterest"
+    twitter: "@pinterest"
+  Reddit:
+    hosts:
+      - www.reddit.com
+    icon: "fa:reddit-alien"
+    twitter: "@reddit"
+  Scribd:
+    hosts:
+      - www.scribd.com
+    icon: "fa:scribd"
+    twitter: "@scribd"
+  Skype:
+    hosts:
+      - www.skype.com
+    icon: "fa:skype"
+    twitter: "@skype"
+  Slack:
+    hosts:
+      - slack.com
+    icon: "fa:slack"
+    twitter: "@slackhq"
+  Snapchat:
+    hosts:
+      - www.snapchat.com
+    icon: "fa:snapchat-ghost"
+    twitter: "@snapchat"
+  SoundCloud:
+    hosts:
+      - soundcloud.com
+    icon: "fa:soundcloud"
+    twitter: "@soundcloud"
+  Spotify:
+    hosts:
+      - www.spotify.com
+    icon: "fa:spotify"
+    twitter: "@spotify"
+  "Stack Exchange":
+    hosts:
+      - stackexchange.com
+      - serverfault.com
+      - stackoverflow.com
+      - askubuntu.com
+    icon: "fa:stack-exchange"
+    twitter: "@stackexchange"
+  Steam:
+    hosts:
+      - store.steampowered.com
+      - steamcommunity.com
+      - help.steampowered.com
+    icon: "fa:steam"
+    twitter: "@steam"
+  Strava:
+    hosts:
+      - strava.com
+    twitter: "@Strava"
+  "Telegram Messenger":
+    hosts:
+      - telegram.org
+      - web.telegram.org
+    icon: "fa:telegram"
+    twitter: "@telegram"
+  Tidal.com:
+    hosts:
+      - tidal.com
+      - listen.tidal.com
+  Travis-CI:
+    hosts:
+      - travis-ci.org
+    twitter: "@travisci"
+  Trello:
+    hosts:
+      - trello.com
+    icon: "fa:trello"
+    twitter: "@trello"
+  Tumblr:
+    hosts:
+      - www.tumblr.com
+    icon: "fa:tumblr"
+    twitter: "@tumblr"
+  Twitch:
+    hosts:
+      - www.twitch.com
+    icon: "fa:twitch"
+    twitter: "@Twitch @TwitchSupport"
+  Twitter:
+    hosts:
+      - www.twitter.com
+      - twitter.com
+      - tweetdeck.twitter.com
+    icon: images/twitter.png
+    twitter: "@twitter @tweetdeck"
+  Vimeo:
+    hosts:
+      - vimeo.com
+    icon: "fa:vimeo"
+    twitter: "@vimeo"
+  Vine:
+    hosts:
+      - vine.co
+    icon: "fa:vine"
+    twitter: "@vine"
+  WhatsApp:
+    hosts:
+      - www.whatsapp.com
+      - web.whatsapp.com
+    icon: "fa:whatsapp"
+    twitter: "@whatsapp"
+  Wikipedia:
+    hosts:
+      - www.wikipedia.org
+    icon: images/wikipedia.png
+  Wordpress:
+    hosts:
+      - wordpress.org
+      - de.wordpress.org
+      - codex.wordpress.org
+      - make.wordpress.org
+    icon: "fa:wordpress"
+    twitter: "@wordpress"
+  Xing:
+    hosts:
+      - www.xing.com
+    icon: "fa:xing"
+    twitter: "@xing_com @xingdevs"
+  Yahoo:
+    hosts:
+      - www.yahoo.com
+      - yahoo.com
+      - mail.yahoo.com
+      - finance.yahoo.com
+      - sports.yahoo.com
+      - shopping.yahoo.com
+      - mobile.yahoo.com
+      - groups.yahoo.com
+      - answers.yahoo.com
+    icon: fa:yahoo
+    twitter: "@Yahoo"
+  YouTube:
+    hosts:
+      - www.youtube.com
+    icon: "fa:youtube"
+    twitter: "@youtube"
+  bandcamp:
+    hosts:
+      - bandcamp.com
+    icon: "fa:bandcamp"
+    twitter: "@bandcamp"
+  flickr:
+    hosts:
+      - www.flickr.com
+    icon: "fa:flickr"
+    twitter: "@flickr"
+  last.fm:
+    hosts:
+      - www.last.fm
+    icon: "fa:lastfm"
+    twitter: "@lastfm"
