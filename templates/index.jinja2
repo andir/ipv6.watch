@@ -55,7 +55,10 @@
                     <td>
                         {% if tt['twitter'] %}
                             <a target="_blank"
-                               href="http://twitter.com/home/?status={{ ( messages['twitter'][result['summary']] % ( tt['twitter'] ) ) | urlencode }}">Twitter</a>
+                               href="http://twitter.com/home/?status={{ ( messages['twitter'][result['summary']] % ( tt['twitter'] ) ) | urlencode }}">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                Twitter
+                            </a>
                         {% endif %}
                     </td>
                 </tr>
