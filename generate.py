@@ -106,6 +106,30 @@ def generate_message(media, target, conf, result):
         raise RuntimeError('Invalid media {} for {}'.format(media, target))
 
 
+async def handle_target(resolvers, name, target):
+    result = await resolve_target(target, resolvers)
+    msg = "none"
+
+    if any(
+            success
+            for host, rs in result.items()
+            for resolver, servers in rs.items()
+            for server, success in servers.items()
+    ):
+        msg = "some"
+
+    if all(
+            success
+            for host, rs in result.items()
+            for resolver, servers in rs.items()
+            for server, success in servers.items()
+    ):
+        msg = "all"
+
+    return name, dict(hosts=result, summary=msg)
+
+
+
 async def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -144,28 +168,16 @@ async def main():
     resolvers = prepare_resolvers(nameservers, loop)
 
     results = {}
-
+    tasks = []
     for name, target in targets.items():
-        result = await resolve_target(target, resolvers)
-        msg = "none"
+        tasks.append(handle_target(resolvers, name, target))
 
-        if any(
-                success
-                for host, rs in result.items()
-                for resolver, servers in rs.items()
-                for server, success in servers.items()
-        ):
-            msg = "some"
+    tasks = await asyncio.wait(tasks)
+    for task_list in tasks:
+        for task in task_list:
+            name, result = task.result()
+            results[name] = result
 
-        if all(
-                success
-                for host, rs in result.items()
-                for resolver, servers in rs.items()
-                for server, success in servers.items()
-        ):
-            msg = "all"
-
-        results[name] = dict(hosts=result, summary=msg)
 
     results = sorted(results.items(), key=lambda x: x[0])
     pprint(results)
