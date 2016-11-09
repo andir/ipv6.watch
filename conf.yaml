@@ -412,3 +412,8 @@ targets:
       - www.last.fm
     icon: "fa:lastfm"
     twitter: "@lastfm"
+  observatory.mozilla.org:
+    href: observatory.mozilla.org
+    hosts:
+      - observatory.mozilla.org
+    twitteR: "@mozilla"
