@@ -23,138 +23,170 @@ messages:
 
 targets:
   Amazon:
+    href: https://www.amazon.com
     hosts:
       - amazon.com
       - www.amazon.com
     icon: images/amazon.png
     twitter: "@amazon"
   Apple:
+    href: https://www.apple.com
     hosts:
       - apple.com
+      - www.apple.com
       - itunes.apple.com
     icon: "fa:apple"
     twitter: "@apple"
-  Bigpulse.com:
+  BigPulse:
+    href: https://www.bigpulse.com
     hosts:
       - www.bigpluse.com
   Bitbucket:
+    href: https://bitbucket.org
     hosts:
       - bitbucket.org
     icon: "fa:bitbucket"
     twitter: "@bitbucket"
   CodePen:
+    href: https://codepen.io
     hosts:
       - codepen.io
     icon: "fa:codepen"
     twitter: "@codepen"
   Delicious:
+    href: https://del.icio.us
     hosts:
       - del.icio.us
     icon: "fa:delicious"
     twitter: "@delicious"
   "Deutsche Welle":
+    href: http://www.dw.com
     hosts:
       - www.dw.com
     icon: images/deutsche_welle.png
     twitter: "@deutschewelle"
   DeviantArt:
+    href: https://www.deviantart.com
     hosts:
       - www.deviantart.com
     icon: "fa:deviantart"
     twitter: "@deviantart"
   Digg:
+    href: https://digg.com
     hosts:
       - digg.com
     icon: "fa:digg"
     twitter: "@digg"
   Dribbble:
+    href: https://dribbble.com
     hosts:
       - dribble.com
     icon: "fa:dribbble"
     twitter: "@dribbble"
   Dropbox:
+    href: https://www.dropbox.com
     hosts:
       - www.dropbox.com
     icon: "fa:dropbox"
     twitter: "@dropbox"
   Facebook:
+    href: https://www.facebook.com
     hosts:
       - www.facebook.com
       - facebook.com
     icon: fa:facebook-sign
     twitter: "@facebook"
   Fiducia:
+    href: https://www.fiduciagad.de
     hosts:
       - finanzportal.fiducia.de
     twitter: "@fiducia_gad"
   Foursquare:
+    href: https://www.foursquare.com
     hosts:
       - www.foursquare.com
       - de.foursquare.com
     icon: "fa:foursquare"
     twitter: "@Foursquare"
   GitHub:
+    href: https://github.com
     hosts:
       - github.com
       - www.github.com
     icon: "fa:github-sign"
     twitter: "@GitHub"
   GitLab:
+    href: https://about.gitlab.com
     hosts:
       - gitlab.com
+      - about.gitlab.com
     icon: images/gitlab.svg
     twitter: "@gitlab"
   Google:
+    href: https://www.google.com
     hosts:
       - google.com
     icon: images/google.png
   Gravatar:
+    href: https://www.gravatar.com
     hosts:
       - gravatar.com
       - secure.gravatar.com
     twitter: "@gravatar"
   "Hacker News":
+    href: https://news.ycombinator.com
     hosts:
       - news.ycombinator.com
     icon: "fa:hacker-news"
     twitter: "@hnstatus"
   "Hound CI":
+    href: https://houndci.com
     hosts:
       - houndci.com
     twitter: "@houndci"
   IMDb:
+    href: http://www.imdb.com
     hosts:
       - www.imdb.com
+      - media-imdb.com
     icon: "fa:imdb"
     twitter: "@imdb"
   Instagram:
+    href: https://www.instagram.com
     hosts:
       - instagram.com
       - www.instagram.com
     icon: "fa:instagram"
     twitter: "@instagram"
   JSFiddle:
+    href: https://jsfiddle.net
     hosts:
       - jsfiddle.net
     icon: "fa:jsfiddle"
     twitter: "@jsfiddle"
   JetBrains:
+    href: https://www.jetbrains.com
     hosts:
       - jetbrains.com
     icon: images/jetbrains.svg
   Level3:
+    href: http://www.level3.com
     hosts:
       - www.level3.com
   LinkedIn:
+    href: https://www.linkedin.com
     hosts:
       - www.linkedin.com
       - de.linkedin.com
     icon: "fa:linkedin"
     twitter: "@linkedin"
   Matrix.org:
+    href: https://matrix.org
     hosts:
       - matrix.org
+      - riot.im
   MaxCDN:
+    href: https://www.maxcdn.com
     hosts:
       - maxcdn.com
       - www.maxcdn.com
@@ -162,70 +194,84 @@ targets:
     icon: "fa:maxcdn"
     twitter: "@maxcdn"
   Medium:
+    href: https://medium.com
     hosts:
       - medium.com
     icon: "fa:medium"
     twitter: "@medium"
   Meetup:
+    href: https://www.meetup.com
     hosts:
       - www.meetup.com
     icon: "fa:meetup"
     twitter: "@meetup"
   N26:
+    href: https://n26.com
     hosts:
       - my.number26.de
       - n26.com
     twitter: "@n26"
   Netcologne:
+    href: https://www.netcologne.de
     hosts:
       - www.netcologne.de
   PayPal:
+    href: https://www.paypal.com
     hosts:
       - www.paypal.com
     icon: "fa:paypal"
     twitter: "@AskPayPal"
   Pinterest:
+    href: https://www.pinterest.com
     hosts:
       - www.pinterest.com
       - de.pinterest.com
     icon: "fa:pinterest"
     twitter: "@pinterest"
   Reddit:
+    href: https://www.reddit.com
     hosts:
       - www.reddit.com
     icon: "fa:reddit-alien"
     twitter: "@reddit"
   Scribd:
+    href: https://www.scribd.com
     hosts:
       - www.scribd.com
     icon: "fa:scribd"
     twitter: "@scribd"
   Skype:
+    href: https://www.skype.com
     hosts:
       - www.skype.com
     icon: "fa:skype"
     twitter: "@skype"
   Slack:
+    href: https://slack.com
     hosts:
       - slack.com
     icon: "fa:slack"
     twitter: "@slackhq"
   Snapchat:
+    href: https://snapchat.com
     hosts:
       - www.snapchat.com
     icon: "fa:snapchat-ghost"
     twitter: "@snapchat"
   SoundCloud:
+    href: https://soundcloud.com
     hosts:
       - soundcloud.com
     icon: "fa:soundcloud"
     twitter: "@soundcloud"
   Spotify:
+    href: https://www.spotify.com
     hosts:
       - www.spotify.com
     icon: "fa:spotify"
     twitter: "@spotify"
   "Stack Exchange":
+    href: https://stackexchange.com
     hosts:
       - stackexchange.com
       - serverfault.com
@@ -234,6 +280,7 @@ targets:
     icon: "fa:stack-exchange"
     twitter: "@stackexchange"
   Steam:
+    href: http://store.steampowered.com
     hosts:
       - store.steampowered.com
       - steamcommunity.com
@@ -241,39 +288,47 @@ targets:
     icon: "fa:steam"
     twitter: "@steam"
   Strava:
+    href: https://www.strava.com
     hosts:
       - strava.com
     twitter: "@Strava"
   "Telegram Messenger":
+    href: https://telegram.org
     hosts:
       - telegram.org
       - web.telegram.org
     icon: "fa:telegram"
     twitter: "@telegram"
-  Tidal.com:
+  TIDAL:
+    href: http://tidal.com
     hosts:
       - tidal.com
       - listen.tidal.com
   Travis-CI:
+    href: https://travis-ci.org
     hosts:
       - travis-ci.org
     twitter: "@travisci"
   Trello:
+    href: https://trello.com
     hosts:
       - trello.com
     icon: "fa:trello"
     twitter: "@trello"
   Tumblr:
+    href: https://www.tumblr.com
     hosts:
       - www.tumblr.com
     icon: "fa:tumblr"
     twitter: "@tumblr"
   Twitch:
+    href: https://www.twitch.tv
     hosts:
       - www.twitch.com
     icon: "fa:twitch"
     twitter: "@Twitch @TwitchSupport"
   Twitter:
+    href: https://twitter.com
     hosts:
       - www.twitter.com
       - twitter.com
@@ -281,26 +336,31 @@ targets:
     icon: "fa:twitter"
     twitter: "@twitter @tweetdeck"
   Vimeo:
+    href: https://vimeo.com
     hosts:
       - vimeo.com
     icon: "fa:vimeo"
     twitter: "@vimeo"
   Vine:
+    href: https://vine.co
     hosts:
       - vine.co
     icon: "fa:vine"
     twitter: "@vine"
   WhatsApp:
+    href: https://www.whatsapp.com
     hosts:
       - www.whatsapp.com
       - web.whatsapp.com
     icon: "fa:whatsapp"
     twitter: "@whatsapp"
   Wikipedia:
+    href: https://www.wikipedia.org
     hosts:
       - www.wikipedia.org
     icon: images/wikipedia.png
   Wordpress:
+    href: https://wordpress.org
     hosts:
       - wordpress.org
       - de.wordpress.org
@@ -309,11 +369,13 @@ targets:
     icon: "fa:wordpress"
     twitter: "@wordpress"
   Xing:
+    href: https://www.xing.com
     hosts:
       - www.xing.com
     icon: "fa:xing"
     twitter: "@xing_com @xingdevs"
   Yahoo:
+    href: https://www.yahoo.com
     hosts:
       - www.yahoo.com
       - yahoo.com
@@ -327,21 +389,25 @@ targets:
     icon: fa:yahoo
     twitter: "@Yahoo"
   YouTube:
+    href: https://www.youtube.com
     hosts:
       - www.youtube.com
     icon: "fa:youtube"
     twitter: "@youtube"
   bandcamp:
+    href: https://bandcamp.com
     hosts:
       - bandcamp.com
     icon: "fa:bandcamp"
     twitter: "@bandcamp"
   flickr:
+    href: https://www.flickr.com
     hosts:
       - www.flickr.com
     icon: "fa:flickr"
     twitter: "@flickr"
   last.fm:
+    href: http://www.last.fm
     hosts:
       - www.last.fm
     icon: "fa:lastfm"
