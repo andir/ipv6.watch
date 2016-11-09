@@ -81,7 +81,7 @@ targets:
     hosts:
       - www.facebook.com
       - facebook.com
-    icon: images/facebook.png
+    icon: fa:facebook-sign
     twitter: "@facebook"
   Fiducia:
     hosts:
@@ -97,7 +97,7 @@ targets:
     hosts:
       - github.com
       - www.github.com
-    icon: images/github.png
+    icon: "fa:github-sign"
     twitter: "@GitHub"
   GitLab:
     hosts:
@@ -278,7 +278,7 @@ targets:
       - www.twitter.com
       - twitter.com
       - tweetdeck.twitter.com
-    icon: images/twitter.png
+    icon: "fa:twitter"
     twitter: "@twitter @tweetdeck"
   Vimeo:
     hosts:
