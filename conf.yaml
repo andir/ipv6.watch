@@ -94,7 +94,7 @@ targets:
     hosts:
       - www.facebook.com
       - facebook.com
-    icon: fa:facebook-sign
+    icon: fa:facebook-official
     twitter: "@facebook"
   Fiducia:
     href: https://www.fiduciagad.de
@@ -113,7 +113,7 @@ targets:
     hosts:
       - github.com
       - www.github.com
-    icon: "fa:github-sign"
+    icon: "fa:github"
     twitter: "@GitHub"
   GitLab:
     href: https://about.gitlab.com
