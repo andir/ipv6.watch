@@ -1,2 +1,3 @@
 .py3env
+.venv
 dist/index.html
