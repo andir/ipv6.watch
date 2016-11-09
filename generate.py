@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
+import argparse
+import asyncio
+import datetime
+import logging
+import os
+from pprint import pprint
+
+import aiodns
+import jsonschema
 import yaml
 from jinja2 import Environment, FileSystemLoader, Template
-import argparse
-import jsonschema
-import asyncio
-import aiodns
-import os
-import logging
-import datetime
-from pprint import pprint
 
 logger = logging.getLogger(__name__)
 
@@ -72,13 +73,11 @@ async def resolve_target(target, resolvers):
                         host, resolver[1],
                         (host, name, resolver[0])))
 
-
     results = {}
     r = await asyncio.wait(tasks)
     for l in r:
         for task in l:
             result = task.result()
-
 
             response, context = task.result()
             host, resolver_name, nameserver = context
