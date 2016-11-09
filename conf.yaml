@@ -415,5 +415,5 @@ targets:
   observatory.mozilla.org:
     href: observatory.mozilla.org
     hosts:
-      - observatory.mozilla.org
+      - https://observatory.mozilla.org
     twitteR: "@mozilla"
