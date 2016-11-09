@@ -52,9 +52,9 @@ def prepare_resolvers(nameservers, loop=None):
     return resolvers
 
 
-def resolve_host(target, resolver, context=None):
+async def resolve_host(target, resolver, context=None):
     try:
-        response = yield from resolver.query(target, 'AAAA')
+        response = await resolver.query(target, 'AAAA')
     except aiodns.error.DNSError:
         return False, context
     if len(response) == 0:
@@ -62,7 +62,7 @@ def resolve_host(target, resolver, context=None):
     return True, context
 
 
-def resolve_target(target, resolvers, loop):
+async def resolve_target(target, resolvers):
     tasks = []
     for host in target['hosts']:
         for name, r in resolvers.items():
@@ -72,20 +72,25 @@ def resolve_target(target, resolvers, loop):
                         host, resolver[1],
                         (host, name, resolver[0])))
 
+
     results = {}
-    for task in tasks:
-        result = loop.run_until_complete(task)
-        response, context = result
-        host, resolver_name, nameserver = context
+    r = await asyncio.wait(tasks)
+    for l in r:
+        for task in l:
+            result = task.result()
 
-        if response:
-            logger.info('\033[0;32m✓\033[0m\t%s @ %s', host, nameserver)
-        else:
-            logger.info('\033[0;31m✗\033[0m\t%s @ %s', host, nameserver)
 
-        h = results[host] = results.get(host, {})
-        r = h[resolver_name] = h.get(resolver_name, {})
-        r[nameserver] = response
+            response, context = task.result()
+            host, resolver_name, nameserver = context
+
+            if response:
+                logger.info('\033[0;32m✓\033[0m\t%s @ %s', host, nameserver)
+            else:
+                logger.info('\033[0;31m✗\033[0m\t%s @ %s', host, nameserver)
+
+            h = results[host] = results.get(host, {})
+            r = h[resolver_name] = h.get(resolver_name, {})
+            r[nameserver] = response
 
     return results
 
@@ -102,7 +107,7 @@ def generate_message(media, target, conf, result):
         raise RuntimeError('Invalid media {} for {}'.format(media, target))
 
 
-def main():
+async def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         '-c',
@@ -140,8 +145,9 @@ def main():
     resolvers = prepare_resolvers(nameservers, loop)
 
     results = {}
+
     for name, target in targets.items():
-        result = resolve_target(target, resolvers, loop)
+        result = await resolve_target(target, resolvers)
         msg = "none"
 
         if any(
@@ -177,4 +183,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.get_event_loop().run_until_complete(main())
