@@ -412,12 +412,11 @@ targets:
       - www.last.fm
     icon: "fa:lastfm"
     twitter: "@lastfm"
-  observatory.mozilla.org:
+  "Mozilla Observatory":
     href: https://observatory.mozilla.org
     hosts:
       - observatory.mozilla.org
     twitter: "@mozilla"
-
   Codeship:
     href: https://codeship.com
     hosts:
