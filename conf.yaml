@@ -40,7 +40,7 @@ targets:
   BigPulse:
     href: https://www.bigpulse.com
     hosts:
-      - www.bigpluse.com
+      - www.bigpulse.com
   Bitbucket:
     href: https://bitbucket.org
     hosts:
