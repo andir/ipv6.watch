@@ -232,6 +232,7 @@ targets:
     href: https://www.reddit.com
     hosts:
       - www.reddit.com
+      - www.redditstatic.com
     icon: "fa:reddit-alien"
     twitter: "@reddit"
   Scribd:
