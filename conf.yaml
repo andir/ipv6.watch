@@ -185,6 +185,7 @@ targets:
     hosts:
       - matrix.org
       - riot.im
+    twitter: "@matrixdotorg"
   MaxCDN:
     href: https://www.maxcdn.com
     hosts:
