@@ -287,7 +287,7 @@ targets:
       - steamcommunity.com
       - help.steampowered.com
     icon: "fa:steam"
-    twitter: "@steam"
+    twitter: "@steam_games"
   Strava:
     href: https://www.strava.com
     hosts:
