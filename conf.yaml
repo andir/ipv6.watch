@@ -424,7 +424,7 @@ targets:
     hosts:
       - codeship.com
     twitter: "@codeship @codeshipsupport"
-  ipv6.comd:
+  ipv6.com:
     href: http://ipv6.com
     hosts:
       - ipv6.com
