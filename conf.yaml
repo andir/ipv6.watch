@@ -216,6 +216,11 @@ targets:
     href: https://www.netcologne.de
     hosts:
       - www.netcologne.de
+  Origin:
+    href: https://www.origin.com
+    hosts: 
+      - www.origin.com
+    twitter: "@AskEASupport" 
   PayPal:
     href: https://www.paypal.com
     hosts:
