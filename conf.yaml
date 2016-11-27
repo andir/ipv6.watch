@@ -22,6 +22,11 @@ messages:
     none: "Hey %s any plans to support #IPv6. Isn't it about time? @ipv6watch"
 
 targets:
+  9GAG:
+    href: http://9gag.com     
+    hosts:
+      - 9gag.com
+    twitter: "@9GAGTEAM"
   Amazon:
     href: https://www.amazon.com
     hosts:
@@ -216,6 +221,11 @@ targets:
     href: https://www.netcologne.de
     hosts:
       - www.netcologne.de
+  Origin:
+    href: https://www.origin.com
+    hosts: 
+      - www.origin.com
+    twitter: "@AskEASupport" 
   PayPal:
     href: https://www.paypal.com
     hosts:
