@@ -93,6 +93,11 @@ targets:
       - digg.com
     icon: "fa:digg"
     twitter: "@digg"
+  Discord:
+    href: https://discordapp.com/
+    hosts:
+      - discordapp.com
+    twitter: "@discordapp"
   Dribbble:
     href: https://dribbble.com
     hosts:
