@@ -177,7 +177,7 @@ targets:
     hosts:
       - houndci.com
     twitter: "@houndci"
-  IFTT:
+  IFTTT:
     href: https://ifttt.com/
     hosts:
       - ifttt.com
