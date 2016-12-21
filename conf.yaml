@@ -22,6 +22,12 @@ messages:
     none: "Hey %s any plans to support #IPv6. Isn't it about time? @ipv6watch"
 
 targets:
+  500px:
+    href: https://500px.com/
+    hosts:
+      - 500px.com
+    icon: "fa:500px"
+    twitter: "@500px"
   9GAG:
     href: http://9gag.com     
     hosts:
