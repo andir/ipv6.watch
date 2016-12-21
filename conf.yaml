@@ -64,6 +64,11 @@ targets:
       - codepen.io
     icon: "fa:codepen"
     twitter: "@codepen"
+  Coveralls:
+    href: https://coveralls.io/
+    hosts:
+      - coveralls.io
+    twitter: "@CoverallsApp"
   Delicious:
     href: https://del.icio.us
     hosts:
