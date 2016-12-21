@@ -259,6 +259,12 @@ targets:
     href: https://www.netcologne.de
     hosts:
       - www.netcologne.de
+  Netflix:
+    href: https://www.netflix.com/
+    hosts:
+      - netflix.com
+      - www.netflix.com
+    twitter: "@Netflixhelps"
   Origin:
     href: https://www.origin.com
     hosts: 
