@@ -173,6 +173,11 @@ targets:
       - media-imdb.com
     icon: "fa:imdb"
     twitter: "@imdb"
+  Imgur:
+    href: https://imgur.com/
+    hosts:
+      - imgur.com
+    twitter: @imgur
   Instagram:
     href: https://www.instagram.com
     hosts:
