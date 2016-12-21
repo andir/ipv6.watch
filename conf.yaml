@@ -135,6 +135,7 @@ targets:
     hosts:
       - github.com
       - www.github.com
+      - gist.github.com
     icon: "fa:github"
     twitter: "@GitHub"
   GitLab:
@@ -161,6 +162,11 @@ targets:
       - news.ycombinator.com
     icon: "fa:hacker-news"
     twitter: "@hnstatus"
+  Hastebin:
+    href: https://hastebin.com/
+    hosts:
+      - hastebin.com
+    twitter: "@hastebin"
   "Hound CI":
     href: https://houndci.com
     hosts:
@@ -177,7 +183,7 @@ targets:
     href: https://imgur.com/
     hosts:
       - imgur.com
-    twitter: @imgur
+    twitter: "@imgur"
   Instagram:
     href: https://www.instagram.com
     hosts:
@@ -247,7 +253,12 @@ targets:
     href: https://www.origin.com
     hosts: 
       - www.origin.com
-    twitter: "@AskEASupport" 
+    twitter: "@AskEASupport"
+  Pastebin:
+    href: http://pastebin.com/
+    hosts:
+      - pastebin.com
+    twitter: "@pastebin"
   PayPal:
     href: https://www.paypal.com
     hosts:
