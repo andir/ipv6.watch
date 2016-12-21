@@ -177,6 +177,11 @@ targets:
     hosts:
       - houndci.com
     twitter: "@houndci"
+  IFTT:
+    href: https://ifttt.com/
+    hosts:
+      - ifttt.com
+    twitter: "@IFTTT"
   IMDb:
     href: http://www.imdb.com
     hosts:
