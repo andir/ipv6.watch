@@ -110,6 +110,12 @@ targets:
       - www.dropbox.com
     icon: "fa:dropbox"
     twitter: "@dropbox"
+  Duckduckgo:
+    href: "https://Duckduckgo.com"
+    hosts:
+      - Duckduckgo.com
+    icon: "images/duckduckgo.png"
+    twitter: "@duckduckgo"
   Ebay:
     href: http://www.ebay.com/
     hosts:
