@@ -487,3 +487,8 @@ targets:
     href: http://ipv6.com
     hosts:
       - ipv6.com
+  Rubygems:
+    href: https://rubygems.org
+    hosts:
+       - rubygems.org
+    twitter: @rubygems
