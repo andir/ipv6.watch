@@ -492,3 +492,4 @@ targets:
     hosts:
        - rubygems.org
     twitter: "@rubygems"
+    icon: images/rubygems.png
