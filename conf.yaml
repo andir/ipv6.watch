@@ -255,6 +255,13 @@ targets:
       - www.meetup.com
     icon: "fa:meetup"
     twitter: "@meetup"
+  Mixer:
+    href: https://mixer.com
+    hosts:
+      - mixer.com
+      - www.mixer.com
+    icon: images/mixer.png
+    twitter: "@WatchMixer"
   N26:
     href: https://n26.com
     hosts:
