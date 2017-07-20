@@ -506,3 +506,9 @@ targets:
        - rubygems.org
     twitter: "@rubygems"
     icon: images/rubygems.png
+  Vapiano:
+    href: http://vapiano.com
+    hosts:
+       - vapiano.com
+       - de.vapiano.com
+    twitter: '@vapiano'
