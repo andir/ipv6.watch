@@ -58,6 +58,11 @@ targets:
       - bitbucket.org
     icon: "fa:bitbucket"
     twitter: "@bitbucket"
+  Bing:
+    href: https://bing.com
+    hosts:
+      - bing.com
+      - www.bing.com
   CodePen:
     href: https://codepen.io
     hosts:
