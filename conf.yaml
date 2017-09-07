@@ -485,6 +485,15 @@ targets:
       - www.flickr.com
     icon: "fa:flickr"
     twitter: "@flickr"
+  mailbox.org:
+    href: https://mailbox.org
+    hosts:
+      - mailbox.org
+      - mx1.mailbox.org
+      - mx2.mailbox.org
+      - mx3.mailbox.org
+      - mx-n.mailbox.org
+    twitter: "@mailbox_org"
   last.fm:
     href: http://www.last.fm
     hosts:
