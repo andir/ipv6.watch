@@ -4,7 +4,7 @@ import asyncio
 import datetime
 import logging
 import os
-from pprint import pprint
+from pprint import pformat
 
 import aiodns
 import jsonschema
@@ -180,7 +180,7 @@ async def main():
 
 
     results = sorted(results.items(), key=lambda x: x[0])
-    pprint(results)
+    logging.debug(pformat(results))
     jinja_env = Environment(loader=FileSystemLoader('templates/'))
     template = jinja_env.get_template('index.jinja2')
     with open(os.path.join(args.dest, 'index.html'), 'w') as fh:
