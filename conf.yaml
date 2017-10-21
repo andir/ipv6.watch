@@ -48,6 +48,13 @@ targets:
       - itunes.apple.com
     icon: "fa:apple"
     twitter: "@apple"
+  Archlinux:
+    href: https://www.archlinux.org
+    hosts:
+      - www.archlinux.org
+      - aur.archlinux.org
+    icon: images/archlinux.png
+    twitter: "@archlinux"
   BigPulse:
     href: https://www.bigpulse.com
     hosts:
@@ -69,11 +76,24 @@ targets:
       - codepen.io
     icon: "fa:codepen"
     twitter: "@codepen"
+  CoreOS:
+    href: https://coreos.com
+    hosts:
+      - coreos.com
+    icon: images/coreos.png
+    twitter: "@coreos"
   Coveralls:
     href: https://coveralls.io/
     hosts:
       - coveralls.io
     twitter: "@CoverallsApp"
+  Debian:
+    href: https://www.debian.org
+    hosts:
+      - www.debian.org
+      - security.debian.org
+    icon: images/debian.png
+    twitter: "@debian"
   Delicious:
     href: https://del.icio.us
     hosts:
@@ -134,6 +154,13 @@ targets:
       - facebook.com
     icon: fa:facebook-official
     twitter: "@facebook"
+  Fedora:
+    href: https://getfedora.org
+    hosts:
+      - getfedora.org
+      - fedoraproject.org
+    icon: images/fedora.png
+    twitter: "@fedora"
   Fiducia:
     href: https://www.fiduciagad.de
     hosts:
@@ -146,6 +173,13 @@ targets:
       - de.foursquare.com
     icon: "fa:foursquare"
     twitter: "@Foursquare"
+  Gentoo:
+    href: https://www.gentoo.org
+    hosts:
+      - www.gentoo.org
+      - distfiles.gentoo.org
+    icon: images/gentoo.png
+    twitter: "@gentoo"
   GitHub:
     href: https://github.com
     hosts:
@@ -283,6 +317,13 @@ targets:
       - netflix.com
       - www.netflix.com
     twitter: "@Netflixhelps"
+  NixOS:
+    href: https://nixos.org
+    hosts:
+      - nixos.org
+      - cache.nixos.org
+    icon: images/nixos.png
+    twitter: "@nixos_org"
   Origin:
     href: https://www.origin.com
     hosts: 
@@ -414,6 +455,12 @@ targets:
       - tweetdeck.twitter.com
     icon: "fa:twitter"
     twitter: "@twitter @tweetdeck"
+  Ubuntu:
+    href: https://www.ubuntu.com
+    hosts:
+      - www.ubuntu.com
+    icon: images/ubuntu.png
+    twitter: "@ubuntu"
   Vimeo:
     href: https://vimeo.com
     hosts:
