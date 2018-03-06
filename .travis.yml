@@ -7,7 +7,7 @@ install:
   - pip install codeclimate-test-reporter
 script:
   - mkdir -p tmp
-  - coverage run --source=generate.py generate.py -l DEBUG -c conf.yaml tmp
+  - coverage run --source=run.py run.py -l DEBUG -c conf.yaml gen /tmp/test.html
 after_success:
   - codeclimate-test-reporter
 
