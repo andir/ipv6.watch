@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-import argparse
+import click
+from aiohttp import web
 import asyncio
 import datetime
 import logging
@@ -46,9 +47,12 @@ def prepare_resolvers(nameservers, loop=None):
 
     resolvers = {}
     for name, servers in nameservers.items():
-        resolvers[name] = list(
-            (server, aiodns.DNSResolver(loop=loop, nameservers=[server]))
-            for server in servers)
+        try:
+            resolvers[name] = list(
+                (server, aiodns.DNSResolver(loop=loop, nameservers=[server]))
+                for server in servers)
+        except ValueError as e:
+            logger.error('ValueError: {} @ {}'.format(e, servers))
 
     return resolvers
 
@@ -129,44 +133,7 @@ async def handle_target(resolvers, name, target):
     return name, dict(hosts=result, summary=msg)
 
 
-
-async def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        '-c',
-        '--config',
-        dest='config',
-        default='conf.yaml',
-        type=argparse.FileType('r'))
-    parser.add_argument(
-        '-l',
-        '--log-level',
-        dest='log_level',
-        choices=[
-            'DEBUG',
-            'ERROR',
-            'INFO',
-            'WARN'],
-        help='Debug level',
-        default='INFO')
-    parser.add_argument('dest', default='dist', type=writeable_dir)
-
-    args = parser.parse_args()
-
-    log_level = getattr(logging, args.log_level)
-    logging.basicConfig(level=log_level)
-
-    config = yaml.load(args.config)
-    # TODO: add item validation
-    jsonschema.validate(config_schema, config)
-
-    nameservers = config['nameservers']
-    targets = config['targets']
-
-    loop = asyncio.get_event_loop()
-
-    resolvers = prepare_resolvers(nameservers, loop)
-
+async def run_queries(resolvers, targets):
     results = {}
     tasks = []
     for name, target in targets.items():
@@ -181,17 +148,100 @@ async def main():
 
     results = sorted(results.items(), key=lambda x: x[0])
     logging.debug(pformat(results))
+    return results
+
+@click.group()
+@click.pass_context
+@click.option('--config', '-c', default='conf.yaml', type=click.File(), help='config file')
+@click.option('--log-level', '-l', default='INFO',
+        type=click.Choice([
+            'DEBUG',
+            'ERROR',
+            'INFO',
+            'WARN'
+        ]), help='log level')
+def cli(ctx, config, log_level):
+    cfg = yaml.load(config)
+    jsonschema.validate(config_schema, cfg)
+    ctx.meta['config'] = cfg
+    log_level = getattr(logging, log_level)
+    logging.basicConfig(level=log_level)
+
+
+async def update(nameservers, targets, config, loop=None):
+    resolvers = prepare_resolvers(nameservers, loop=loop)
+    results = await run_queries(resolvers, targets)
+
     jinja_env = Environment(loader=FileSystemLoader('templates/'))
     template = jinja_env.get_template('index.jinja2')
-    with open(os.path.join(args.dest, 'index.html'), 'w') as fh:
-        fh.write(
-            template.render(
+    return template.render(
                 long_date=datetime.datetime.now().strftime('%B %Y'),
                 results=results,
                 targets=targets,
                 messages=config['messages'],
-                date=datetime.datetime.utcnow()))
+                date=datetime.datetime.utcnow())
+
+@cli.command()
+@click.pass_context
+@click.argument('filename', type=click.Path(writable=True))
+def gen(ctx, filename):
+    loop = asyncio.get_event_loop()
+
+    nameservers = ctx.meta['config']['nameservers']
+    targets = ctx.meta['config']['targets']
+
+    content = loop.run_until_complete(update(nameservers, targets, ctx.meta['config']))
+    with open(filename, 'w') as fh:
+        fh.write(content)
+
+
+async def handle_index(request):
+    content = request.app.get('content')
+    if asyncio.iscoroutine(content) or isinstance(content, asyncio.Future):
+        content = await content
+    else:
+        if content is None:
+            return web.Response(text='booting', status=501)
+
+    return web.Response(body=content.encode('utf-8'), content_type='text/html')
+
+
+async def background_update(app):
+    nameservers, targets = [app['ctx']['config'][key]
+            for key in ['nameservers', 'targets']]
+    future = asyncio.Future()
+    app['content'] = future
+    while True:
+        logger.info('Updating')
+        content = await update(nameservers, targets, app['ctx']['config'])
+        future.set_result(content)
+        app['content'] = content
+        await asyncio.sleep(60)
+
+
+async def start_background_tasks(app):
+    app['update_task'] = app.loop.create_task(background_update(app))
+
+async def cleanup_background_tasks(app):
+    app['update_task'].cancel()
+    await app['update_task']
+
+
+@cli.command()
+@click.pass_context
+@click.argument('port', type=int, default=8080)
+def serve(ctx, port):
+    app = web.Application()
+    app['ctx'] = ctx.meta
+    app.router.add_get('/', handle_index)
+    app.router.add_static('/', './dist')
+
+
+    app.on_startup.append(start_background_tasks)
+    app.on_cleanup.append(cleanup_background_tasks)
+
+    web.run_app(app, port=port)
 
 
 if __name__ == "__main__":
-    asyncio.get_event_loop().run_until_complete(main())
+    cli()
