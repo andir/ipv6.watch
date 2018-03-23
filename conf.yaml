@@ -125,6 +125,15 @@ targets:
       - discordapp.com
     icon: fa:discord
     twitter: "@discordapp"
+  Docker:
+    href: https://www.docker.com/
+    hosts:
+      - docker.com
+      - hub.docker.com
+      - registry-1.docker.io
+      - registry.docker.io
+    icon: fa:docker
+    twitter: "@Docker"
   Dribbble:
     href: https://dribbble.com
     hosts:
