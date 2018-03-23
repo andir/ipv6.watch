@@ -19,7 +19,7 @@ messages:
   twitter:
     all: "Hey %s thank you for enabling #IPv6 @ipv6watch"
     some: "Hey %s are you going to expand your #IPv6 support? @ipv6watch"
-    none: "Hey %s any plans to support #IPv6. Isn't it about time? @ipv6watch"
+    none: "Hey %s any plans to support #IPv6. Isn't it about time? @ipv6watch @ipv6excuses"
 
 targets:
   500px:
