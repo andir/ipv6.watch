@@ -48,7 +48,7 @@ targets:
       - itunes.apple.com
     icon: "fa:apple"
     twitter: "@apple"
-  Archlinux:
+  Arch Linux:
     href: https://www.archlinux.org
     hosts:
       - www.archlinux.org
