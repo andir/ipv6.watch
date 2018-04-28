@@ -11,8 +11,9 @@ nameservers:
   Level3:
     - 4.2.2.2
     - 4.2.2.1
-  CCC:
-    - 213.73.91.35 # dnscache.berlin.ccc.de.
+# The following DNS servers do currently not respond..
+#  CCC:
+#    - 213.73.91.35 # dnscache.berlin.ccc.de.
 
 
 messages:
