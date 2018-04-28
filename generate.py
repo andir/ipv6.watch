@@ -179,7 +179,7 @@ async def main():
             results[name] = result
 
 
-    results = sorted(results.items(), key=lambda x: x[0])
+    results = sorted(results.items(), key=lambda x: x[0].lower())
     logging.debug(pformat(results))
     jinja_env = Environment(loader=FileSystemLoader('templates/'))
     template = jinja_env.get_template('index.jinja2')
