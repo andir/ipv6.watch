@@ -30,7 +30,7 @@ targets:
     icon: "fa:500px"
     twitter: "@500px"
   9GAG:
-    href: http://9gag.com     
+    href: http://9gag.com
     hosts:
       - 9gag.com
     twitter: "@9GAGTEAM"
@@ -123,6 +123,7 @@ targets:
     href: https://discordapp.com/
     hosts:
       - discordapp.com
+    icon: fa:discord
     twitter: "@discordapp"
   Dribbble:
     href: https://dribbble.com
@@ -153,7 +154,7 @@ targets:
     hosts:
       - www.facebook.com
       - facebook.com
-    icon: fa:facebook-official
+    icon: fa:facebook
     twitter: "@facebook"
   Fedora:
     href: https://getfedora.org
@@ -327,7 +328,7 @@ targets:
     twitter: "@nixos_org"
   Origin:
     href: https://www.origin.com
-    hosts: 
+    hosts:
       - www.origin.com
     twitter: "@AskEASupport"
   Pastebin:
@@ -412,6 +413,7 @@ targets:
     href: https://www.strava.com
     hosts:
       - strava.com
+    icon: fa:strava
     twitter: "@Strava"
   "Telegram Messenger":
     href: https://telegram.org

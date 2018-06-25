@@ -40,7 +40,7 @@
             <tr class="entry {% if result['summary']=='all' %}success{% elif result['summary']=='some' %}info{% else %}warning{% endif %}">
                     <td>{% if 'icon' in tt %}
                         {% if tt['icon'].startswith('fa:') %}
-                        <div class="text-center"><i class="fa fa-{{ tt['icon'][3:] }} fa-3x"></i></div>
+                        <div class="text-center"><i class="fab fa-{{ tt['icon'][3:] }} fa-3x"></i></div>
                         {% else %}
                         <img class="center-block" style="max-height: 40px; max-width: 64px;"
                              src="{{ tt['icon'] }}">{% endif %}{% endif %}</td>
@@ -68,7 +68,7 @@
                         {% if tt['twitter'] %}
                             <a target="_blank"
                                href="http://twitter.com/home/?status={{ ( messages['twitter'][result['summary']] % ( tt['twitter'] ) ) | urlencode }}">
-                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
                                 Twitter
                             </a>
                         {% endif %}
@@ -84,10 +84,10 @@
         </p>
         <p class="text-right">
             <a href="https://github.com/andir/ipv6.watch" title="GitHub" target="_blank">
-                <i class="fa fa-github fa-3x" id="github-logo"></i>
+                <i class="fab fa-github fa-3x" id="github-logo"></i>
             </a>
             <a href="https://twitter.com/ipv6watch" title="Twitter" target="_blank">
-                <i class="fa fa-twitter fa-3x" id="twitter-logo"></i>
+                <i class="fab fa-twitter fa-3x" id="twitter-logo"></i>
             </a>
         </p>
     </div>
