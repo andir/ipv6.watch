@@ -335,6 +335,12 @@ targets:
       - cache.nixos.org
     icon: images/nixos.png
     twitter: "@nixos_org"
+  O2:
+    href: https://www.o2online.de/
+    hosts:
+      - www.o2online.de
+    icon: images/o2.svg
+    twitter: "@o2de"
   Origin:
     href: https://www.origin.com
     hosts:
