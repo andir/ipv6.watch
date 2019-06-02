@@ -253,6 +253,7 @@ async def main():
                 results=results,
                 targets=targets,
                 messages=config['messages'],
+                categories=categories,
                 date=datetime.datetime.utcnow()))
 
 
