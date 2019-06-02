@@ -1,16 +1,15 @@
----
 nameservers:
   Google DNS:
-    - 8.8.8.8
-    - 8.8.4.4
-    - 2001:4860:4860::8888
-    - 2001:4860:4860::8844
+  - 8.8.8.8
+  - 8.8.4.4
+  - 2001:4860:4860::8888
+  - 2001:4860:4860::8844
   OpenDNS:
-    - 208.67.220.220
-    - 208.67.222.222
+  - 208.67.220.220
+  - 208.67.222.222
   Level3:
-    - 4.2.2.2
-    - 4.2.2.1
+  - 4.2.2.2
+  - 4.2.2.1
 # The following DNS servers do currently not respond..
 #  CCC:
 #    - 213.73.91.35 # dnscache.berlin.ccc.de.
@@ -18,8 +17,8 @@ nameservers:
 
 messages:
   twitter:
-    all: "Hey %s thank you for enabling #IPv6 @ipv6watch"
-    some: "Hey %s are you going to expand your #IPv6 support? @ipv6watch"
+    all: 'Hey %s thank you for enabling #IPv6 @ipv6watch'
+    some: 'Hey %s are you going to expand your #IPv6 support? @ipv6watch'
     none: "Hey %s any plans to support #IPv6. Isn't it about time? @ipv6watch"
 
 # Missing:
@@ -45,944 +44,944 @@ targets:
   500px:
     href: https://500px.com/
     hosts:
-      - 500px.com
-    icon: "fa:500px"
-    twitter: "@500px"
+    - 500px.com
+    icon: fa:500px
+    twitter: '@500px'
     categories:
-      - Social network
+    - Social network
 
   9GAG:
     href: http://9gag.com
     hosts:
-      - 9gag.com
-    twitter: "@9GAGTEAM"
+    - 9gag.com
+    twitter: '@9GAGTEAM'
     categories:
-      - Social network
+    - Social network
 
   Amazon:
     href: https://www.amazon.com
     hosts:
-      - amazon.com
-      - www.amazon.com
+    - amazon.com
+    - www.amazon.com
     icon: images/amazon.png
-    twitter: "@amazon"
+    twitter: '@amazon'
     categories:
-      - Shopping
-      - Streaming
+    - Shopping
+    - Streaming
 
   Apple:
     href: https://www.apple.com
     hosts:
-      - apple.com
-      - www.apple.com
-      - itunes.apple.com
-    icon: "fa:apple"
-    twitter: "@apple"
+    - apple.com
+    - www.apple.com
+    - itunes.apple.com
+    icon: fa:apple
+    twitter: '@apple'
     categories:
-      - Software
+    - Software
 
   Arch Linux:
     href: https://www.archlinux.org
     hosts:
-      - www.archlinux.org
-      - aur.archlinux.org
+    - www.archlinux.org
+    - aur.archlinux.org
     icon: images/archlinux.png
-    twitter: "@archlinux"
+    twitter: '@archlinux'
     categories:
-      - Operating system
+    - Operating system
 
   Ars Technica:
     href: https://arstechnica.com
     hosts:
-      - arstechnica.com
-    twitter: "@arstechnica"
+    - arstechnica.com
+    twitter: '@arstechnica'
     categories:
-      - News
+    - News
 
   Bitbucket:
     href: https://bitbucket.org
     hosts:
-      - bitbucket.org
-    icon: "fa:bitbucket"
-    twitter: "@bitbucket"
+    - bitbucket.org
+    icon: fa:bitbucket
+    twitter: '@bitbucket'
     categories:
-      - Coding
+    - Coding
 
   Bing:
     href: https://bing.com
     hosts:
-      - bing.com
-      - www.bing.com
-    twitter: "@bing"
+    - bing.com
+    - www.bing.com
+    twitter: '@bing'
     categories:
-      - Search engine
+    - Search engine
 
   CenturyLink (formerly Level3):
     href: https://www.centurylink.com
     hosts:
-      - www.centurylink.com
-    twitter: "@CenturyLink @CenturyLinkHelp"
+    - www.centurylink.com
+    twitter: '@CenturyLink @CenturyLinkHelp'
     categories:
-      - Internet service provider
+    - Internet service provider
 
   CodePen:
     href: https://codepen.io
     hosts:
-      - codepen.io
-    icon: "fa:codepen"
-    twitter: "@codepen"
+    - codepen.io
+    icon: fa:codepen
+    twitter: '@codepen'
     categories:
-      - Coding
+    - Coding
 
   CoreOS:
     href: https://coreos.com
     hosts:
-      - coreos.com
+    - coreos.com
     icon: images/coreos.png
-    twitter: "@coreos"
+    twitter: '@coreos'
     categories:
-      - Operating system
+    - Operating system
 
   Coveralls:
     href: https://coveralls.io/
     hosts:
-      - coveralls.io
-    twitter: "@CoverallsApp"
+    - coveralls.io
+    twitter: '@CoverallsApp'
     categories:
-      - Coding
+    - Coding
 
   Debian:
     href: https://www.debian.org
     hosts:
-      - www.debian.org
-      - security.debian.org
+    - www.debian.org
+    - security.debian.org
     icon: images/debian.png
-    twitter: "@debian"
+    twitter: '@debian'
     categories:
-      - Operating system
+    - Operating system
 
   Delicious:
     href: https://del.icio.us
     hosts:
-      - del.icio.us
-    icon: "fa:delicious"
-    twitter: "@delicious"
+    - del.icio.us
+    icon: fa:delicious
+    twitter: '@delicious'
     categories:
-      - Social bookmarks
+    - Social bookmarks
 
-  "Deutsche Welle":
+  Deutsche Welle:
     href: https://www.dw.com
     hosts:
-      - www.dw.com
+    - www.dw.com
     icon: images/deutsche_welle.png
-    twitter: "@deutschewelle"
+    twitter: '@deutschewelle'
     categories:
-      - News
+    - News
 
   DeviantArt:
     href: https://www.deviantart.com
     hosts:
-      - www.deviantart.com
-    icon: "fa:deviantart"
-    twitter: "@deviantart"
+    - www.deviantart.com
+    icon: fa:deviantart
+    twitter: '@deviantart'
     categories:
-      - Social network
+    - Social network
 
   Digg:
     href: https://digg.com
     hosts:
-      - digg.com
-    icon: "fa:digg"
-    twitter: "@digg"
+    - digg.com
+    icon: fa:digg
+    twitter: '@digg'
     categories:
-      - Social bookmarks
+    - Social bookmarks
 
   Discord:
     href: https://discordapp.com/
     hosts:
-      - discordapp.com
+    - discordapp.com
     icon: fa:discord
-    twitter: "@discordapp"
+    twitter: '@discordapp'
     categories:
-      - Chat
-      - VoIP
+    - Chat
+    - VoIP
 
   Docker:
     href: https://www.docker.com/
     hosts:
-      - docker.com
-      - hub.docker.com
-      - registry-1.docker.io
-      - registry.docker.io
+    - docker.com
+    - hub.docker.com
+    - registry-1.docker.io
+    - registry.docker.io
     icon: fa:docker
-    twitter: "@Docker"
+    twitter: '@Docker'
     categories:
-      - Coding
+    - Coding
 
   Dribbble:
     href: https://dribbble.com
     hosts:
-      - dribble.com
-    icon: "fa:dribbble"
-    twitter: "@dribbble"
+    - dribble.com
+    icon: fa:dribbble
+    twitter: '@dribbble'
     categories:
-      - Social network
+    - Social network
 
   Dropbox:
     href: https://www.dropbox.com
     hosts:
-      - www.dropbox.com
-    icon: "fa:dropbox"
-    twitter: "@dropbox"
+    - www.dropbox.com
+    icon: fa:dropbox
+    twitter: '@dropbox'
     categories:
-      - Cloud
+    - Cloud
 
   Duckduckgo:
-    href: "https://Duckduckgo.com"
+    href: https://Duckduckgo.com
     hosts:
-      - Duckduckgo.com
-    icon: "images/duckduckgo.png"
-    twitter: "@duckduckgo"
+    - Duckduckgo.com
+    icon: images/duckduckgo.png
+    twitter: '@duckduckgo'
     categories:
-      - Search engine
+    - Search engine
 
   Ebay:
     href: http://www.ebay.com/
     hosts:
-      - www.ebay.com
-      - ebay.com
-    twitter: "@eBay"
+    - www.ebay.com
+    - ebay.com
+    twitter: '@eBay'
     categories:
-        - Shopping
+    - Shopping
 
   Facebook:
     href: https://www.facebook.com
     hosts:
-      - www.facebook.com
-      - facebook.com
+    - www.facebook.com
+    - facebook.com
     icon: fa:facebook
-    twitter: "@facebook"
+    twitter: '@facebook'
     categories:
-        - Social network
+    - Social network
 
   Fedora:
     href: https://getfedora.org
     hosts:
-      - getfedora.org
-      - fedoraproject.org
+    - getfedora.org
+    - fedoraproject.org
     icon: images/fedora.png
-    twitter: "@fedora"
+    twitter: '@fedora'
     categories:
-        - Operating system
+    - Operating system
 
   Fiducia:
     href: https://www.fiduciagad.de
     hosts:
-      - finanzportal.fiducia.de
-    twitter: "@fiducia_gad"
+    - finanzportal.fiducia.de
+    twitter: '@fiducia_gad'
     categories:
-        - Banking
+    - Banking
 
   Foursquare:
     href: https://www.foursquare.com
     hosts:
-      - www.foursquare.com
-      - de.foursquare.com
-    icon: "fa:foursquare"
-    twitter: "@Foursquare"
+    - www.foursquare.com
+    - de.foursquare.com
+    icon: fa:foursquare
+    twitter: '@Foursquare'
     categories:
-        - Social network
+    - Social network
 
   Gentoo:
     href: https://www.gentoo.org
     hosts:
-      - www.gentoo.org
-      - distfiles.gentoo.org
+    - www.gentoo.org
+    - distfiles.gentoo.org
     icon: images/gentoo.png
-    twitter: "@gentoo"
+    twitter: '@gentoo'
     categories:
-        - Operating system
+    - Operating system
 
   GitHub:
     href: https://github.com
     hosts:
-      - github.com
-      - www.github.com
-      - gist.github.com
-    icon: "fa:github"
-    twitter: "@GitHub"
+    - github.com
+    - www.github.com
+    - gist.github.com
+    icon: fa:github
+    twitter: '@GitHub'
     categories:
-        - Coding
+    - Coding
 
   GitLab:
     href: https://about.gitlab.com
     hosts:
-      - gitlab.com
-      - about.gitlab.com
+    - gitlab.com
+    - about.gitlab.com
     icon: images/gitlab.svg
-    twitter: "@gitlab"
+    twitter: '@gitlab'
     categories:
-        - Coding
+    - Coding
 
   Google:
     href: https://www.google.com
     hosts:
-      - google.com
+    - google.com
     icon: images/google.png
-    twitter: "@Google"
+    twitter: '@Google'
     categories:
-        - Search engine
-        - Cloud
+    - Search engine
+    - Cloud
 
   Gravatar:
     href: https://www.gravatar.com
     hosts:
-      - gravatar.com
-      - secure.gravatar.com
-    twitter: "@gravatar"
+    - gravatar.com
+    - secure.gravatar.com
+    twitter: '@gravatar'
 
-  "Hacker News":
+  Hacker News:
     href: https://news.ycombinator.com
     hosts:
-      - news.ycombinator.com
-    icon: "fa:hacker-news"
-    twitter: "@hnstatus"
+    - news.ycombinator.com
+    icon: fa:hacker-news
+    twitter: '@hnstatus'
     categories:
-        - News
+    - News
 
   Hastebin:
     href: https://hastebin.com/
     hosts:
-      - hastebin.com
-    twitter: "@hastebin"
+    - hastebin.com
+    twitter: '@hastebin'
 
-  "Hound CI":
+  Hound CI:
     href: https://houndci.com
     hosts:
-      - houndci.com
-    twitter: "@houndci"
+    - houndci.com
+    twitter: '@houndci'
     categories:
-        - Coding
+    - Coding
 
   IFTTT:
     href: https://ifttt.com/
     hosts:
-      - ifttt.com
-    twitter: "@IFTTT"
+    - ifttt.com
+    twitter: '@IFTTT'
 
   IMDb:
     href: http://www.imdb.com
     hosts:
-      - www.imdb.com
-      - media-imdb.com
-    icon: "fa:imdb"
-    twitter: "@imdb"
+    - www.imdb.com
+    - media-imdb.com
+    icon: fa:imdb
+    twitter: '@imdb'
 
   Imgur:
     href: https://imgur.com/
     hosts:
-      - imgur.com
-    twitter: "@imgur"
+    - imgur.com
+    twitter: '@imgur'
     categories:
-        - Social network
+    - Social network
 
   Instagram:
     href: https://www.instagram.com
     hosts:
-      - instagram.com
-      - www.instagram.com
-    icon: "fa:instagram"
-    twitter: "@instagram"
+    - instagram.com
+    - www.instagram.com
+    icon: fa:instagram
+    twitter: '@instagram'
     categories:
-        - Social network
+    - Social network
 
   JSFiddle:
     href: https://jsfiddle.net
     hosts:
-      - jsfiddle.net
-    icon: "fa:jsfiddle"
-    twitter: "@jsfiddle"
+    - jsfiddle.net
+    icon: fa:jsfiddle
+    twitter: '@jsfiddle'
     categories:
-        - Coding
+    - Coding
 
   JetBrains:
     href: https://www.jetbrains.com
     hosts:
-      - jetbrains.com
+    - jetbrains.com
     icon: images/jetbrains.svg
-    twitter: "@jetbrains"
+    twitter: '@jetbrains'
     categories:
-        - Coding
+    - Coding
 
   LinkedIn:
     href: https://www.linkedin.com
     hosts:
-      - www.linkedin.com
-      - de.linkedin.com
-    icon: "fa:linkedin"
-    twitter: "@linkedin"
+    - www.linkedin.com
+    - de.linkedin.com
+    icon: fa:linkedin
+    twitter: '@linkedin'
     categories:
-        - Social network
+    - Social network
 
   Matrix.org:
     href: https://matrix.org
     hosts:
-      - matrix.org
-      - riot.im
-    twitter: "@matrixdotorg"
+    - matrix.org
+    - riot.im
+    twitter: '@matrixdotorg'
     categories:
-        - Chat
+    - Chat
 
   MaxCDN:
     href: https://www.maxcdn.com
     hosts:
-      - maxcdn.com
-      - www.maxcdn.com
-      - maxcdn.bootstrapcdn.com
-    icon: "fa:maxcdn"
-    twitter: "@maxcdn"
+    - maxcdn.com
+    - www.maxcdn.com
+    - maxcdn.bootstrapcdn.com
+    icon: fa:maxcdn
+    twitter: '@maxcdn'
     categories:
-        - Cloud
+    - Cloud
 
   Medium:
     href: https://medium.com
     hosts:
-      - medium.com
-    icon: "fa:medium"
-    twitter: "@medium"
+    - medium.com
+    icon: fa:medium
+    twitter: '@medium'
     categories:
-        - News
+    - News
 
   Meetup:
     href: https://www.meetup.com
     hosts:
-      - www.meetup.com
-    icon: "fa:meetup"
-    twitter: "@meetup"
+    - www.meetup.com
+    icon: fa:meetup
+    twitter: '@meetup'
     categories:
-        - Social Network
+    - Social Network
 
   Mixer:
     href: https://mixer.com
     hosts:
-      - mixer.com
-      - www.mixer.com
+    - mixer.com
+    - www.mixer.com
     icon: images/mixer.png
-    twitter: "@WatchMixer"
+    twitter: '@WatchMixer'
     categories:
-        - Streaming
+    - Streaming
 
   N26:
     href: https://n26.com
     hosts:
-      - my.number26.de
-      - n26.com
-    twitter: "@n26"
+    - my.number26.de
+    - n26.com
+    twitter: '@n26'
     categories:
-        - Banking
+    - Banking
 
   Netcologne:
     href: https://www.netcologne.de
     hosts:
-      - www.netcologne.de
-    twitter: "@NetCologne_GmbH"
+    - www.netcologne.de
+    twitter: '@NetCologne_GmbH'
     categories:
-        - Internet service provider
+    - Internet service provider
 
   Netflix:
     href: https://www.netflix.com/
     hosts:
-      - netflix.com
-      - www.netflix.com
-    twitter: "@Netflixhelps"
+    - netflix.com
+    - www.netflix.com
+    twitter: '@Netflixhelps'
     categories:
-        - Streaming
+    - Streaming
 
   NixOS:
     href: https://nixos.org
     hosts:
-      - nixos.org
-      - cache.nixos.org
+    - nixos.org
+    - cache.nixos.org
     icon: images/nixos.png
-    twitter: "@nixos_org"
+    twitter: '@nixos_org'
     categories:
-        - Operating system
+    - Operating system
 
   O2:
     href: https://www.o2online.de/
     hosts:
-      - www.o2online.de
+    - www.o2online.de
     icon: images/o2.svg
-    twitter: "@o2de"
+    twitter: '@o2de'
     categories:
-        - Internet service provider
+    - Internet service provider
 
   Origin:
     href: https://www.origin.com
     hosts:
-      - www.origin.com
-    twitter: "@AskEASupport"
+    - www.origin.com
+    twitter: '@AskEASupport'
     categories:
-        - Gaming
+    - Gaming
 
   Pastebin:
     href: http://pastebin.com/
     hosts:
-      - pastebin.com
-    twitter: "@pastebin"
+    - pastebin.com
+    twitter: '@pastebin'
 
   PayPal:
     href: https://www.paypal.com
     hosts:
-      - www.paypal.com
-    icon: "fa:paypal"
-    twitter: "@AskPayPal"
+    - www.paypal.com
+    icon: fa:paypal
+    twitter: '@AskPayPal'
     categories:
-        - Banking
+    - Banking
 
   Pinterest:
     href: https://www.pinterest.com
     hosts:
-      - www.pinterest.com
-      - de.pinterest.com
-    icon: "fa:pinterest"
-    twitter: "@pinterest"
+    - www.pinterest.com
+    - de.pinterest.com
+    icon: fa:pinterest
+    twitter: '@pinterest'
     categories:
-        - Social network
+    - Social network
 
   Reddit:
     href: https://www.reddit.com
     hosts:
-      - www.reddit.com
-      - www.redditstatic.com
-    icon: "fa:reddit-alien"
-    twitter: "@reddit"
+    - www.reddit.com
+    - www.redditstatic.com
+    icon: fa:reddit-alien
+    twitter: '@reddit'
     categories:
-        - Social network
+    - Social network
 
   Scribd:
     href: https://www.scribd.com
     hosts:
-      - www.scribd.com
-    icon: "fa:scribd"
-    twitter: "@scribd"
+    - www.scribd.com
+    icon: fa:scribd
+    twitter: '@scribd'
     categories:
-        - Streaming
+    - Streaming
 
   Skype:
     href: https://www.skype.com
     hosts:
-      - www.skype.com
-    icon: "fa:skype"
-    twitter: "@skype"
+    - www.skype.com
+    icon: fa:skype
+    twitter: '@skype'
     categories:
-        - Chat
-        - VoIP
+    - Chat
+    - VoIP
 
   Slack:
     href: https://slack.com
     hosts:
-      - slack.com
-    icon: "fa:slack"
-    twitter: "@slackhq"
+    - slack.com
+    icon: fa:slack
+    twitter: '@slackhq'
     categories:
-        - Chat
+    - Chat
 
   Snapchat:
     href: https://snapchat.com
     hosts:
-      - www.snapchat.com
-    icon: "fa:snapchat-ghost"
-    twitter: "@snapchat"
+    - www.snapchat.com
+    icon: fa:snapchat-ghost
+    twitter: '@snapchat'
     categories:
-        - Social network
+    - Social network
 
   SoundCloud:
     href: https://soundcloud.com
     hosts:
-      - soundcloud.com
-    icon: "fa:soundcloud"
-    twitter: "@soundcloud"
+    - soundcloud.com
+    icon: fa:soundcloud
+    twitter: '@soundcloud'
     categories:
-        - Streaming
+    - Streaming
 
   Spotify:
     href: https://www.spotify.com
     hosts:
-      - www.spotify.com
-    icon: "fa:spotify"
-    twitter: "@spotify"
+    - www.spotify.com
+    icon: fa:spotify
+    twitter: '@spotify'
     categories:
-        - Streaming
+    - Streaming
 
-  "Stack Exchange":
+  Stack Exchange:
     href: https://stackexchange.com
     hosts:
-      - stackexchange.com
-      - serverfault.com
-      - stackoverflow.com
-      - askubuntu.com
-    icon: "fa:stack-exchange"
-    twitter: "@stackexchange"
+    - stackexchange.com
+    - serverfault.com
+    - stackoverflow.com
+    - askubuntu.com
+    icon: fa:stack-exchange
+    twitter: '@stackexchange'
     categories:
-        - Coding
+    - Coding
 
   Steam:
     href: http://store.steampowered.com
     hosts:
-      - store.steampowered.com
-      - steamcommunity.com
-      - help.steampowered.com
-    icon: "fa:steam"
-    twitter: "@steam_games"
+    - store.steampowered.com
+    - steamcommunity.com
+    - help.steampowered.com
+    icon: fa:steam
+    twitter: '@steam_games'
     categories:
-        - Gaming
+    - Gaming
 
   Strava:
     href: https://www.strava.com
     hosts:
-      - strava.com
+    - strava.com
     icon: fa:strava
-    twitter: "@Strava"
+    twitter: '@Strava'
 
   Telegram Messenger:
     href: https://telegram.org
     hosts:
-      - telegram.org
-      - web.telegram.org
-    icon: "fa:telegram"
-    twitter: "@telegram"
+    - telegram.org
+    - web.telegram.org
+    icon: fa:telegram
+    twitter: '@telegram'
     categories:
-        - Chat
+    - Chat
 
   TechChruch:
     href: https://techcrunch.com
     hosts:
-      - techcrunch.com
-    twitter: "@TechCrunch"
+    - techcrunch.com
+    twitter: '@TechCrunch'
     categories:
-        - News
+    - News
 
   The Register:
     href: https://www.theregister.co.uk
     hosts:
-      - www.theregister.co.uk
-    twitter: "@TheRegister"
+    - www.theregister.co.uk
+    twitter: '@TheRegister'
     categories:
-        - News
+    - News
 
   TIDAL:
     href: http://tidal.com
     hosts:
-      - tidal.com
-      - listen.tidal.com
-    twitter: "@TIDAL"
+    - tidal.com
+    - listen.tidal.com
+    twitter: '@TIDAL'
     categories:
-        - Streaming
+    - Streaming
 
   Travis-CI:
     href: https://travis-ci.org
     hosts:
-      - travis-ci.org
-    twitter: "@travisci"
+    - travis-ci.org
+    twitter: '@travisci'
     categories:
-        - Coding
+    - Coding
 
   Trello:
     href: https://trello.com
     hosts:
-      - trello.com
-    icon: "fa:trello"
-    twitter: "@trello"
+    - trello.com
+    icon: fa:trello
+    twitter: '@trello'
 
   Tumblr:
     href: https://www.tumblr.com
     hosts:
-      - www.tumblr.com
-    icon: "fa:tumblr"
-    twitter: "@tumblr"
+    - www.tumblr.com
+    icon: fa:tumblr
+    twitter: '@tumblr'
     categories:
-        - Social network
+    - Social network
 
   Twitch:
     href: https://www.twitch.tv
     hosts:
-      - www.twitch.com
-    icon: "fa:twitch"
-    twitter: "@Twitch @TwitchSupport"
+    - www.twitch.com
+    icon: fa:twitch
+    twitter: '@Twitch @TwitchSupport'
     categories:
-        - Streaming
+    - Streaming
 
   Twitter:
     href: https://twitter.com
     hosts:
-      - www.twitter.com
-      - twitter.com
-      - tweetdeck.twitter.com
-    icon: "fa:twitter"
-    twitter: "@twitter @tweetdeck"
+    - www.twitter.com
+    - twitter.com
+    - tweetdeck.twitter.com
+    icon: fa:twitter
+    twitter: '@twitter @tweetdeck'
     categories:
-        - Social network
+    - Social network
 
   Ubuntu:
     href: https://www.ubuntu.com
     hosts:
-      - www.ubuntu.com
+    - www.ubuntu.com
     icon: images/ubuntu.png
-    twitter: "@ubuntu"
+    twitter: '@ubuntu'
     categories:
-        - Operating system
+    - Operating system
 
   Vimeo:
     href: https://vimeo.com
     hosts:
-      - vimeo.com
-    icon: "fa:vimeo"
-    twitter: "@vimeo"
+    - vimeo.com
+    icon: fa:vimeo
+    twitter: '@vimeo'
     categories:
-        - Streaming
+    - Streaming
 
   WhatsApp:
     href: https://www.whatsapp.com
     hosts:
-      - www.whatsapp.com
-      - web.whatsapp.com
-    icon: "fa:whatsapp"
-    twitter: "@whatsapp"
+    - www.whatsapp.com
+    - web.whatsapp.com
+    icon: fa:whatsapp
+    twitter: '@whatsapp'
     categories:
-        - Chat
+    - Chat
 
   Wikipedia:
     href: https://www.wikipedia.org
     hosts:
-      - www.wikipedia.org
+    - www.wikipedia.org
     icon: images/wikipedia.png
-    twitter: "@Wikipedia"
+    twitter: '@Wikipedia'
 
   Wordpress:
     href: https://wordpress.org
     hosts:
-      - wordpress.org
-      - de.wordpress.org
-      - codex.wordpress.org
-      - make.wordpress.org
-    icon: "fa:wordpress"
-    twitter: "@wordpress"
+    - wordpress.org
+    - de.wordpress.org
+    - codex.wordpress.org
+    - make.wordpress.org
+    icon: fa:wordpress
+    twitter: '@wordpress'
     categories:
-        - Software
-        - Cloud
+    - Software
+    - Cloud
 
   Xing:
     href: https://www.xing.com
     hosts:
-      - www.xing.com
-    icon: "fa:xing"
-    twitter: "@xing_com @xingdevs"
+    - www.xing.com
+    icon: fa:xing
+    twitter: '@xing_com @xingdevs'
     categories:
-        - Social network
+    - Social network
 
   Yahoo:
     href: https://www.yahoo.com
     hosts:
-      - www.yahoo.com
-      - yahoo.com
-      - mail.yahoo.com
-      - finance.yahoo.com
-      - sports.yahoo.com
-      - shopping.yahoo.com
-      - mobile.yahoo.com
-      - groups.yahoo.com
-      - answers.yahoo.com
+    - www.yahoo.com
+    - yahoo.com
+    - mail.yahoo.com
+    - finance.yahoo.com
+    - sports.yahoo.com
+    - shopping.yahoo.com
+    - mobile.yahoo.com
+    - groups.yahoo.com
+    - answers.yahoo.com
     icon: fa:yahoo
-    twitter: "@Yahoo"
+    twitter: '@Yahoo'
     categories:
-        - Search engine
+    - Search engine
 
   YouTube:
     href: https://www.youtube.com
     hosts:
-      - www.youtube.com
-    icon: "fa:youtube"
-    twitter: "@youtube"
+    - www.youtube.com
+    icon: fa:youtube
+    twitter: '@youtube'
     categories:
-        - Streaming
+    - Streaming
 
   Bandcamp:
     href: https://bandcamp.com
     hosts:
-      - bandcamp.com
-    icon: "fa:bandcamp"
-    twitter: "@bandcamp"
+    - bandcamp.com
+    icon: fa:bandcamp
+    twitter: '@bandcamp'
     categories:
-        - Streaming
+    - Streaming
 
   flickr:
     href: https://www.flickr.com
     hosts:
-      - www.flickr.com
-    icon: "fa:flickr"
-    twitter: "@flickr"
+    - www.flickr.com
+    icon: fa:flickr
+    twitter: '@flickr'
     categories:
-        - Social network
+    - Social network
 
   mailbox.org:
     href: https://mailbox.org
     hosts:
-      - mailbox.org
-      - mx1.mailbox.org
-      - mx2.mailbox.org
-      - mx3.mailbox.org
-      - mx-n.mailbox.org
-    twitter: "@mailbox_org"
+    - mailbox.org
+    - mx1.mailbox.org
+    - mx2.mailbox.org
+    - mx3.mailbox.org
+    - mx-n.mailbox.org
+    twitter: '@mailbox_org'
 
   last.fm:
     href: http://www.last.fm
     hosts:
-      - www.last.fm
-    icon: "fa:lastfm"
-    twitter: "@lastfm"
+    - www.last.fm
+    icon: fa:lastfm
+    twitter: '@lastfm'
     categories:
-        - Streaming
+    - Streaming
 
-  "Mozilla Observatory":
+  Mozilla Observatory:
     href: https://observatory.mozilla.org
     hosts:
-      - observatory.mozilla.org
-    twitter: "@mozilla"
+    - observatory.mozilla.org
+    twitter: '@mozilla'
 
   Codeship:
     href: https://codeship.com
     hosts:
-      - codeship.com
-    twitter: "@codeship @codeshipsupport"
+    - codeship.com
+    twitter: '@codeship @codeshipsupport'
     categories:
-        - Coding
+    - Coding
 
   Rubygems:
     href: https://rubygems.org
     hosts:
-       - rubygems.org
-    twitter: "@rubygems"
+    - rubygems.org
+    twitter: '@rubygems'
     icon: images/rubygems.png
     categories:
-        - Coding
+    - Coding
 
   WIRED:
     href: https://www.wired.com
     hosts:
-      - www.wired.com
-    twitter: "@WIRED"
+    - www.wired.com
+    twitter: '@WIRED'
     categories:
-        - News
+    - News
 
   TikTok:
-      href: https://www.tiktok.com
-      hosts:
-          - www.tiktok.com
-      twitter: "@tiktok_us"
-      categories:
-          - Social network
+    href: https://www.tiktok.com
+    hosts:
+    - www.tiktok.com
+    twitter: '@tiktok_us'
+    categories:
+    - Social network
 
   Sparkasse:
-      href: https://www.sparkasse.de
-      hosts:
-          - www.sparkasse.de
-          - webfonts.sparkasse.de
-      twitter: "@sparkasse"
-      categories:
-          - Banking
+    href: https://www.sparkasse.de
+    hosts:
+    - www.sparkasse.de
+    - webfonts.sparkasse.de
+    twitter: '@sparkasse'
+    categories:
+    - Banking
 
   Postbank:
-       href: https://www.postbank.de
-       hosts:
-           - www.postbank.de
-       twitter: "@postbank"
-       categories:
-           - Banking
+    href: https://www.postbank.de
+    hosts:
+    - www.postbank.de
+    twitter: '@postbank'
+    categories:
+    - Banking
 
   Raiffeisenbank:
-      href: https://www.bvr.de
-      hosts:
-          - www.bvr.de
-      twitter: "@BVRPresse"
-      categories:
-          - Banking
+    href: https://www.bvr.de
+    hosts:
+    - www.bvr.de
+    twitter: '@BVRPresse'
+    categories:
+    - Banking
 
   Mastercard:
-        href: https://www.mastercard.com
-        hosts:
-            - www.mastercard.com
-        twitter: "@Mastercard"
-        categories:
-            - Banking
+    href: https://www.mastercard.com
+    hosts:
+    - www.mastercard.com
+    twitter: '@Mastercard'
+    categories:
+    - Banking
 
   Visa:
-        href: https://www.visa.com
-        hosts:
-            - www.visa.com
-        twitter: "@Visa"
-        categories:
-            - Banking
+    href: https://www.visa.com
+    hosts:
+    - www.visa.com
+    twitter: '@Visa'
+    categories:
+    - Banking
 
   TeamSpeak:
-      href: https://teamspeak.com
-      hosts:
-          - teamspeak.com
-      twitter: "@teamspeak"
-      categories:
-          - VoIP
+    href: https://teamspeak.com
+    hosts:
+    - teamspeak.com
+    twitter: '@teamspeak'
+    categories:
+    - VoIP
 
   DigitalOcean:
-      href: https://www.digitalocean.com/
-      hosts:
-          - www.digitalocean.com
-          - assets.digitalocean.com
-      twitter: "@digitalocean"
-      categories:
-          - Cloud
+    href: https://www.digitalocean.com/
+    hosts:
+    - www.digitalocean.com
+    - assets.digitalocean.com
+    twitter: '@digitalocean'
+    categories:
+    - Cloud
 
   Linode:
-      href: https://www.linode.com
-      hosts:
-          - www.linode.com
-      twitter: "@linode"
-      categories:
-          - Cloud
+    href: https://www.linode.com
+    hosts:
+    - www.linode.com
+    twitter: '@linode'
+    categories:
+    - Cloud
 
   Microsoft:
-      href: https://www.microsoft.com
-      hosts:
-          - www.microsoft.com
-          - login.live.com
-          - products.office.com
-          - support.microsoft.com
-      twitter: "@Microsoft"
-      categories:
-          - Software
+    href: https://www.microsoft.com
+    hosts:
+    - www.microsoft.com
+    - login.live.com
+    - products.office.com
+    - support.microsoft.com
+    twitter: '@Microsoft'
+    categories:
+    - Software
 
   OneDrive:
       # I struggled a bit. First I had it under Microsoft, but it's a different
       # service. So I added a new one
-      href: https://onedrive.live.com
-      hosts:
-          - onedrive.live.com
-          - login.live.com
-      twitter: "@onedrive"
-      categories:
-          - Cloud
+    href: https://onedrive.live.com
+    hosts:
+    - onedrive.live.com
+    - login.live.com
+    twitter: '@onedrive'
+    categories:
+    - Cloud
 
   Azure:
-      href: https://azure.microsoft.com
-      hosts:
-          - azure.microsoft.com
-          - login.live.com
-      twitter: "@Azure"
-      categories:
-          - Cloud
+    href: https://azure.microsoft.com
+    hosts:
+    - azure.microsoft.com
+    - login.live.com
+    twitter: '@Azure'
+    categories:
+    - Cloud
 
   Syncthing:
-      href: https://syncthing.net/
-      hosts:
-          - syncthing.net
-      twitter: "@syncthing"
+    href: https://syncthing.net/
+    hosts:
+    - syncthing.net
+    twitter: '@syncthing'
       # No categories -> Uncategorized
