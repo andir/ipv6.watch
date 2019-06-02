@@ -219,6 +219,13 @@ async def main():
     nameservers = config['nameservers']
     targets = config['targets']
 
+    categories = extract_target_categories(targets)
+
+    for category in categories:
+        print("Found category: {:s}".format(category))
+
+
+
     loop = asyncio.get_event_loop()
 
     resolvers = prepare_resolvers(nameservers, loop)
