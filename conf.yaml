@@ -23,12 +23,6 @@ messages:
     none: "Hey %s any plans to support #IPv6. Isn't it about time? @ipv6watch"
 
 # Missing:
-# - TravisCI
-# - TeamSpeak
-# - DigitalOcean
-# - Linode
-# - Microsoft
-# - Azure
 
 # Available categories
 # - Social network
@@ -56,6 +50,7 @@ targets:
     twitter: "@500px"
     categories:
       - Social network
+
   9GAG:
     href: http://9gag.com
     hosts:
@@ -63,6 +58,7 @@ targets:
     twitter: "@9GAGTEAM"
     categories:
       - Social network
+
   Amazon:
     href: https://www.amazon.com
     hosts:
@@ -73,6 +69,7 @@ targets:
     categories:
       - Shopping
       - Streaming
+
   Apple:
     href: https://www.apple.com
     hosts:
@@ -83,6 +80,7 @@ targets:
     twitter: "@apple"
     categories:
       - Software
+
   Arch Linux:
     href: https://www.archlinux.org
     hosts:
@@ -92,6 +90,7 @@ targets:
     twitter: "@archlinux"
     categories:
       - Operating system
+
   Ars Technica:
     href: https://arstechnica.com
     hosts:
@@ -99,6 +98,7 @@ targets:
     twitter: "@arstechnica"
     categories:
       - News
+
   Bitbucket:
     href: https://bitbucket.org
     hosts:
@@ -107,6 +107,7 @@ targets:
     twitter: "@bitbucket"
     categories:
       - Coding
+
   Bing:
     href: https://bing.com
     hosts:
@@ -115,6 +116,7 @@ targets:
     twitter: "@bing"
     categories:
       - Search engine
+
   CenturyLink (formerly Level3):
     href: https://www.centurylink.com
     hosts:
@@ -122,6 +124,7 @@ targets:
     twitter: "@CenturyLink @CenturyLinkHelp"
     categories:
       - Internet service provider
+
   CodePen:
     href: https://codepen.io
     hosts:
@@ -130,6 +133,7 @@ targets:
     twitter: "@codepen"
     categories:
       - Coding
+
   CoreOS:
     href: https://coreos.com
     hosts:
@@ -138,6 +142,7 @@ targets:
     twitter: "@coreos"
     categories:
       - Operating system
+
   Coveralls:
     href: https://coveralls.io/
     hosts:
@@ -145,6 +150,7 @@ targets:
     twitter: "@CoverallsApp"
     categories:
       - Coding
+
   Debian:
     href: https://www.debian.org
     hosts:
@@ -154,6 +160,7 @@ targets:
     twitter: "@debian"
     categories:
       - Operating system
+
   Delicious:
     href: https://del.icio.us
     hosts:
@@ -162,6 +169,7 @@ targets:
     twitter: "@delicious"
     categories:
       - Social bookmarks
+
   "Deutsche Welle":
     href: https://www.dw.com
     hosts:
@@ -170,6 +178,7 @@ targets:
     twitter: "@deutschewelle"
     categories:
       - News
+
   DeviantArt:
     href: https://www.deviantart.com
     hosts:
@@ -178,6 +187,7 @@ targets:
     twitter: "@deviantart"
     categories:
       - Social network
+
   Digg:
     href: https://digg.com
     hosts:
@@ -186,6 +196,7 @@ targets:
     twitter: "@digg"
     categories:
       - Social bookmarks
+
   Discord:
     href: https://discordapp.com/
     hosts:
@@ -195,6 +206,7 @@ targets:
     categories:
       - Chat
       - VoIP
+
   Docker:
     href: https://www.docker.com/
     hosts:
@@ -206,6 +218,7 @@ targets:
     twitter: "@Docker"
     categories:
       - Coding
+
   Dribbble:
     href: https://dribbble.com
     hosts:
@@ -214,6 +227,7 @@ targets:
     twitter: "@dribbble"
     categories:
       - Social network
+
   Dropbox:
     href: https://www.dropbox.com
     hosts:
@@ -222,6 +236,7 @@ targets:
     twitter: "@dropbox"
     categories:
       - Cloud
+
   Duckduckgo:
     href: "https://Duckduckgo.com"
     hosts:
@@ -230,6 +245,7 @@ targets:
     twitter: "@duckduckgo"
     categories:
       - Search engine
+
   Ebay:
     href: http://www.ebay.com/
     hosts:
@@ -238,6 +254,7 @@ targets:
     twitter: "@eBay"
     categories:
         - Shopping
+
   Facebook:
     href: https://www.facebook.com
     hosts:
@@ -247,6 +264,7 @@ targets:
     twitter: "@facebook"
     categories:
         - Social network
+
   Fedora:
     href: https://getfedora.org
     hosts:
@@ -256,6 +274,7 @@ targets:
     twitter: "@fedora"
     categories:
         - Operating system
+
   Fiducia:
     href: https://www.fiduciagad.de
     hosts:
@@ -263,6 +282,7 @@ targets:
     twitter: "@fiducia_gad"
     categories:
         - Banking
+
   Foursquare:
     href: https://www.foursquare.com
     hosts:
@@ -272,6 +292,7 @@ targets:
     twitter: "@Foursquare"
     categories:
         - Social network
+
   Gentoo:
     href: https://www.gentoo.org
     hosts:
@@ -281,6 +302,7 @@ targets:
     twitter: "@gentoo"
     categories:
         - Operating system
+
   GitHub:
     href: https://github.com
     hosts:
@@ -291,6 +313,7 @@ targets:
     twitter: "@GitHub"
     categories:
         - Coding
+
   GitLab:
     href: https://about.gitlab.com
     hosts:
@@ -300,6 +323,7 @@ targets:
     twitter: "@gitlab"
     categories:
         - Coding
+
   Google:
     href: https://www.google.com
     hosts:
@@ -309,12 +333,14 @@ targets:
     categories:
         - Search engine
         - Cloud
+
   Gravatar:
     href: https://www.gravatar.com
     hosts:
       - gravatar.com
       - secure.gravatar.com
     twitter: "@gravatar"
+
   "Hacker News":
     href: https://news.ycombinator.com
     hosts:
@@ -323,11 +349,13 @@ targets:
     twitter: "@hnstatus"
     categories:
         - News
+
   Hastebin:
     href: https://hastebin.com/
     hosts:
       - hastebin.com
     twitter: "@hastebin"
+
   "Hound CI":
     href: https://houndci.com
     hosts:
@@ -335,11 +363,13 @@ targets:
     twitter: "@houndci"
     categories:
         - Coding
+
   IFTTT:
     href: https://ifttt.com/
     hosts:
       - ifttt.com
     twitter: "@IFTTT"
+
   IMDb:
     href: http://www.imdb.com
     hosts:
@@ -347,6 +377,7 @@ targets:
       - media-imdb.com
     icon: "fa:imdb"
     twitter: "@imdb"
+
   Imgur:
     href: https://imgur.com/
     hosts:
@@ -354,6 +385,7 @@ targets:
     twitter: "@imgur"
     categories:
         - Social network
+
   Instagram:
     href: https://www.instagram.com
     hosts:
@@ -363,6 +395,7 @@ targets:
     twitter: "@instagram"
     categories:
         - Social network
+
   JSFiddle:
     href: https://jsfiddle.net
     hosts:
@@ -371,6 +404,7 @@ targets:
     twitter: "@jsfiddle"
     categories:
         - Coding
+
   JetBrains:
     href: https://www.jetbrains.com
     hosts:
@@ -379,6 +413,7 @@ targets:
     twitter: "@jetbrains"
     categories:
         - Coding
+
   LinkedIn:
     href: https://www.linkedin.com
     hosts:
@@ -388,6 +423,7 @@ targets:
     twitter: "@linkedin"
     categories:
         - Social network
+
   Matrix.org:
     href: https://matrix.org
     hosts:
@@ -396,6 +432,7 @@ targets:
     twitter: "@matrixdotorg"
     categories:
         - Chat
+
   MaxCDN:
     href: https://www.maxcdn.com
     hosts:
@@ -406,6 +443,7 @@ targets:
     twitter: "@maxcdn"
     categories:
         - Cloud
+
   Medium:
     href: https://medium.com
     hosts:
@@ -414,6 +452,7 @@ targets:
     twitter: "@medium"
     categories:
         - News
+
   Meetup:
     href: https://www.meetup.com
     hosts:
@@ -422,6 +461,7 @@ targets:
     twitter: "@meetup"
     categories:
         - Social Network
+
   Mixer:
     href: https://mixer.com
     hosts:
@@ -431,6 +471,7 @@ targets:
     twitter: "@WatchMixer"
     categories:
         - Streaming
+
   N26:
     href: https://n26.com
     hosts:
@@ -439,6 +480,7 @@ targets:
     twitter: "@n26"
     categories:
         - Banking
+
   Netcologne:
     href: https://www.netcologne.de
     hosts:
@@ -446,6 +488,7 @@ targets:
     twitter: "@NetCologne_GmbH"
     categories:
         - Internet service provider
+
   Netflix:
     href: https://www.netflix.com/
     hosts:
@@ -454,6 +497,7 @@ targets:
     twitter: "@Netflixhelps"
     categories:
         - Streaming
+
   NixOS:
     href: https://nixos.org
     hosts:
@@ -463,6 +507,7 @@ targets:
     twitter: "@nixos_org"
     categories:
         - Operating system
+
   O2:
     href: https://www.o2online.de/
     hosts:
@@ -471,6 +516,7 @@ targets:
     twitter: "@o2de"
     categories:
         - Internet service provider
+
   Origin:
     href: https://www.origin.com
     hosts:
@@ -478,11 +524,13 @@ targets:
     twitter: "@AskEASupport"
     categories:
         - Gaming
+
   Pastebin:
     href: http://pastebin.com/
     hosts:
       - pastebin.com
     twitter: "@pastebin"
+
   PayPal:
     href: https://www.paypal.com
     hosts:
@@ -491,6 +539,7 @@ targets:
     twitter: "@AskPayPal"
     categories:
         - Banking
+
   Pinterest:
     href: https://www.pinterest.com
     hosts:
@@ -500,6 +549,7 @@ targets:
     twitter: "@pinterest"
     categories:
         - Social network
+
   Reddit:
     href: https://www.reddit.com
     hosts:
@@ -509,6 +559,7 @@ targets:
     twitter: "@reddit"
     categories:
         - Social network
+
   Scribd:
     href: https://www.scribd.com
     hosts:
@@ -517,6 +568,7 @@ targets:
     twitter: "@scribd"
     categories:
         - Streaming
+
   Skype:
     href: https://www.skype.com
     hosts:
@@ -526,6 +578,7 @@ targets:
     categories:
         - Chat
         - VoIP
+
   Slack:
     href: https://slack.com
     hosts:
@@ -534,6 +587,7 @@ targets:
     twitter: "@slackhq"
     categories:
         - Chat
+
   Snapchat:
     href: https://snapchat.com
     hosts:
@@ -542,6 +596,7 @@ targets:
     twitter: "@snapchat"
     categories:
         - Social network
+
   SoundCloud:
     href: https://soundcloud.com
     hosts:
@@ -550,6 +605,7 @@ targets:
     twitter: "@soundcloud"
     categories:
         - Streaming
+
   Spotify:
     href: https://www.spotify.com
     hosts:
@@ -558,6 +614,7 @@ targets:
     twitter: "@spotify"
     categories:
         - Streaming
+
   "Stack Exchange":
     href: https://stackexchange.com
     hosts:
@@ -569,6 +626,7 @@ targets:
     twitter: "@stackexchange"
     categories:
         - Coding
+
   Steam:
     href: http://store.steampowered.com
     hosts:
@@ -579,13 +637,15 @@ targets:
     twitter: "@steam_games"
     categories:
         - Gaming
+
   Strava:
     href: https://www.strava.com
     hosts:
       - strava.com
     icon: fa:strava
     twitter: "@Strava"
-  "Telegram Messenger":
+
+  Telegram Messenger:
     href: https://telegram.org
     hosts:
       - telegram.org
@@ -594,6 +654,7 @@ targets:
     twitter: "@telegram"
     categories:
         - Chat
+
   TechChruch:
     href: https://techcrunch.com
     hosts:
@@ -601,6 +662,7 @@ targets:
     twitter: "@TechCrunch"
     categories:
         - News
+
   The Register:
     href: https://www.theregister.co.uk
     hosts:
@@ -608,6 +670,7 @@ targets:
     twitter: "@TheRegister"
     categories:
         - News
+
   TIDAL:
     href: http://tidal.com
     hosts:
@@ -616,6 +679,7 @@ targets:
     twitter: "@TIDAL"
     categories:
         - Streaming
+
   Travis-CI:
     href: https://travis-ci.org
     hosts:
@@ -623,12 +687,14 @@ targets:
     twitter: "@travisci"
     categories:
         - Coding
+
   Trello:
     href: https://trello.com
     hosts:
       - trello.com
     icon: "fa:trello"
     twitter: "@trello"
+
   Tumblr:
     href: https://www.tumblr.com
     hosts:
@@ -637,6 +703,7 @@ targets:
     twitter: "@tumblr"
     categories:
         - Social network
+
   Twitch:
     href: https://www.twitch.tv
     hosts:
@@ -645,6 +712,7 @@ targets:
     twitter: "@Twitch @TwitchSupport"
     categories:
         - Streaming
+
   Twitter:
     href: https://twitter.com
     hosts:
@@ -655,6 +723,7 @@ targets:
     twitter: "@twitter @tweetdeck"
     categories:
         - Social network
+
   Ubuntu:
     href: https://www.ubuntu.com
     hosts:
@@ -663,6 +732,7 @@ targets:
     twitter: "@ubuntu"
     categories:
         - Operating system
+
   Vimeo:
     href: https://vimeo.com
     hosts:
@@ -671,6 +741,7 @@ targets:
     twitter: "@vimeo"
     categories:
         - Streaming
+
   WhatsApp:
     href: https://www.whatsapp.com
     hosts:
@@ -680,12 +751,14 @@ targets:
     twitter: "@whatsapp"
     categories:
         - Chat
+
   Wikipedia:
     href: https://www.wikipedia.org
     hosts:
       - www.wikipedia.org
     icon: images/wikipedia.png
     twitter: "@Wikipedia"
+
   Wordpress:
     href: https://wordpress.org
     hosts:
@@ -698,6 +771,7 @@ targets:
     categories:
         - Software
         - Cloud
+
   Xing:
     href: https://www.xing.com
     hosts:
@@ -706,6 +780,7 @@ targets:
     twitter: "@xing_com @xingdevs"
     categories:
         - Social network
+
   Yahoo:
     href: https://www.yahoo.com
     hosts:
@@ -722,6 +797,7 @@ targets:
     twitter: "@Yahoo"
     categories:
         - Search engine
+
   YouTube:
     href: https://www.youtube.com
     hosts:
@@ -730,6 +806,7 @@ targets:
     twitter: "@youtube"
     categories:
         - Streaming
+
   Bandcamp:
     href: https://bandcamp.com
     hosts:
@@ -738,6 +815,7 @@ targets:
     twitter: "@bandcamp"
     categories:
         - Streaming
+
   flickr:
     href: https://www.flickr.com
     hosts:
@@ -746,6 +824,7 @@ targets:
     twitter: "@flickr"
     categories:
         - Social network
+
   mailbox.org:
     href: https://mailbox.org
     hosts:
@@ -755,6 +834,7 @@ targets:
       - mx3.mailbox.org
       - mx-n.mailbox.org
     twitter: "@mailbox_org"
+
   last.fm:
     href: http://www.last.fm
     hosts:
@@ -763,11 +843,13 @@ targets:
     twitter: "@lastfm"
     categories:
         - Streaming
+
   "Mozilla Observatory":
     href: https://observatory.mozilla.org
     hosts:
       - observatory.mozilla.org
     twitter: "@mozilla"
+
   Codeship:
     href: https://codeship.com
     hosts:
@@ -775,6 +857,7 @@ targets:
     twitter: "@codeship @codeshipsupport"
     categories:
         - Coding
+
   Rubygems:
     href: https://rubygems.org
     hosts:
@@ -783,6 +866,7 @@ targets:
     icon: images/rubygems.png
     categories:
         - Coding
+
   WIRED:
     href: https://www.wired.com
     hosts:
@@ -790,3 +874,115 @@ targets:
     twitter: "@WIRED"
     categories:
         - News
+
+  TikTok:
+      href: https://www.tiktok.com
+      hosts:
+          - www.tiktok.com
+      twitter: "@tiktok_us"
+      categories:
+          - Social network
+
+  Sparkasse:
+      href: https://www.sparkasse.de
+      hosts:
+          - www.sparkasse.de
+          - webfonts.sparkasse.de
+      twitter: "@sparkasse"
+      categories:
+          - Banking
+
+  Postbank:
+       href: https://www.postbank.de
+       hosts:
+           - www.postbank.de
+       twitter: "@postbank"
+       categories:
+           - Banking
+
+  Raiffeisenbank:
+      href: https://www.bvr.de
+      hosts:
+          - www.bvr.de
+      twitter: "@BVRPresse"
+      categories:
+          - Banking
+
+  Mastercard:
+        href: https://www.mastercard.com
+        hosts:
+            - www.mastercard.com
+        twitter: "@Mastercard"
+        categories:
+            - Banking
+
+  Visa:
+        href: https://www.visa.com
+        hosts:
+            - www.visa.com
+        twitter: "@Visa"
+        categories:
+            - Banking
+
+  TeamSpeak:
+      href: https://teamspeak.com
+      hosts:
+          - teamspeak.com
+      twitter: "@teamspeak"
+      categories:
+          - VoIP
+
+  DigitalOcean:
+      href: https://www.digitalocean.com/
+      hosts:
+          - www.digitalocean.com
+          - assets.digitalocean.com
+      twitter: "@digitalocean"
+      categories:
+          - Cloud
+
+  Linode:
+      href: https://www.linode.com
+      hosts:
+          - www.linode.com
+      twitter: "@linode"
+      categories:
+          - Cloud
+
+  Microsoft:
+      href: https://www.microsoft.com
+      hosts:
+          - www.microsoft.com
+          - login.live.com
+          - products.office.com
+          - support.microsoft.com
+      twitter: "@Microsoft"
+      categories:
+          - Software
+
+  OneDrive:
+      # I struggled a bit. First I had it under Microsoft, but it's a different
+      # service. So I added a new one
+      href: https://onedrive.live.com
+      hosts:
+          - onedrive.live.com
+          - login.live.com
+      twitter: "@onedrive"
+      categories:
+          - Cloud
+
+  Azure:
+      href: https://azure.microsoft.com
+      hosts:
+          - azure.microsoft.com
+          - login.live.com
+      twitter: "@Azure"
+      categories:
+          - Cloud
+
+  Syncthing:
+      href: https://syncthing.net/
+      hosts:
+          - syncthing.net
+      twitter: "@syncthing"
+      # No categories -> Uncategorized
