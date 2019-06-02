@@ -56,6 +56,11 @@ targets:
       - aur.archlinux.org
     icon: images/archlinux.png
     twitter: "@archlinux"
+  Ars Technica:
+    href: https://arstechnica.com
+    hosts:
+      - arstechnica.com
+    twitter: "@arstechnica"
   BigPulse:
     href: https://www.bigpulse.com
     hosts:
@@ -437,6 +442,16 @@ targets:
       - web.telegram.org
     icon: "fa:telegram"
     twitter: "@telegram"
+  TechChruch:
+    href: https://techcrunch.com
+    hosts:
+      - techcrunch.com
+    twitter: "@TechCrunch"
+  The Register:
+    href: https://www.theregister.co.uk
+    hosts:
+      - www.theregister.co.uk
+    twitter: "@TheRegister"
   TIDAL:
     href: http://tidal.com
     hosts:
@@ -591,3 +606,8 @@ targets:
        - vapiano.com
        - de.vapiano.com
     twitter: '@vapiano'
+  WIRED:
+    href: https://www.wired.com
+    hosts:
+      - www.wired.com
+    twitter: "@WIRED"
