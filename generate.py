@@ -105,6 +105,62 @@ def generate_message(media, target, conf, result):
     else:
         raise RuntimeError('Invalid media {} for {}'.format(media, target))
 
+# Sanizite category names:
+# - Lower all letters
+# - Uppercase first letters of every part (splitted by whitespace)
+#
+# Examples:
+# Social network => Social Network
+# soCial nEtwork => Social Network
+def sanitise_category(tosanitise):
+    sanitised = ""
+    # tosanitize = tosanitize.lower()
+
+    for current_part in tosanitise.split(" "):
+        sanitised += current_part[0].upper()
+        sanitised += current_part[1:]
+        sanitised += " "
+
+    return sanitised.strip()
+
+
+def extract_target_categories(targets):
+    categories_key_string = "categories"
+    uncategorised_string = "Uncategorised"
+
+    found_categories = []
+    found_categories.append(uncategorised_string)
+
+    for current_target in targets:
+        # Check if current target has categories
+        if categories_key_string in targets[current_target]:
+            # Create a new array where the sanitized categories for
+            # this specific target are stored in
+            sanizised_categorie_names = []
+
+            # Yes. Get every category. Sanitise the name.
+            for current_category in targets[current_target][categories_key_string]:
+                current_category = sanitise_category(current_category)
+
+                # If the category is not known yet: Add it
+                if current_category not in found_categories:
+                    found_categories.append(current_category)
+
+                # But add it to the sanitised categories temporary list
+                sanizised_categorie_names.append(current_category)
+
+            # As last step: Overwrite the unsanitised category names with
+            # the sanitised one
+            targets[current_target][categories_key_string] = sanizised_categorie_names
+
+        else:
+            # No category: Add "Uncategorized"
+            # Strange python foo: targets is passed as a mutable list (reference)
+            targets[current_target][categories_key_string] = []
+            targets[current_target][categories_key_string].append(uncategorised_string)
+
+
+    return sorted(found_categories)
 
 async def handle_target(resolvers, name, target):
     result = await resolve_target(target, resolvers)
