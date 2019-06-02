@@ -1,3 +1,8 @@
+{# somehow jinja ignores this! It works with ansible
+TODO: Needs debugging
+#jinja2: trim_blocks: True
+#jinja2: lstrip_blocks: True
+#}
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,15 +10,35 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <style type="text/css">
-    .entry td {
-        height: 60px;
-        vertical-align: middle !important;
-    }
     #twitter-logo {
         color: #00aced;
     }
     #github-logo {
         color: #333;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    .minheight {
+        min-height: 40px;
+    }
+
+    /* .test-result-no-ipv6 {
+        background-color: hsla(0, 100%, 62%, 0.6);
+    }
+
+    .test-result-partial-ipv6 {
+        background-color: hsla(39, 100%, 50%, 0.75);
+    }
+
+    .test-result-full-ipv6 {
+        background-color: hsla(135, 87%, 46%, 1);
+    } */
+
+    .target-link {
+        color: black;
     }
 
     </style>
@@ -31,55 +56,63 @@
         <p>
             Are you trying to disable IPv6 on your system or network? <a href="http://howtodisableipv6.com/">Click here</a> to learn more.
         </p>
-        <table class="table table-dense">
-            <tr>
-                <th></th>
-                <th>Site</th>
-                <th>IPv6 Support</th>
-                <th>Tell them about it!</th>
-            </tr>
-            {% for target, result in results %}
-            {% set tt = targets[target] %}
-            <tr class="entry {% if result['summary']=='all' %}success{% elif result['summary']=='some' %}info{% else %}warning{% endif %}">
-                    <td>{% if 'icon' in tt %}
-                        {% if tt['icon'].startswith('fa:') %}
-                        <div class="text-center"><i class="fab fa-{{ tt['icon'][3:] }} fa-3x"></i></div>
-                        {% else %}
-                        <img class="center-block" style="max-height: 40px; max-width: 64px;"
-                             src="{{ tt['icon'] }}">{% endif %}{% endif %}</td>
-                    <td>
-                        <strong>
-                            {% if 'href' in tt %}
-                                <a href="{{ tt['href'] }}" rel="nofollow" target="_blank">
-                                    {{ target }}
-                                </a>
-                            {% else %}
-                                {{ target }}
-                            {% endif %}
-                        </strong>
-                    </td>
-                    <td>
-                        {% if result['summary'] == 'all' %}
-                            Yay! IPv6 is supported!
-                        {% elif result['summary'] == 'some' %}
-                            Well, there is some IPv6 support. Can't you do better?
-                        {% else %}
-                            Nope. Ever thought about gardening instead?
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if tt['twitter'] %}
-                            <a target="_blank"
-                               href="http://twitter.com/home/?status={{ ( messages['twitter'][result['summary']] % ( tt['twitter'] ) ) | urlencode }}">
-                                <i class="fab fa-twitter" aria-hidden="true"></i>
-                                Twitter
-                            </a>
-                        {% endif %}
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
     </div>
+
+
+    {% for category in categories|sort %}
+        <div class="row">
+            <div class="col-12"><h2>{{ category }}</h2></div>
+        </div>
+
+        {% for target, result in results | sort %}
+        {% set tt = targets[target] %}
+
+            {% if tt.categories is defined and category in tt.categories %}
+            <div class="row align-middle rounded mt alert {% if result['summary']=='all' %}alert-success{% elif result['summary']=='some' %}alert-warning{% else %}alert-danger{% endif %}">
+                {# Print icon. Either a FontAwesome one, an image or noting #}
+                <div class="col-1 minheight text-left">
+                    {% if 'icon' in tt %}
+                        {% if tt['icon'].startswith('fa:') %}
+                            <i class="fab fa-{{ tt['icon'][3:] }} fa-3x"></i>
+                        {% else %}
+                            <img style="max-height: 40px; max-width: 64px;" src="{{ tt['icon'] }}">
+                        {% endif %}
+                    {% endif %}
+                </div>
+
+                {# Print target name #}
+                <div class="col-2 minheight text-left">
+                    <a href="{{ tt['href'] }}" class="target-link" rel="nofollow" target="_blank">
+                        {{ target }}
+                    </a>
+                </div>
+
+                {# Print target status #}
+                <div class="col-7 minheight text-left">
+                    {% if result['summary'] == 'all' %}
+                        Yay! IPv6 is supported!
+                    {% elif result['summary'] == 'some' %}
+                        Well, there is some IPv6 support. Can't you do better?
+                    {% else %}
+                        Nope. <strong>SHAME</strong> on you!
+                    {% endif %}
+                </div>
+
+                {# Tell them on social media #}
+                <div class="col-2 minheight text-right">
+                    {% if tt['twitter'] %}
+                        <a target="_blank"
+                           href="http://twitter.com/home/?status={{ ( messages['twitter'][result['summary']] % ( tt['twitter'] ) ) | urlencode }}">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                            Twitter
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+
     <hr/>
     <div class="row">
         <p>
@@ -95,7 +128,6 @@
         </p>
     </div>
 </div>
-<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-f2005fe98e1862aec9c7decf22a993c0b3e29f8871233430e5a0e6520fc30e1ba5f5f1696db2dc2e1de74c820324a871" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
 </body>
 </html>
