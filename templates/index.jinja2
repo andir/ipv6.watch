@@ -37,7 +37,6 @@
     .target-link {
         color: black;
     }
-
     </style>
 </head>
 <body>
@@ -125,56 +124,47 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-2">Domain</div>
-                    <div class="col-2">Resolver provider</div>
-                    <div class="col-3">Resolver IPs</div>
-                    <div class="col-5">Resolves with AAAA</div>
+                <div class="row border border-primary">
+                    <div class="col-3 border">Domain</div>
+                    <div class="col-3 border">Resolver provider</div>
+                    <div class="col-3 border">Resolver IPs</div>
+                    <div class="col-3 border">Resolves with AAAA</div>
                 </div>
 
                 {% for subdomain in details['query-results']['hosts'] %}
-                    {% set subdomainloop = loop %}
-                    {% for dnsprovider in details['query-results']['hosts'][subdomain] %}
-                    <div class="row">
-                        <div class="col-2">
-                            {% if subdomainloop.first %}
-                            {{ subdomain }}
-                            {% else %}
-                            <!-- left blank -->
-                            {% endif %}
-                        </div>
-                        <div class="col-2">
-                            {% if subdomainloop.first %}
-                            {{ dnsprovider }}
-                            {% else %}
-                            <!-- left blank -->
-                            {% endif %}
-                        </div>
-                        <div class="col-3">
-                            {% for resolverip in details['query-results']['hosts'][subdomain][dnsprovider] %}
-                            <div class="row">
-                            {{ resolverip }}
-                            </div>
-                            {% endfor %}
-                        </div>
-                        <div class="col-5">
-                            {% for resolverip in details['query-results']['hosts'][subdomain][dnsprovider] %}
-                            <div class="row">
-                            {% if details['query-results']['hosts'][subdomain][dnsprovider][resolverip] == true %}
-                            <span class="badge badge-success">Yes</span>
-                            {% else %}
-                            <span class="badge badge-danger">No</span>
-                            {% endif %}
-                            </div>
-                            {% endfor %}
-                        </div>
+                <div class="row border border-primary">
+                    <div class="col-3 border">
+                        {{ subdomain }}
                     </div>
-                    {% endfor %}
+                    <div class="col-9 border">
+                        {% for dnsprovider in details['query-results']['hosts'][subdomain] %}
+                        <div class="row border border-primary">
+                            <div class="col-4 border">
+                                {{ dnsprovider }}
+                            </div>
+                            <div class="col-8 border">
+                                {% for resolverip in details['query-results']['hosts'][subdomain][dnsprovider] %}
+                                <div class="row border border-primary">
+                                    <div class="col-6 border">{{ resolverip }}</div>
+                                    <div class="col-6 border">
+                                        {% if details['query-results']['hosts'][subdomain][dnsprovider][resolverip] == true %}
+                                        <span class="badge badge-success">Yes</span>
+                                        {% else %}
+                                        <span class="badge badge-danger">No</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
                 {% endfor %}
             </div>
         </div>
-        {% endfor %}
     {% endfor %}
+{% endfor %}
 
     <hr/>
     <div class="row">
