@@ -165,6 +165,39 @@ def addReferencableNameKey(targets):
     for target in targets:
         targets[target][KEY_REFNAME] = target.lower().replace(" ","")
 
+#
+# Adds the following statistics to each group:
+# Amount of:
+# - fully ipv6 resolveable targets
+# - partial ipv6 resolveable targets
+# - non ipv6 resolveable targets
+#
+def generate_query_results_for_each_category(categories):
+    stats = {}
+
+    for category in categories:
+        countFullIPv6 = 0
+        countPartialIPv6 = 0
+        countNoIPv6 = 0
+
+        stats[category] = {}
+
+        for target in categories[category]:
+            summary = categories[category][target]['query-results']['summary']
+
+            if summary == "all":
+                countFullIPv6 += 1
+            elif summary == "some":
+                countPartialIPv6 += 1
+            else:
+                countNoIPv6 += 1
+
+        stats[category]['count_full_ipv6'] = countFullIPv6
+        stats[category]['count_partial_ipv6'] = countPartialIPv6
+        stats[category]['count_no_ipv6'] = countNoIPv6
+
+    return stats
+
 async def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -219,7 +252,8 @@ async def main():
             name, result = task.result()
             targets[name]["query-results"] = result
 
-    testresults = sort_target_into_categories(targets, categories)
+    testresults_grouped_by_category = sort_target_into_categories(targets, categories)
+    querystats_grouped_by_category = generate_query_results_for_each_category(testresults_grouped_by_category)
 
     jinja_env = Environment(loader=FileSystemLoader('templates/'))
     template = jinja_env.get_template('index.jinja2')
@@ -228,9 +262,8 @@ async def main():
             template.render(
                 long_date=datetime.datetime.now().strftime('%B %Y'),
                 messages=config['messages'],
-                testresults=testresults,
-                #trim_blocks=True,
-                #lstrip_blocks=True,
+                testresults=testresults_grouped_by_category,
+                querystats=querystats_grouped_by_category,
                 date=datetime.datetime.utcnow()))
 
     logger.info("Done")
