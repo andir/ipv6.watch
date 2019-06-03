@@ -26,6 +26,10 @@ messages:
     some: 'Hey %s are you going to expand your #IPv6 support? @ipv6watch'
     none: "Hey %s any plans to support #IPv6. Isn't it about time? @ipv6watch"
 
+
+# Missing sites:
+# - Yandex
+
 categories:
 - Social Network
 - Shopping
