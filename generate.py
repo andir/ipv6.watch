@@ -11,6 +11,10 @@ import jsonschema
 import yaml
 from jinja2 import Environment, FileSystemLoader, Template
 
+KEY_CATEGORIES = "categories"
+KEY_REFNAME = "refname"
+KEY_CATEGORY_UNCATEGORIZED = "Uncategorized"
+
 logger = logging.getLogger(__name__)
 
 config_schema = {
@@ -83,9 +87,9 @@ async def resolve_target(target, resolvers):
             host, resolver_name, nameserver = context
 
             if response:
-                logger.info('\033[0;32m✓\033[0m\t%s @ %s', host, nameserver)
+                logger.debug('\033[0;32m✓\033[0m\t%s @ %s', host, nameserver)
             else:
-                logger.info('\033[0;31m✗\033[0m\t%s @ %s', host, nameserver)
+                logger.debug('\033[0;31m✗\033[0m\t%s @ %s', host, nameserver)
 
             h = results[host] = results.get(host, {})
             r = h[resolver_name] = h.get(resolver_name, {})
@@ -93,74 +97,18 @@ async def resolve_target(target, resolvers):
 
     return results
 
-
-def generate_message(media, target, conf, result):
-    if media in conf:
-        template = Template(media.get(result))
-        return template.render(
-            target=target,
-            conf=conf,
-            result=result,
-            media=media)
-    else:
-        raise RuntimeError('Invalid media {} for {}'.format(media, target))
-
-# Sanizite category names:
-# - Lower all letters
-# - Uppercase first letters of every part (splitted by whitespace)
 #
-# Examples:
-# Social network => Social Network
-# soCial nEtwork => Social Network
-def sanitise_category(tosanitise):
-    sanitised = ""
-    # tosanitize = tosanitize.lower()
+# def generate_message(media, target, conf, result):
+#     if media in conf:
+#         template = Template(media.get(result))
+#         return template.render(
+#             target=target,
+#             conf=conf,
+#             result=result,
+#             media=media)
+#     else:
+#         raise RuntimeError('Invalid media {} for {}'.format(media, target))
 
-    for current_part in tosanitise.split(" "):
-        sanitised += current_part[0].upper()
-        sanitised += current_part[1:]
-        sanitised += " "
-
-    return sanitised.strip()
-
-
-def extract_target_categories(targets):
-    categories_key_string = "categories"
-    uncategorised_string = "Uncategorised"
-
-    found_categories = []
-    found_categories.append(uncategorised_string)
-
-    for current_target in targets:
-        # Check if current target has categories
-        if categories_key_string in targets[current_target]:
-            # Create a new array where the sanitized categories for
-            # this specific target are stored in
-            sanizised_categorie_names = []
-
-            # Yes. Get every category. Sanitise the name.
-            for current_category in targets[current_target][categories_key_string]:
-                current_category = sanitise_category(current_category)
-
-                # If the category is not known yet: Add it
-                if current_category not in found_categories:
-                    found_categories.append(current_category)
-
-                # But add it to the sanitised categories temporary list
-                sanizised_categorie_names.append(current_category)
-
-            # As last step: Overwrite the unsanitised category names with
-            # the sanitised one
-            targets[current_target][categories_key_string] = sanizised_categorie_names
-
-        else:
-            # No category: Add "Uncategorized"
-            # Strange python foo: targets is passed as a mutable list (reference)
-            targets[current_target][categories_key_string] = []
-            targets[current_target][categories_key_string].append(uncategorised_string)
-
-
-    return sorted(found_categories)
 
 async def handle_target(resolvers, name, target):
     result = await resolve_target(target, resolvers)
@@ -185,6 +133,50 @@ async def handle_target(resolvers, name, target):
     return name, dict(hosts=result, summary=msg)
 
 
+#
+# Sort each target into the respective category
+#
+# targets = All targets with test results
+# categories = All available categories
+def sort_target_into_categories(targets, categories):
+    logger.debug("Sorting targets into categories")
+
+    testresults = {}
+
+    for current_category in categories:
+        logger.debug("-> Current category: {:s}".format(current_category))
+
+        testresults[current_category] = {} # Add empty dict
+
+        for current_target in targets:
+            # Check if the current category is listed in the targets category
+            if current_category in targets[current_target]["categories"]:
+                logger.debug("   Target {:s} is in there".format(current_target))
+                testresults[current_category][current_target] = targets[current_target]
+
+    return testresults
+
+#
+# Adds category "Uncategorized" to each target which is not categorized
+#
+def add_uncategorized_category_if_necessary(targets):
+    logger.debug("Adding category \"{:s}\" to every target with missing categories".format(KEY_CATEGORY_UNCATEGORIZED))
+
+    for current_target in targets:
+        # Check if element "categories" is in the current target
+        if KEY_CATEGORIES not in targets[current_target]:
+            # Oh no! Add list with single item "Uncategorized"
+            targets[current_target][KEY_CATEGORIES] = ( KEY_CATEGORY_UNCATEGORIZED )
+            logger.debug("-> Added to {:s}".format(current_target));
+
+#
+# Adds a referenceable name key
+# Changes "Telegram Messenger" to "telegrammessenger"
+# Changes "Instagram" to "instagram"
+#
+def addReferencableNameKey(targets):
+    for target in targets:
+        targets[target][KEY_REFNAME] = target.lower().replace(" ","")
 
 async def main():
     parser = argparse.ArgumentParser()
@@ -212,49 +204,49 @@ async def main():
     log_level = getattr(logging, args.log_level)
     logging.basicConfig(level=log_level)
 
-    config = yaml.load(args.config)
+    config = yaml.full_load(args.config) # https://github.com/yaml/pyyaml/wiki/PyYAML-yaml.load(input)-Deprecation
     # TODO: add item validation
     jsonschema.validate(config_schema, config)
 
     nameservers = config['nameservers']
     targets = config['targets']
+    categories = config['categories']
 
-    categories = extract_target_categories(targets)
-
-    for category in categories:
-        print("Found category: {:s}".format(category))
-
-
+    addReferencableNameKey(targets)
+    add_uncategorized_category_if_necessary(targets)
 
     loop = asyncio.get_event_loop()
 
     resolvers = prepare_resolvers(nameservers, loop)
 
-    results = {}
     tasks = []
     for name, target in targets.items():
         tasks.append(handle_target(resolvers, name, target))
 
+    # Wait until everything is checked?
     tasks = await asyncio.wait(tasks)
+
+    # Sort query results to targets
     for task_list in tasks:
         for task in task_list:
             name, result = task.result()
-            results[name] = result
+            targets[name]["query-results"] = result
 
+    testresults = sort_target_into_categories(targets, categories)
 
-    results = sorted(results.items(), key=lambda x: x[0].lower())
-    logging.debug(pformat(results))
     jinja_env = Environment(loader=FileSystemLoader('templates/'))
     template = jinja_env.get_template('index.jinja2')
     with open(os.path.join(args.dest, 'index.html'), 'w') as fh:
         fh.write(
             template.render(
                 long_date=datetime.datetime.now().strftime('%B %Y'),
-                results=results,
-                targets=targets,
                 messages=config['messages'],
-                categories=categories,
+                testresults=testresults,
+                #trim_blocks=True,
+                #lstrip_blocks=True,
                 date=datetime.datetime.utcnow()))
+
+    logger.info("Done")
 
 
 if __name__ == "__main__":

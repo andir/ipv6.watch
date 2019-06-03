@@ -1,12 +1,9 @@
-{# somehow jinja ignores this! It works with ansible
-TODO: Needs debugging
-#jinja2: trim_blocks: True
-#jinja2: lstrip_blocks: True
-#}
 <!DOCTYPE html>
 <html>
 <head>
     <title>IPv6.watch</title>
+
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <style type="text/css">
@@ -22,20 +19,20 @@ TODO: Needs debugging
     }
 
     .minheight {
-        min-height: 40px;
+        min-height: 60px;
     }
 
-    /* .test-result-no-ipv6 {
-        background-color: hsla(0, 100%, 62%, 0.6);
+    .test-result-no-ipv6 {
+        background-color: #f8d7da;
     }
 
     .test-result-partial-ipv6 {
-        background-color: hsla(39, 100%, 50%, 0.75);
+        background-color: #fff3cd;
     }
 
     .test-result-full-ipv6 {
-        background-color: hsla(135, 87%, 46%, 1);
-    } */
+        background-color: #d4edda;
+    }
 
     .target-link {
         color: black;
@@ -58,58 +55,124 @@ TODO: Needs debugging
         </p>
     </div>
 
-
-    {% for category in categories|sort %}
+    {% for category in testresults|sort %}
+    <!-- Category loop: {{ loop }} -->
+    <div class="row">
         <div class="row">
             <div class="col-12"><h2>{{ category }}</h2></div>
         </div>
+    </div>
 
-        {% for target, result in results | sort %}
-        {% set tt = targets[target] %}
-
-            {% if tt.categories is defined and category in tt.categories %}
-            <div class="row align-middle rounded mt alert {% if result['summary']=='all' %}alert-success{% elif result['summary']=='some' %}alert-warning{% else %}alert-danger{% endif %}">
-                {# Print icon. Either a FontAwesome one, an image or noting #}
-                <div class="col-1 minheight text-left">
-                    {% if 'icon' in tt %}
-                        {% if tt['icon'].startswith('fa:') %}
-                            <i class="fab fa-{{ tt['icon'][3:] }} fa-3x"></i>
-                        {% else %}
-                            <img style="max-height: 40px; max-width: 64px;" src="{{ tt['icon'] }}">
-                        {% endif %}
-                    {% endif %}
-                </div>
-
-                {# Print target name #}
-                <div class="col-2 minheight text-left">
-                    <a href="{{ tt['href'] }}" class="target-link" rel="nofollow" target="_blank">
-                        {{ target }}
-                    </a>
-                </div>
-
-                {# Print target status #}
-                <div class="col-7 minheight text-left">
-                    {% if result['summary'] == 'all' %}
-                        Yay! IPv6 is supported!
-                    {% elif result['summary'] == 'some' %}
-                        Well, there is some IPv6 support. Can't you do better?
+        {% for target in testresults[category] %}
+        {% set details = testresults[category][target] %}
+        <!-- Target loop: {{ loop }} -->
+        <div class="row align-items-center minheight
+            {% if details['query-results']['summary']=='all' %}test-result-full-ipv6{% elif details['query-results']['summary']=='some' %}test-result-partial-ipv6{% else %}test-result-no-ipv6{% endif %}
+            {% if loop.first %}rounded-top{% endif %}
+            {% if loop.last %}rounded-bottom{% endif %}"
+            href="#result-div-{{ details['refname'] }}"
+                data-toggle="collapse" aria-expanded="false"
+                aria-controls="result-div-{{ details['refname'] }}" >
+            <!-- aria-expanded="false" aria-controls="result-div-{{ details['refname'] }}" -->
+            {# Print icon. Either a FontAwesome one, an image or noting #}
+            <div class="col-1 text-left">
+                {% if 'icon' in details %}
+                    {% if details['icon'].startswith('fa:') %}
+                        <i class="fab fa-{{ details['icon'][3:] }} fa-3x"></i>
                     {% else %}
-                        Nope. <strong>SHAME</strong> on you!
+                        <img style="max-height: 40px; max-width: 64px;" src="{{ details['icon'] }}">
                     {% endif %}
+                {% endif %}
+            </div>
+
+            {# Print target name #}
+            <div class="col-2 text-left">
+                <a href="{{ details['href'] }}" class="target-link" rel="nofollow" target="_blank">
+                    {{ target }}
+                </a>
+            </div>
+
+            {# Print target status #}
+            <div class="col-7 text-left">
+                {% if details['query-results']['summary'] == 'all' %}
+                    Yay! IPv6 is supported!
+                {% elif details['query-results']['summary'] == 'some' %}
+                    Well, there is some IPv6 support. Can't you do better?
+                {% else %}
+                    Nope. What a shame!
+                {% endif %}
+            </div>
+
+            {# Tell them on social media #}
+            <div class="col-2 text-right">
+                {% if details['twitter'] %}
+                    <a target="_blank"
+                       href="http://twitter.com/home/?status={{ ( messages['twitter'][details['query-results']['summary']] % ( details['twitter'] ) ) | urlencode }}">
+                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                        Twitter
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div id="result-div-{{ details['refname'] }}" class="row collapse">
+            <div class="col-1"><!-- Icon spacing --></div>
+            <div class="col-11">
+                <div class="row">
+                    <div class="col-12">
+                        Each website can have one or more domains where its hosted on. The test tried to resolve a valid
+                        AAAA record for each URL using different public resolvers. Here is the result:
+                    </div>
                 </div>
 
-                {# Tell them on social media #}
-                <div class="col-2 minheight text-right">
-                    {% if tt['twitter'] %}
-                        <a target="_blank"
-                           href="http://twitter.com/home/?status={{ ( messages['twitter'][result['summary']] % ( tt['twitter'] ) ) | urlencode }}">
-                            <i class="fab fa-twitter" aria-hidden="true"></i>
-                            Twitter
-                        </a>
-                    {% endif %}
+                <div class="row">
+                    <div class="col-2">Domain</div>
+                    <div class="col-2">Resolver provider</div>
+                    <div class="col-3">Resolver IPs</div>
+                    <div class="col-5">Resolves with AAAA</div>
                 </div>
+
+                {% for subdomain in details['query-results']['hosts'] %}
+                    {% set subdomainloop = loop %}
+                    {% for dnsprovider in details['query-results']['hosts'][subdomain] %}
+                    <div class="row">
+                        <div class="col-2">
+                            {% if subdomainloop.first %}
+                            {{ subdomain }}
+                            {% else %}
+                            <!-- left blank -->
+                            {% endif %}
+                        </div>
+                        <div class="col-2">
+                            {% if subdomainloop.first %}
+                            {{ dnsprovider }}
+                            {% else %}
+                            <!-- left blank -->
+                            {% endif %}
+                        </div>
+                        <div class="col-3">
+                            {% for resolverip in details['query-results']['hosts'][subdomain][dnsprovider] %}
+                            <div class="row">
+                            {{ resolverip }}
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-5">
+                            {% for resolverip in details['query-results']['hosts'][subdomain][dnsprovider] %}
+                            <div class="row">
+                            {% if details['query-results']['hosts'][subdomain][dnsprovider][resolverip] == true %}
+                            <span class="badge badge-success">Yes</span>
+                            {% else %}
+                            <span class="badge badge-danger">No</span>
+                            {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% endfor %}
             </div>
-            {% endif %}
+        </div>
         {% endfor %}
     {% endfor %}
 
@@ -128,6 +191,16 @@ TODO: Needs debugging
         </p>
     </div>
 </div>
+
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function () {
+
+});
+</script>
 
 </body>
 </html>
