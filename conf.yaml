@@ -987,4 +987,57 @@ targets:
     hosts:
     - syncthing.net
     twitter: '@syncthing'
-      # No categories -> Uncategorized
+
+  BBC:
+    href: https://www.bbc.com
+    hosts:
+    - www.bbc.com
+    - static.bbci.co.uk
+    - emp.bbci.co.uk
+    twitter: '@BBCNews'
+    categories:
+    - News
+
+  AlJazeera:
+    href: https://www.aljazeera.com
+    hosts:
+    - www.aljazeera.com
+    twitter: '@AJEnglish'
+    categories:
+    - News
+
+  Tagesschau:
+    href: https://www.tagesschau.de
+    hosts:
+    - www.tagesschau.de
+    - wetter.tagesschau.de
+    twitter: '@tagesschau'
+    categories:
+    - News
+
+  ZDF:
+    href: https://www.zdf.de/
+    hosts:
+    - www.zdf.de
+    twitter: '@ZDF'
+    categories:
+    - News
+
+  Welt:
+    href: https://www.welt.de
+    hosts:
+    - www.welt.de
+    - resources-production.la.welt.de
+    twitter: '@welt'
+    categories:
+    - News
+
+  ntv:
+    href: https://www.n-tv.de
+    hosts:
+    - www.n-tv.de
+    - bilder1.n-tv.de
+    - apps-cloud.n-tv.de
+    twitter: '@ntvde'
+    categories:
+    - News
