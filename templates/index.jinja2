@@ -56,7 +56,7 @@
 
     {% for category in testresults|sort %}
     <!-- Category loop: {{ loop }} -->
-    <div class="row">
+    <div class="row mt-5">
         <div class="row">
             <div class="col-12"><h2>{{ category }}</h2></div>
         </div>
@@ -67,13 +67,15 @@
         <!-- Target loop: {{ loop }} -->
         <div class="row align-items-center minheight
             {% if details['query-results']['summary']=='all' %}test-result-full-ipv6{% elif details['query-results']['summary']=='some' %}test-result-partial-ipv6{% else %}test-result-no-ipv6{% endif %}
-            {% if loop.first %}rounded-top{% endif %}
-            {% if loop.last %}rounded-bottom{% endif %}"
+            mt-1
+            {# {% if loop.first %}rounded-top{% endif %} #}
+            {# {% if loop.last %}rounded-bottom{% endif %} #}
+            rounded"
             href="#result-div-{{ details['refname'] }}"
-                data-toggle="collapse" aria-expanded="false"
-                aria-controls="result-div-{{ details['refname'] }}" >
-            <!-- aria-expanded="false" aria-controls="result-div-{{ details['refname'] }}" -->
-            {# Print icon. Either a FontAwesome one, an image or noting #}
+            data-toggle="collapse"
+            aria-expanded="false"
+            aria-controls="result-div-{{ details['refname'] }}" >
+
             <div class="col-1 text-left">
                 {% if 'icon' in details %}
                     {% if details['icon'].startswith('fa:') %}
@@ -84,14 +86,12 @@
                 {% endif %}
             </div>
 
-            {# Print target name #}
             <div class="col-2 text-left">
                 <a href="{{ details['href'] }}" class="target-link" rel="nofollow" target="_blank">
-                    {{ target }}
+                    <b>{{ target }}</b>
                 </a>
             </div>
 
-            {# Print target status #}
             <div class="col-7 text-left">
                 {% if details['query-results']['summary'] == 'all' %}
                     Yay! IPv6 is supported!
@@ -102,7 +102,6 @@
                 {% endif %}
             </div>
 
-            {# Tell them on social media #}
             <div class="col-2 text-right">
                 {% if details['twitter'] %}
                     <a target="_blank"
@@ -119,34 +118,35 @@
             <div class="col-11">
                 <div class="row">
                     <div class="col-12">
-                        Each website can have one or more domains where its hosted on. The test tried to resolve a valid
-                        AAAA record for each URL using different public resolvers. Here is the result:
+                        Sometimes a website has more than one domain where ressources are loaded from.
+                        Each one is tested against multiple publicly available DNS resolvers. Each resolver has to return an AAAA record
+                        to pass this test.
                     </div>
                 </div>
 
-                <div class="row border border-primary">
-                    <div class="col-3 border">Domain</div>
-                    <div class="col-3 border">Resolver provider</div>
-                    <div class="col-3 border">Resolver IPs</div>
-                    <div class="col-3 border">Resolves with AAAA</div>
+                <div class="row mt-4">
+                    <div class="col-3"><b>Domain</b></div>
+                    <div class="col-3"><b>Resolver Provider</b></div>
+                    <div class="col-4"><b>Resolver IPs</b></div>
+                    <div class="col-2 text-center"><b>AAAA Record?</b></div>
                 </div>
 
                 {% for subdomain in details['query-results']['hosts'] %}
-                <div class="row border border-primary">
-                    <div class="col-3 border">
+                <div class="row">
+                    <div class="col-3 border-top">
                         {{ subdomain }}
                     </div>
-                    <div class="col-9 border">
+                    <div class="col-9">
                         {% for dnsprovider in details['query-results']['hosts'][subdomain] %}
-                        <div class="row border border-primary">
-                            <div class="col-4 border">
+                        <div class="row border-top">
+                            <div class="col-4">
                                 {{ dnsprovider }}
                             </div>
-                            <div class="col-8 border">
+                            <div class="col-8">
                                 {% for resolverip in details['query-results']['hosts'][subdomain][dnsprovider] %}
-                                <div class="row border border-primary">
-                                    <div class="col-6 border">{{ resolverip }}</div>
-                                    <div class="col-6 border">
+                                <div class="row">
+                                    <div class="col-8">{{ resolverip }}</div>
+                                    <div class="col-4 text-center">
                                         {% if details['query-results']['hosts'][subdomain][dnsprovider][resolverip] == true %}
                                         <span class="badge badge-success">Yes</span>
                                         {% else %}
