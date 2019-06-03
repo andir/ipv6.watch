@@ -56,10 +56,24 @@
 
     {% for category in testresults|sort %}
     <!-- Category loop: {{ loop }} -->
-    <div class="row mt-5">
-        <div class="row">
-            <div class="col-12"><h2>{{ category }}</h2></div>
-        </div>
+    <div class="row mt-5 align-items-center">
+            <div class="col-8">
+                <h2>{{ category }}</h2>
+            </div>
+            <div class="col-4">
+                <div class="row text-right justify-content-end mr-1">
+                    <div class="col-5">Full IPv6:</div>
+                    <div class="col-1"><span class="badge badge-pill badge-success">{{ querystats[category]['count_full_ipv6'] }}</span></div>
+                </div>
+                <div class="row text-right justify-content-end mr-1">
+                    <div class="col-5">Partial IPv6:</div>
+                    <div class="col-1"><span class="badge badge-pill badge-warning">{{ querystats[category]['count_partial_ipv6'] }}</span></div>
+                </div>
+                <div class="row text-right justify-content-end mr-1">
+                    <div class="col-5">No IPv6:</div>
+                    <div class="col-1"><span class="badge badge-pill badge-danger">{{ querystats[category]['count_no_ipv6'] }}</span></div>
+                </div>
+            </div>
     </div>
 
         {% for target in testresults[category] %}
@@ -185,12 +199,6 @@
 <script src="js/jquery-3.3.1.slim.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-
-<script>
-$(document).ready(function () {
-
-});
-</script>
 
 </body>
 </html>
