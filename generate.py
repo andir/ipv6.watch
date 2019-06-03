@@ -97,19 +97,6 @@ async def resolve_target(target, resolvers):
 
     return results
 
-#
-# def generate_message(media, target, conf, result):
-#     if media in conf:
-#         template = Template(media.get(result))
-#         return template.render(
-#             target=target,
-#             conf=conf,
-#             result=result,
-#             media=media)
-#     else:
-#         raise RuntimeError('Invalid media {} for {}'.format(media, target))
-
-
 async def handle_target(resolvers, name, target):
     result = await resolve_target(target, resolvers)
     msg = "none"
