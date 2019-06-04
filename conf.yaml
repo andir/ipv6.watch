@@ -29,6 +29,7 @@ messages:
 
 # Missing sites:
 # - Yandex
+# - FontAwesome
 
 categories:
 - Social Network
@@ -46,19 +47,22 @@ categories:
 - Banking
 - Streaming
 - Gaming
+- E-Mail
+- Uncategorized # Never ever delete this!
 
 targets:
   500px:
     href: https://500px.com/
     hosts:
     - 500px.com
-    icon: fa:500px
+    icon: fa-500px
     twitter: '@500px'
     categories:
     - Social Network
 
   9GAG:
     href: http://9gag.com
+    icon: 9gag.svg # https://commons.wikimedia.org/wiki/File:9GAG_new_logo.svg
     hosts:
     - 9gag.com
     twitter: '@9GAGTEAM'
@@ -70,7 +74,7 @@ targets:
     hosts:
     - amazon.com
     - www.amazon.com
-    icon: images/amazon.png
+    icon: amazon.png
     twitter: '@amazon'
     categories:
     - Shopping
@@ -82,7 +86,7 @@ targets:
     - apple.com
     - www.apple.com
     - itunes.apple.com
-    icon: fa:apple
+    icon: fa-apple
     twitter: '@apple'
     categories:
     - Software
@@ -92,13 +96,14 @@ targets:
     hosts:
     - www.archlinux.org
     - aur.archlinux.org
-    icon: images/archlinux.png
+    icon: archlinux.png
     twitter: '@archlinux'
     categories:
     - Operating System
 
   Ars Technica:
     href: https://arstechnica.com
+    icon: ArsTechnica.svg # Source: https://commons.wikimedia.org/wiki/File:Ars_Technica_logo_(2016).svg
     hosts:
     - arstechnica.com
     twitter: '@arstechnica'
@@ -109,13 +114,14 @@ targets:
     href: https://bitbucket.org
     hosts:
     - bitbucket.org
-    icon: fa:bitbucket
+    icon: fa-bitbucket
     twitter: '@bitbucket'
     categories:
     - Coding
 
   Bing:
     href: https://bing.com
+    icon: Bing.png # https://advertiseonbing.blob.core.windows.net/blob/bingads/media/library/docs/bing-marketing-guidelines.pdf
     hosts:
     - bing.com
     - www.bing.com
@@ -125,6 +131,7 @@ targets:
 
   CenturyLink (formerly Level3):
     href: https://www.centurylink.com
+    icon: CenturyLink.png # Source: http://news.centurylink.com/corporate-logos
     hosts:
     - www.centurylink.com
     twitter: '@CenturyLink @CenturyLinkHelp'
@@ -135,7 +142,7 @@ targets:
     href: https://codepen.io
     hosts:
     - codepen.io
-    icon: fa:codepen
+    icon: fa-codepen
     twitter: '@codepen'
     categories:
     - Coding
@@ -144,7 +151,7 @@ targets:
     href: https://coreos.com
     hosts:
     - coreos.com
-    icon: images/coreos.png
+    icon: coreos.png
     twitter: '@coreos'
     categories:
     - Operating System
@@ -162,7 +169,7 @@ targets:
     hosts:
     - www.debian.org
     - security.debian.org
-    icon: images/debian.png
+    icon: debian.png
     twitter: '@debian'
     categories:
     - Operating System
@@ -171,7 +178,7 @@ targets:
     href: https://del.icio.us
     hosts:
     - del.icio.us
-    icon: fa:delicious
+    icon: fa-delicious
     twitter: '@delicious'
     categories:
     - Social bookmarks
@@ -180,7 +187,7 @@ targets:
     href: https://www.dw.com
     hosts:
     - www.dw.com
-    icon: images/deutsche_welle.png
+    icon: deutsche_welle.png
     twitter: '@deutschewelle'
     categories:
     - News
@@ -189,7 +196,7 @@ targets:
     href: https://www.deviantart.com
     hosts:
     - www.deviantart.com
-    icon: fa:deviantart
+    icon: fa-deviantart
     twitter: '@deviantart'
     categories:
     - Social Network
@@ -198,7 +205,7 @@ targets:
     href: https://digg.com
     hosts:
     - digg.com
-    icon: fa:digg
+    icon: fa-digg
     twitter: '@digg'
     categories:
     - Social bookmarks
@@ -207,7 +214,7 @@ targets:
     href: https://discordapp.com/
     hosts:
     - discordapp.com
-    icon: fa:discord
+    icon: fa-discord
     twitter: '@discordapp'
     categories:
     - Chat
@@ -220,7 +227,7 @@ targets:
     - hub.docker.com
     - registry-1.docker.io
     - registry.docker.io
-    icon: fa:docker
+    icon: fa-docker
     twitter: '@Docker'
     categories:
     - Coding
@@ -229,7 +236,7 @@ targets:
     href: https://dribbble.com
     hosts:
     - dribble.com
-    icon: fa:dribbble
+    icon: fa-dribbble
     twitter: '@dribbble'
     categories:
     - Social Network
@@ -238,7 +245,7 @@ targets:
     href: https://www.dropbox.com
     hosts:
     - www.dropbox.com
-    icon: fa:dropbox
+    icon: fa-dropbox
     twitter: '@dropbox'
     categories:
     - Cloud
@@ -247,13 +254,14 @@ targets:
     href: https://Duckduckgo.com
     hosts:
     - Duckduckgo.com
-    icon: images/duckduckgo.png
+    icon: duckduckgo.png
     twitter: '@duckduckgo'
     categories:
     - Search Engine
 
-  Ebay:
+  eBay:
     href: http://www.ebay.com/
+    icon: ebay.svg # https://de.wikipedia.org/wiki/Datei:EBay_logo.svg
     hosts:
     - www.ebay.com
     - ebay.com
@@ -266,7 +274,7 @@ targets:
     hosts:
     - www.facebook.com
     - facebook.com
-    icon: fa:facebook
+    icon: fa-facebook
     twitter: '@facebook'
     categories:
     - Social Network
@@ -276,7 +284,7 @@ targets:
     hosts:
     - getfedora.org
     - fedoraproject.org
-    icon: images/fedora.png
+    icon: fedora.png
     twitter: '@fedora'
     categories:
     - Operating System
@@ -294,7 +302,7 @@ targets:
     hosts:
     - www.foursquare.com
     - de.foursquare.com
-    icon: fa:foursquare
+    icon: fa-foursquare
     twitter: '@Foursquare'
     categories:
     - Social Network
@@ -304,7 +312,7 @@ targets:
     hosts:
     - www.gentoo.org
     - distfiles.gentoo.org
-    icon: images/gentoo.png
+    icon: gentoo.png
     twitter: '@gentoo'
     categories:
     - Operating System
@@ -315,7 +323,7 @@ targets:
     - github.com
     - www.github.com
     - gist.github.com
-    icon: fa:github
+    icon: fa-github
     twitter: '@GitHub'
     categories:
     - Coding
@@ -325,7 +333,7 @@ targets:
     hosts:
     - gitlab.com
     - about.gitlab.com
-    icon: images/gitlab.svg
+    icon: gitlab.svg
     twitter: '@gitlab'
     categories:
     - Coding
@@ -334,7 +342,7 @@ targets:
     href: https://www.google.com
     hosts:
     - google.com
-    icon: images/google.png
+    icon: google.png
     twitter: '@Google'
     categories:
     - Search Engine
@@ -342,6 +350,7 @@ targets:
 
   Gravatar:
     href: https://www.gravatar.com
+    icon: Gravatar.png # https://commons.wikimedia.org/wiki/File:Logo_Gravatar.png
     hosts:
     - gravatar.com
     - secure.gravatar.com
@@ -351,7 +360,7 @@ targets:
     href: https://news.ycombinator.com
     hosts:
     - news.ycombinator.com
-    icon: fa:hacker-news
+    icon: fa-hacker-news
     twitter: '@hnstatus'
     categories:
     - News
@@ -364,6 +373,8 @@ targets:
 
   Hound CI:
     href: https://houndci.com
+    # icon:
+    # Logo usage clarification requested: https://github.com/houndci/hound/issues/1721
     hosts:
     - houndci.com
     twitter: '@houndci'
@@ -381,11 +392,13 @@ targets:
     hosts:
     - www.imdb.com
     - media-imdb.com
-    icon: fa:imdb
+    icon: fa-imdb
     twitter: '@imdb'
 
   Imgur:
-    href: https://imgur.com/
+    href: https://imgur.com
+    icon: imgur.svg # Source: https://upload.wikimedia.org/wikipedia/commons/e/e9/Imgur_logo.svg
+    # Licence: https://help.imgur.com/hc/en-us/articles/202062878-Trademark-Use-Policy
     hosts:
     - imgur.com
     twitter: '@imgur'
@@ -397,7 +410,7 @@ targets:
     hosts:
     - instagram.com
     - www.instagram.com
-    icon: fa:instagram
+    icon: fa-instagram
     twitter: '@instagram'
     categories:
     - Social Network
@@ -406,7 +419,7 @@ targets:
     href: https://jsfiddle.net
     hosts:
     - jsfiddle.net
-    icon: fa:jsfiddle
+    icon: fa-jsfiddle
     twitter: '@jsfiddle'
     categories:
     - Coding
@@ -415,7 +428,7 @@ targets:
     href: https://www.jetbrains.com
     hosts:
     - jetbrains.com
-    icon: images/jetbrains.svg
+    icon: jetbrains.svg
     twitter: '@jetbrains'
     categories:
     - Coding
@@ -425,13 +438,16 @@ targets:
     hosts:
     - www.linkedin.com
     - de.linkedin.com
-    icon: fa:linkedin
+    icon: fa-linkedin
     twitter: '@linkedin'
     categories:
     - Social Network
 
   Matrix.org:
     href: https://matrix.org
+    # icon source: https://commons.wikimedia.org/wiki/File:Matrix_logo.svg
+    # permission link: https://github.com/matrix-org/matrix.org/issues/91
+    icon: matrix.svg
     hosts:
     - matrix.org
     - riot.im
@@ -445,7 +461,7 @@ targets:
     - maxcdn.com
     - www.maxcdn.com
     - maxcdn.bootstrapcdn.com
-    icon: fa:maxcdn
+    icon: fa-maxcdn
     twitter: '@maxcdn'
     categories:
     - Cloud
@@ -454,7 +470,7 @@ targets:
     href: https://medium.com
     hosts:
     - medium.com
-    icon: fa:medium
+    icon: fa-medium
     twitter: '@medium'
     categories:
     - News
@@ -463,7 +479,7 @@ targets:
     href: https://www.meetup.com
     hosts:
     - www.meetup.com
-    icon: fa:meetup
+    icon: fa-meetup
     twitter: '@meetup'
     categories:
     - Social Network
@@ -473,13 +489,15 @@ targets:
     hosts:
     - mixer.com
     - www.mixer.com
-    icon: images/mixer.png
+    icon: mixer.png
     twitter: '@WatchMixer'
     categories:
     - Streaming
 
   N26:
     href: https://n26.com
+    # Licence: https://de.wikipedia.org/wiki/Datei:N26_logo.svg
+    icon: N26.svg
     hosts:
     - my.number26.de
     - n26.com
@@ -489,6 +507,7 @@ targets:
 
   Netcologne:
     href: https://www.netcologne.de
+    icon: NetCologne.png # Source: https://www.netcologne.de/ueber-uns/unternehmen/presse/downloads/logos
     hosts:
     - www.netcologne.de
     twitter: '@NetCologne_GmbH'
@@ -497,6 +516,7 @@ targets:
 
   Netflix:
     href: https://www.netflix.com/
+    icon: Netflix.png # Source + Licence https://brand.netflix.com/en/assets/
     hosts:
     - netflix.com
     - www.netflix.com
@@ -509,7 +529,7 @@ targets:
     hosts:
     - nixos.org
     - cache.nixos.org
-    icon: images/nixos.png
+    icon: nixos.png
     twitter: '@nixos_org'
     categories:
     - Operating System
@@ -518,13 +538,14 @@ targets:
     href: https://www.o2online.de/
     hosts:
     - www.o2online.de
-    icon: images/o2.svg
+    icon: o2.svg
     twitter: '@o2de'
     categories:
     - Internet service provider
 
   Origin:
     href: https://www.origin.com
+    icon: Origin.svg # Source: https://commons.wikimedia.org/wiki/File:Origin.svg
     hosts:
     - www.origin.com
     twitter: '@AskEASupport'
@@ -541,7 +562,7 @@ targets:
     href: https://www.paypal.com
     hosts:
     - www.paypal.com
-    icon: fa:paypal
+    icon: fa-paypal
     twitter: '@AskPayPal'
     categories:
     - Banking
@@ -551,7 +572,7 @@ targets:
     hosts:
     - www.pinterest.com
     - de.pinterest.com
-    icon: fa:pinterest
+    icon: fa-pinterest
     twitter: '@pinterest'
     categories:
     - Social Network
@@ -561,7 +582,7 @@ targets:
     hosts:
     - www.reddit.com
     - www.redditstatic.com
-    icon: fa:reddit-alien
+    icon: fa-reddit-alien
     twitter: '@reddit'
     categories:
     - Social Network
@@ -570,7 +591,7 @@ targets:
     href: https://www.scribd.com
     hosts:
     - www.scribd.com
-    icon: fa:scribd
+    icon: fa-scribd
     twitter: '@scribd'
     categories:
     - Streaming
@@ -579,7 +600,7 @@ targets:
     href: https://www.skype.com
     hosts:
     - www.skype.com
-    icon: fa:skype
+    icon: fa-skype
     twitter: '@skype'
     categories:
     - Chat
@@ -589,7 +610,7 @@ targets:
     href: https://slack.com
     hosts:
     - slack.com
-    icon: fa:slack
+    icon: fa-slack
     twitter: '@slackhq'
     categories:
     - Chat
@@ -598,7 +619,7 @@ targets:
     href: https://snapchat.com
     hosts:
     - www.snapchat.com
-    icon: fa:snapchat-ghost
+    icon: fa-snapchat-ghost
     twitter: '@snapchat'
     categories:
     - Social Network
@@ -607,7 +628,7 @@ targets:
     href: https://soundcloud.com
     hosts:
     - soundcloud.com
-    icon: fa:soundcloud
+    icon: fa-soundcloud
     twitter: '@soundcloud'
     categories:
     - Streaming
@@ -616,7 +637,7 @@ targets:
     href: https://www.spotify.com
     hosts:
     - www.spotify.com
-    icon: fa:spotify
+    icon: fa-spotify
     twitter: '@spotify'
     categories:
     - Streaming
@@ -628,7 +649,7 @@ targets:
     - serverfault.com
     - stackoverflow.com
     - askubuntu.com
-    icon: fa:stack-exchange
+    icon: fa-stack-exchange
     twitter: '@stackexchange'
     categories:
     - Coding
@@ -639,7 +660,7 @@ targets:
     - store.steampowered.com
     - steamcommunity.com
     - help.steampowered.com
-    icon: fa:steam
+    icon: fa-steam
     twitter: '@steam_games'
     categories:
     - Gaming
@@ -648,7 +669,7 @@ targets:
     href: https://www.strava.com
     hosts:
     - strava.com
-    icon: fa:strava
+    icon: fa-strava
     twitter: '@Strava'
 
   Telegram Messenger:
@@ -656,7 +677,7 @@ targets:
     hosts:
     - telegram.org
     - web.telegram.org
-    icon: fa:telegram
+    icon: fa-telegram
     twitter: '@telegram'
     categories:
     - Chat
@@ -679,6 +700,7 @@ targets:
 
   TIDAL:
     href: http://tidal.com
+    icon: Tidal.svg # Source: https://en.wikipedia.org/wiki/File:Tidal_(service)_logo.svg
     hosts:
     - tidal.com
     - listen.tidal.com
@@ -688,6 +710,7 @@ targets:
 
   Travis-CI:
     href: https://travis-ci.org
+    icon: travisci.png # Source + Licence: https://travis-ci.com/logo
     hosts:
     - travis-ci.org
     twitter: '@travisci'
@@ -698,14 +721,14 @@ targets:
     href: https://trello.com
     hosts:
     - trello.com
-    icon: fa:trello
+    icon: fa-trello
     twitter: '@trello'
 
   Tumblr:
     href: https://www.tumblr.com
     hosts:
     - www.tumblr.com
-    icon: fa:tumblr
+    icon: fa-tumblr
     twitter: '@tumblr'
     categories:
     - Social Network
@@ -714,7 +737,7 @@ targets:
     href: https://www.twitch.tv
     hosts:
     - www.twitch.com
-    icon: fa:twitch
+    icon: fa-twitch
     twitter: '@Twitch @TwitchSupport'
     categories:
     - Streaming
@@ -725,7 +748,7 @@ targets:
     - www.twitter.com
     - twitter.com
     - tweetdeck.twitter.com
-    icon: fa:twitter
+    icon: fa-twitter
     twitter: '@twitter @tweetdeck'
     categories:
     - Social Network
@@ -734,7 +757,7 @@ targets:
     href: https://www.ubuntu.com
     hosts:
     - www.ubuntu.com
-    icon: images/ubuntu.png
+    icon: ubuntu.png
     twitter: '@ubuntu'
     categories:
     - Operating System
@@ -743,7 +766,7 @@ targets:
     href: https://vimeo.com
     hosts:
     - vimeo.com
-    icon: fa:vimeo
+    icon: fa-vimeo
     twitter: '@vimeo'
     categories:
     - Streaming
@@ -753,7 +776,7 @@ targets:
     hosts:
     - www.whatsapp.com
     - web.whatsapp.com
-    icon: fa:whatsapp
+    icon: fa-whatsapp
     twitter: '@whatsapp'
     categories:
     - Chat
@@ -762,7 +785,7 @@ targets:
     href: https://www.wikipedia.org
     hosts:
     - www.wikipedia.org
-    icon: images/wikipedia.png
+    icon: wikipedia.png
     twitter: '@Wikipedia'
 
   Wordpress:
@@ -772,7 +795,7 @@ targets:
     - de.wordpress.org
     - codex.wordpress.org
     - make.wordpress.org
-    icon: fa:wordpress
+    icon: fa-wordpress
     twitter: '@wordpress'
     categories:
     - Software
@@ -782,7 +805,7 @@ targets:
     href: https://www.xing.com
     hosts:
     - www.xing.com
-    icon: fa:xing
+    icon: fa-xing
     twitter: '@xing_com @xingdevs'
     categories:
     - Social Network
@@ -799,16 +822,17 @@ targets:
     - mobile.yahoo.com
     - groups.yahoo.com
     - answers.yahoo.com
-    icon: fa:yahoo
+    icon: fa-yahoo
     twitter: '@Yahoo'
     categories:
     - Search Engine
+    - E-Mail
 
   YouTube:
     href: https://www.youtube.com
     hosts:
     - www.youtube.com
-    icon: fa:youtube
+    icon: fa-youtube
     twitter: '@youtube'
     categories:
     - Streaming
@@ -817,7 +841,7 @@ targets:
     href: https://bandcamp.com
     hosts:
     - bandcamp.com
-    icon: fa:bandcamp
+    icon: fa-bandcamp
     twitter: '@bandcamp'
     categories:
     - Streaming
@@ -826,13 +850,14 @@ targets:
     href: https://www.flickr.com
     hosts:
     - www.flickr.com
-    icon: fa:flickr
+    icon: fa-flickr
     twitter: '@flickr'
     categories:
     - Social Network
 
   mailbox.org:
     href: https://mailbox.org
+    icon: mailbox.org.jpg # Source: https://commons.wikimedia.org/wiki/File:Logo_mailbox.org_RGB_658x358.jpg
     hosts:
     - mailbox.org
     - mx1.mailbox.org
@@ -840,12 +865,14 @@ targets:
     - mx3.mailbox.org
     - mx-n.mailbox.org
     twitter: '@mailbox_org'
+    categories:
+    - E-Mail
 
   last.fm:
     href: http://www.last.fm
     hosts:
     - www.last.fm
-    icon: fa:lastfm
+    icon: fa-lastfm
     twitter: '@lastfm'
     categories:
     - Streaming
@@ -858,6 +885,9 @@ targets:
 
   Codeship:
     href: https://codeship.com
+    # icon:
+    # Logo guidelines requested: https://twitter.com/DerVeloc1ty/status/1135982855958487043
+    # Probable svg source: https://www.vectorlogo.zone/logos/codeship/index.html
     hosts:
     - codeship.com
     twitter: '@codeship @codeshipsupport'
@@ -869,7 +899,7 @@ targets:
     hosts:
     - rubygems.org
     twitter: '@rubygems'
-    icon: images/rubygems.png
+    icon: rubygems.png
     categories:
     - Coding
 
@@ -883,6 +913,8 @@ targets:
 
   TikTok:
     href: https://www.tiktok.com
+    icon: TikTok.svg # Source: https://en.wikipedia.org/wiki/File:Tiktok_logo.svg
+    # Licence: https://support.tiktok.com/en/privacy-safety/community-policy-en
     hosts:
     - www.tiktok.com
     twitter: '@tiktok_us'
@@ -891,6 +923,7 @@ targets:
 
   Sparkasse:
     href: https://www.sparkasse.de
+    icon: sparkasse.svg # Licence: https://commons.wikimedia.org/wiki/File:Sparkasse.svg
     hosts:
     - www.sparkasse.de
     - webfonts.sparkasse.de
@@ -900,6 +933,7 @@ targets:
 
   Postbank:
     href: https://www.postbank.de
+    icon: postbank.png # Licence: https://www.postbank.de/postbank/pr_pressefotos_unternehmen_logos.html
     hosts:
     - www.postbank.de
     twitter: '@postbank'
@@ -908,6 +942,7 @@ targets:
 
   Raiffeisenbank:
     href: https://www.bvr.de
+    icon: raiffeisen.svg # Licence: https://de.wikipedia.org/wiki/Datei:Volksbank_Logo.svg
     hosts:
     - www.bvr.de
     twitter: '@BVRPresse'
@@ -916,6 +951,7 @@ targets:
 
   Mastercard:
     href: https://www.mastercard.com
+    icon: fa-cc-mastercard
     hosts:
     - www.mastercard.com
     twitter: '@Mastercard'
@@ -924,6 +960,7 @@ targets:
 
   Visa:
     href: https://www.visa.com
+    icon: fa-cc-visa
     hosts:
     - www.visa.com
     twitter: '@Visa'
@@ -932,6 +969,7 @@ targets:
 
   TeamSpeak:
     href: https://teamspeak.com
+    icon: teamspeak.png # Source + Licence: https://www.teamspeak.com/en/more/media-pack/
     hosts:
     - teamspeak.com
     twitter: '@teamspeak'
@@ -939,7 +977,8 @@ targets:
     - VoIP
 
   DigitalOcean:
-    href: https://www.digitalocean.com/
+    href: https://www.digitalocean.com
+    icon: fa-digital-ocean
     hosts:
     - www.digitalocean.com
     - assets.digitalocean.com
@@ -949,6 +988,7 @@ targets:
 
   Linode:
     href: https://www.linode.com
+    icon: fa-linode
     hosts:
     - www.linode.com
     twitter: '@linode'
@@ -957,6 +997,7 @@ targets:
 
   Microsoft:
     href: https://www.microsoft.com
+    icon: fa-microsoft
     hosts:
     - www.microsoft.com
     - login.live.com
@@ -970,6 +1011,9 @@ targets:
       # I struggled a bit. First I had it under Microsoft, but it's a different
       # service. So I added a new one
     href: https://onedrive.live.com
+    # Source: https://commons.wikimedia.org/wiki/File:OneDrive_logo_and_wordmark.svg
+    # Licence: https://partner.microsoft.com/en-US/marketing/branding?tpqid=300-000004
+    icon: OneDrive.svg
     hosts:
     - onedrive.live.com
     - login.live.com
@@ -979,6 +1023,9 @@ targets:
 
   Azure:
     href: https://azure.microsoft.com
+    # Icon source: https://commons.wikimedia.org/wiki/File:Microsoft_Azure_Logo.svg
+    # Icon permission: https://partner.microsoft.com/en-US/marketing/branding?tpqid=300-000004
+    icon: Microsoft_Azure_Logo.svg
     hosts:
     - azure.microsoft.com
     - login.live.com
@@ -988,12 +1035,15 @@ targets:
 
   Syncthing:
     href: https://syncthing.net/
+    icon: syncthing.svg # Source: https://github.com/syncthing/syncthing/blob/master/assets/logo-horizontal.svg
+    # Licence: https://github.com/syncthing/syncthing/blob/master/LICENSE
     hosts:
     - syncthing.net
     twitter: '@syncthing'
 
   BBC:
     href: https://www.bbc.com
+    icon: BBC.svg # Source: https://commons.wikimedia.org/wiki/File:BBC.svg
     hosts:
     - www.bbc.com
     - static.bbci.co.uk
@@ -1010,14 +1060,7 @@ targets:
     categories:
     - News
 
-  Tagesschau:
-    href: https://www.tagesschau.de
-    hosts:
-    - www.tagesschau.de
-    - wetter.tagesschau.de
-    twitter: '@tagesschau'
-    categories:
-    - News
+# TODO: ARD statt tagesschau einfügen
 
   ZDF:
     href: https://www.zdf.de/
@@ -1038,6 +1081,7 @@ targets:
 
   ntv:
     href: https://www.n-tv.de
+    icon: ntv.svg # Source: https://upload.wikimedia.org/wikipedia/commons/f/f6/N-tv_logo-september2017.svg
     hosts:
     - www.n-tv.de
     - bilder1.n-tv.de
@@ -1045,3 +1089,86 @@ targets:
     twitter: '@ntvde'
     categories:
     - News
+
+  CentOS:
+    href: https://www.centos.org
+    # Icon licence: https://wiki.centos.org/ArtWork/Brand/Logo
+    icon: centos.svg
+    hosts:
+    - www.centos.org
+    - wiki.centos.org
+    - planet.centos.org
+    - docs.centos.org
+    twitter: '@CentOSProject'
+    categories:
+    - Operating System
+
+  Deutsche Telekom:
+    href: https://www.telekom.de
+    icon: Telekom.svg # https://commons.wikimedia.org/wiki/File:Telekom_Logo_2013.svg
+    hosts:
+    - www.telekom.de
+    twitter: '@deutschetelekom'
+    categories:
+    - Internet service provider
+
+  1und1:
+    href: https://www.1und1.de/
+    icon: 1und1.jpg # https://www.united-internet.de/newsroom/download-center.html
+    hosts:
+    - www.1und1.de
+    - mobile.1und1.de
+    - dsl.1und1.de
+    twitter: '@1und1'
+    categories:
+    - Internet service provider
+
+  Deutsche Glasfaser:
+    href: https://www.deutsche-glasfaser.de
+    icon: DG_Logo.png # https://commons.wikimedia.org/wiki/File:DG_Logo.png
+    hosts:
+    - www.deutsche-glasfaser.de
+    twitter: '@DtGlasfaser'
+    categories:
+    - Internet service provider
+
+  Unitymedia:
+    href: https://www.unitymedia.de/
+    icon: Unitymedia.png # Source: https://newsroom.unitymedia.de/mediathek/?imc=logos#view
+    hosts:
+    - www.unitymedia.de
+    - speedtest.unitymedia.de
+    - webmail.unity-mail.de
+    twitter: '@UnitymediaHilfe'
+    categories:
+    - Internet service provider
+
+  GMX:
+    href: https://www.gmx.net
+    icon: gmx.svg # Source: https://commons.wikimedia.org/wiki/File:GMX_2018_logo.svg
+    # Alternative source: https://www.united-internet.de/newsroom/download-center.html
+    hosts:
+    - www.gmx.net
+    - dl.gmx.net
+    - meinaccount.gmx.net
+    twitter: '@gmxmail'
+    categories:
+    - E-Mail
+
+  Web.de:
+    href: https://web.de
+    icon: webde.jpg # Source: https://newsroom.web.de/bildmaterial/
+    # Alternative source: https://www.united-internet.de/newsroom/download-center.html
+    hosts:
+    - web.de
+    - dl.web.de
+    - newsroom.web.de
+    twitter: '@WEBDE'
+    categories:
+    - E-Mail
+
+  Alle Störungen:
+    href: https://allestörungen.de
+    hosts:
+    - allestörungen.de
+    twitter: '@allestoerungen'
