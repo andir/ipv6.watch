@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
     <style type="text/css">
     #twitter-logo {
         color: #00aced;
@@ -42,60 +42,76 @@
 <body>
 <div class="container">
     <div class="row">
-        <h1><a href="/">ipv6.watch</a></h1>
+        <div class="col-12">
+            <h1><a href="/">ipv6.watch</a></h1>
+        </div>
     </div>
     <div class="row">
-        <p>
-            It is {{ long_date }} and the IPv6 adoption at major websites is bad... Most of those websites
-            have the money, time and people to enable IPv6 but still they are only reachable via IPv4....
-        </p>
-        <p>
-            Are you trying to disable IPv6 on your system or network? <a href="http://howtodisableipv6.com/">Click here</a> to learn more.
-        </p>
+        <div class="col-12">
+        It is {{ long_date }} and the IPv6 adoption of big websites is bad. Most of them have the money, time and people to provide IPv6 yet they are only reachable over IPv4.
+        See the result for each website by clicking on the respective area.<br />
+        Are you missing a website? Check out <a href="https://github.com/andir/ipv6.watch" target="_blank">the GitHub repository</a> for this project and open an issue or send a pull request.
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+        Are you trying to disable IPv6 on your system or network? <a href="http://howtodisableipv6.com/">Click here</a> to learn more.
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-12">
+            <b>Jump to a category:</b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+        {% for category in testresults|sort %}
+        <a class="btn btn-secondary m-1" href="#anchor-{{ category|replace(" ", "") }}">{{ category }}</a>
+        {% endfor %}
+        </div>
     </div>
 
     {% for category in testresults|sort %}
     <!-- Category loop: {{ loop }} -->
-    <div class="row mt-5 align-items-center">
-            <div class="col-8">
+    <div id="anchor-{{ category|replace(" ", "") }}" class="row mt-5 align-items-center">
+            <div class="col-12">
                 <h2>{{ category }}</h2>
-            </div>
-            <div class="col-4">
-                <div class="row text-right justify-content-end mr-1">
-                    <div class="col-5">Full IPv6:</div>
-                    <div class="col-1"><span class="badge badge-pill badge-success">{{ querystats[category]['count_full_ipv6'] }}</span></div>
-                </div>
-                <div class="row text-right justify-content-end mr-1">
-                    <div class="col-5">Partial IPv6:</div>
-                    <div class="col-1"><span class="badge badge-pill badge-warning">{{ querystats[category]['count_partial_ipv6'] }}</span></div>
-                </div>
-                <div class="row text-right justify-content-end mr-1">
-                    <div class="col-5">No IPv6:</div>
-                    <div class="col-1"><span class="badge badge-pill badge-danger">{{ querystats[category]['count_no_ipv6'] }}</span></div>
-                </div>
+                IPv6 support:
+                    <span class="badge badge-pill badge-success">Full: {{ querystats[category]['count_full_ipv6'] }}</span>
+                    <span class="badge badge-pill badge-warning">Some: {{ querystats[category]['count_partial_ipv6'] }}</span>
+                    <span class="badge badge-pill badge-danger">None: {{ querystats[category]['count_no_ipv6'] }}</span>
             </div>
     </div>
 
-        {% for target in testresults[category] %}
+        {% for target in testresults[category]|sort %}
         {% set details = testresults[category][target] %}
+
+        {% if details['query-results']['summary'] == 'all' %}
+            {% set query_result_message = "Yay! IPv6 is supported!" %}
+            {% set details_border_color = "success" %}
+        {% elif details['query-results']['summary'] == 'some' %}
+            {% set query_result_message = "Well, there is some IPv6 support. Can't you do better?" %}
+            {% set details_border_color = "warning" %}
+        {% else %}
+            {% set query_result_message = "Nope. What a shame!" %}
+            {% set details_border_color = "danger" %}
+        {% endif %}
         <!-- Target loop: {{ loop }} -->
         <div class="row align-items-center minheight
             {% if details['query-results']['summary']=='all' %}test-result-full-ipv6{% elif details['query-results']['summary']=='some' %}test-result-partial-ipv6{% else %}test-result-no-ipv6{% endif %}
-            mt-1
-            {# {% if loop.first %}rounded-top{% endif %} #}
-            {# {% if loop.last %}rounded-bottom{% endif %} #}
-            rounded"
+            mt-1 rounded"
             href="#result-div-{{ details['refname'] }}"
             data-toggle="collapse"
             aria-expanded="false"
             aria-controls="result-div-{{ details['refname'] }}" >
 
-            <div class="col-1 text-left">
+            <div class="col-1 text-center">
                 {% if 'icon' in details %}
-                    {% if details['icon'].startswith('fa:') %}
-                        <i class="fab fa-{{ details['icon'][3:] }} fa-3x"></i>
+                    {% if details['icon'].startswith('fa-') %}
+                        <i class="fab {{ details['icon'] }} fa-3x"></i>
                     {% else %}
-                        <img style="max-height: 40px; max-width: 64px;" src="{{ details['icon'] }}">
+                        <img style="max-height: 40px; max-width: 64px;" src="images/{{ details['icon'] }}">
                     {% endif %}
                 {% endif %}
             </div>
@@ -107,34 +123,26 @@
             </div>
 
             <div class="col-7 text-left">
-                {% if details['query-results']['summary'] == 'all' %}
-                    Yay! IPv6 is supported!
-                {% elif details['query-results']['summary'] == 'some' %}
-                    Well, there is some IPv6 support. Can't you do better?
-                {% else %}
-                    Nope. What a shame!
-                {% endif %}
+                {{ query_result_message }}
             </div>
 
             <div class="col-2 text-right">
                 {% if details['twitter'] %}
-                    <a target="_blank"
-                       href="http://twitter.com/home/?status={{ ( messages['twitter'][details['query-results']['summary']] % ( details['twitter'] ) ) | urlencode }}">
-                        <i class="fab fa-twitter" aria-hidden="true"></i>
-                        Twitter
+                    <a target="_blank" href="http://twitter.com/home/?status={{ ( messages['twitter'][details['query-results']['summary']] % ( details['twitter'] ) ) | urlencode }}">
+                        Tell 'em on <i class="fab fa-twitter" aria-hidden="true"></i>
                     </a>
                 {% endif %}
             </div>
         </div>
 
-        <div id="result-div-{{ details['refname'] }}" class="row collapse">
+        <div id="result-div-{{ details['refname'] }}" class="row collapse border-right border-left border-bottom border-{{ details_border_color }} mb-2">
             <div class="col-1"><!-- Icon spacing --></div>
             <div class="col-11">
                 <div class="row">
                     <div class="col-12">
-                        Sometimes a website has more than one domain where ressources are loaded from.
-                        Each one is tested against multiple publicly available DNS resolvers. Each resolver has to return an AAAA record
-                        to pass this test.
+                        Sometimes a website has more than one domain where ressources are loaded.
+                        Each one is tested against multiple public available DNS resolvers. Each resolver has to return an AAAA record
+                        to pass the test.
                     </div>
                 </div>
 
@@ -146,12 +154,12 @@
                 </div>
 
                 {% for subdomain in details['query-results']['hosts'] %}
-                <div class="row">
+                <div class="row {% if loop.last %}pb-2{% endif %}">
                     <div class="col-3 border-top">
                         {{ subdomain }}
                     </div>
                     <div class="col-9">
-                        {% for dnsprovider in details['query-results']['hosts'][subdomain] %}
+                        {% for dnsprovider in details['query-results']['hosts'][subdomain]|sort %}
                         <div class="row border-top">
                             <div class="col-4">
                                 {{ dnsprovider }}
@@ -177,8 +185,8 @@
                 {% endfor %}
             </div>
         </div>
+        {% endfor %}
     {% endfor %}
-{% endfor %}
 
     <hr/>
     <div class="row">
@@ -192,6 +200,13 @@
             <a href="https://twitter.com/ipv6watch" title="Twitter" target="_blank">
                 <i class="fab fa-twitter fa-3x" id="twitter-logo"></i>
             </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            The used logos are taken from FontAwesome (if available), from Wikipedia or the respective websites media center.
+            Links to the source files and/or licences are stored in the <a href="https://github.com/andir/ipv6.watch" target="_blank">GitHub repository</a> from this project.<br />
+            If you don't want your logo to be used on this site: Don't contact a lawyer! Please open an issue on GitHub and we will surely find a solution.
         </div>
     </div>
 </div>
