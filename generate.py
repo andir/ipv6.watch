@@ -163,7 +163,7 @@ def add_uncategorized_category_if_necessary(targets):
 #
 def addReferencableNameKey(targets):
     for target in targets:
-        targets[target][KEY_REFNAME] = target.lower().replace(" ","")
+        targets[target][KEY_REFNAME] = target.lower().replace(" ","").replace(".","-")
 
 #
 # Adds the following statistics to each group:
