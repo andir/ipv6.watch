@@ -60,3 +60,7 @@ If you find no good source try to contact the website owner (for example on Twit
 Please add the image source near the `icon` key and (if available) a link to the licence, guideline and/or permission. Please don't manipulate images in any way if it's forbidden.
 
 Before you add the file to the repository make sure you optimize the file size to save bandwidth and speed up the page. For PNG files have a look at `optipng`. For JPG/JPEG files have a look at `jpegoptim`. Most images can be reduced by more than 80% in file size.
+
+### Formatting config.yml
+
+YAML files are sometimges hard to edit. Before checking in `config.yml` run `yamlfmt` over it to properly format the file: `yamlfmt -w config.yml`.
