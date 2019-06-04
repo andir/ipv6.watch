@@ -204,7 +204,7 @@ async def main():
         '-c',
         '--config',
         dest='config',
-        default='conf.yaml',
+        default='config.yml',
         type=argparse.FileType('r'))
     parser.add_argument(
         '-l',
