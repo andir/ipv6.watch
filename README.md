@@ -8,7 +8,7 @@ This repository contains code to check some website domains for AAAA records usi
 
 ![](https://raw.githubusercontent.com/andir/ipv6.watch/master/misc/World_IPv6_launch_banner_512.png)
 
-## Contributing
+## Contributing + Dev info
 
 ### Missing websites or website infos
 
