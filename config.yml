@@ -26,11 +26,6 @@ messages:
     some: 'Hey %s are you going to expand your #IPv6 support? @ipv6watch'
     none: "Hey %s any plans to support #IPv6. Isn't it about time? @ipv6watch"
 
-
-# Missing sites:
-# - Yandex
-# - FontAwesome
-
 categories:
 - Social Network
 - Shopping
@@ -1172,3 +1167,36 @@ targets:
     hosts:
     - allestörungen.de
     twitter: '@allestoerungen'
+
+  Golang:
+    href: https://golang.org
+    hosts:
+    - golang.org
+    - blog.golang.org
+    icon: Golang.svg   # Source: https://blog.golang.org/go-brand
+      # Licence: https://golang.org/s/brandbook
+    twitter: '@golang'
+    categories:
+    - Coding
+
+  Protonmail:
+    href: https://protonmail.com
+    hosts:
+    - protonmail.com
+    - careers.protonmail.com
+    icon: Protonmail.svg   # Source + licence: https://protonmail.com/media-kit
+    twitter: '@ProtonMail'
+    categories:
+    - E-Mail
+
+  Yandex:
+    href: https://yandex.ru
+    hosts:
+    - yandex.ru
+    - yastatic.net
+    - mail.yandex.com
+    icon: Yandex.png
+    twitter: '@yandex'
+    categories:
+    - E-Mail
+    - Search engine
