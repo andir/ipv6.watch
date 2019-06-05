@@ -64,3 +64,10 @@ Before you add the file to the repository make sure you optimize the file size t
 ### Formatting config.yml
 
 YAML files are sometimges hard to edit. Before checking in `config.yml` run `yamlfmt` over it to properly format the file: `yamlfmt -w config.yml`.
+
+### Minifying HTML
+
+When you generate the static page it's very huge. It consumes round about 1.3 MByte disk space and consits of many blank spaces which are good for a human developer working and debugging the generated HTML. A computer doesn't need them and only wastes ressources on it. That's why minifiers were programmed. They remove unnecessary spaces, newlines etc to save up space.   
+Minifying the HTML reduces the HTML to round about 546 KByte. That's a reduction of 59%. The benefits are simple: The page loads faster and less CPU is needed for rendering it in the browser. On the other side debugging a minified HTML isn't fun.
+
+By default the HTML is not minified. If you pass `-m` or `--minify` to the generator script the output will be minified. Use the normal version for developing and the minified version for production.

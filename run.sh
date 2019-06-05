@@ -5,4 +5,4 @@ test -d .venv || python3 -m venv .venv
 
 pip install --upgrade -r requirements.txt
 
-python3 generate.py dist
+python3 generate.py -m dist

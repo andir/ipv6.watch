@@ -10,6 +10,7 @@ import aiodns
 import jsonschema
 import yaml
 from jinja2 import Environment, FileSystemLoader, Template
+import htmlmin
 
 KEY_CATEGORIES = "categories"
 KEY_REFNAME = "refname"
@@ -218,6 +219,12 @@ async def main():
         help='Debug level',
         default='INFO')
     parser.add_argument('dest', default='dist', type=writeable_dir)
+    parser.add_argument(
+        '-m',
+        '--minify',
+        dest='minify',
+        default=False,
+        action='store_true')
 
     args = parser.parse_args()
 
@@ -255,16 +262,30 @@ async def main():
     testresults_grouped_by_category = sort_target_into_categories(targets, categories)
     querystats_grouped_by_category = generate_query_results_for_each_category(testresults_grouped_by_category)
 
-    jinja_env = Environment(loader=FileSystemLoader('templates/'))
+    missing_targets = check_unrendered_targets(targets, testresults_grouped_by_category)
+
+    if len(missing_targets) != 0:
+        logger.critical("Some configured targets are not present in the final test result: {:s}".format(",".join(missing_targets)))
+        exit(1)
+
+    jinja_env = Environment(loader=FileSystemLoader('templates/'), trim_blocks=True, lstrip_blocks=True)
     template = jinja_env.get_template('index.jinja2')
+
+    # Render the page to RAM
+    renderedhtml = template.render(
+        long_date=datetime.datetime.now().strftime('%B %Y'),
+        messages=config['messages'],
+        testresults=testresults_grouped_by_category,
+        querystats=querystats_grouped_by_category,
+        date=datetime.datetime.utcnow())
+
+    if args.minify:
+        logger.info("Minifying HTML")
+        renderedhtml = htmlmin.minify(renderedhtml)
+
     with open(os.path.join(args.dest, 'index.html'), 'w') as fh:
-        fh.write(
-            template.render(
-                long_date=datetime.datetime.now().strftime('%B %Y'),
-                messages=config['messages'],
-                testresults=testresults_grouped_by_category,
-                querystats=querystats_grouped_by_category,
-                date=datetime.datetime.utcnow()))
+        logger.info("Writing HTML")
+        fh.write(renderedhtml)
 
     logger.info("Done")
 
