@@ -155,7 +155,7 @@ def add_uncategorized_category(targets):
         if KEY_CATEGORIES not in targets[current_target]:
             # Oh no! Add list with single item "Uncategorized"
             targets[current_target][KEY_CATEGORIES] = ( KEY_CATEGORY_UNCATEGORIZED )
-            logger.debug("-> Added to {:s}".format(current_target));
+            logger.debug("-> Added to {:s}".format(current_target))
 
 #
 # Adds a referenceable name key
