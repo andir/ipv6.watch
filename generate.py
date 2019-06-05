@@ -127,7 +127,7 @@ async def handle_target(resolvers, name, target):
 # targets = All targets with test results
 # categories = All available categories
 def sort_target_into_categories(targets, categories):
-    logger.debug("Sorting targets into categories")
+    logger.info("Sorting targets into categories")
 
     testresults = {}
 
@@ -145,10 +145,10 @@ def sort_target_into_categories(targets, categories):
     return testresults
 
 #
-# Adds category "Uncategorized" to each target which is not categorized
+# Adds category "Uncategorized" to each target if it has no assigned ones
 #
-def add_uncategorized_category_if_necessary(targets):
-    logger.debug("Adding category \"{:s}\" to every target with missing categories".format(KEY_CATEGORY_UNCATEGORIZED))
+def add_uncategorized_category(targets):
+    logger.info("Adding category \"{:s}\" to every target with missing categories".format(KEY_CATEGORY_UNCATEGORIZED))
 
     for current_target in targets:
         # Check if element "categories" is in the current target
@@ -162,9 +162,15 @@ def add_uncategorized_category_if_necessary(targets):
 # Changes "Telegram Messenger" to "telegrammessenger"
 # Changes "Instagram" to "instagram"
 #
-def addReferencableNameKey(targets):
+# This is used in the jinja2 template to build HTML anchors
+#
+def add_referenceable_target_name(targets):
+    logger.info("Adding referencable target key")
+
     for target in targets:
-        targets[target][KEY_REFNAME] = target.lower().replace(" ","").replace(".","-")
+        conversion_result = target.lower().replace(" ","").replace(".","-")
+        logger.debug("Converted \"{:s}\" to \"{:s}\"".format(target, conversion_result))
+        targets[target][KEY_REFNAME] = conversion_result
 
 #
 # Adds the following statistics to each group:
@@ -174,9 +180,13 @@ def addReferencableNameKey(targets):
 # - non ipv6 resolveable targets
 #
 def generate_query_results_for_each_category(categories):
+    logger.info("Adding IPv6 support statistics to each group")
+
     stats = {}
 
     for category in categories:
+        logger.debug("Processing category {:s}".format(category))
+
         countFullIPv6 = 0
         countPartialIPv6 = 0
         countNoIPv6 = 0
@@ -239,8 +249,8 @@ async def main():
     targets = config['targets']
     categories = config['categories']
 
-    addReferencableNameKey(targets)
-    add_uncategorized_category_if_necessary(targets)
+    add_referenceable_target_name(targets)
+    add_uncategorized_category(targets)
 
     loop = asyncio.get_event_loop()
 
