@@ -140,17 +140,16 @@
             <div class="col-11">
                 <div class="row">
                     <div class="col-12">
-                        Sometimes a website has more than one domain where ressources are loaded.
-                        Each one is tested against multiple public available DNS resolvers. Each resolver has to return an AAAA record
-                        to pass the test.
+                        A website is served from one or more domains. Each one is checked using multiple public available DNS resolvers. Each resolver has to return an AAAA record
+                        to pass the test. Here are the results:
                     </div>
                 </div>
 
                 <div class="row mt-4">
                     <div class="col-3"><b>Domain</b></div>
-                    <div class="col-3"><b>Resolver Provider</b></div>
+                    <div class="col-3"><b>Resolver provider</b></div>
                     <div class="col-4"><b>Resolver IPs</b></div>
-                    <div class="col-2 text-center"><b>AAAA Record?</b></div>
+                    <div class="col-2 text-center"><b>Found AAAA</b></div>
                 </div>
 
                 {% for subdomain in details['query-results']['hosts'] %}
