@@ -57,7 +57,7 @@ targets:
 
   9GAG:
     href: http://9gag.com
-    icon: 9gag.svg # https://commons.wikimedia.org/wiki/File:9GAG_new_logo.svg
+    icon: 9GAG.svg # https://commons.wikimedia.org/wiki/File:9GAG_new_logo.svg
     hosts:
     - 9gag.com
     twitter: '@9GAGTEAM'
