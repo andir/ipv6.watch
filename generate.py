@@ -207,7 +207,31 @@ def generate_query_results_for_each_category(categories):
         stats[category]['count_partial_ipv6'] = countPartialIPv6
         stats[category]['count_no_ipv6'] = countNoIPv6
 
+        logger.debug("IPv6 support: Full -> {:d}, Partial -> {:d}, None -> {:d}".format(countFullIPv6,
+            countPartialIPv6, countNoIPv6))
+
     return stats
+
+#
+# Checks if targets are not present in the rendered categories
+# Returns a list with missing targets.
+#
+def check_unrendered_targets(original_targets, filled_categories):
+    logger.info("Checking if targets are missing after categorization");
+
+    targets_in_config = list(original_targets)
+
+    for category in filled_categories:
+        logger.debug("Processing category {:s}".format(category))
+
+        for target in filled_categories[category]:
+            logger.debug("Processing target {:s} in category".format(target))
+
+            if target in targets_in_config:
+                logger.debug("Found it for the first time. Removing it from leftover list!")
+                targets_in_config.remove(target)
+
+    return targets_in_config
 
 async def main():
     parser = argparse.ArgumentParser()
