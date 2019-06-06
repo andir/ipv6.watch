@@ -1,64 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   version="1.1"
-   width="288.90927"
-   height="141.86414"
-   id="svg3362"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="Deutsche_Telekom.svg">
-  <metadata
-     id="metadata2999">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="640"
-     inkscape:window-height="480"
-     id="namedview2997"
-     showgrid="false"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
-     inkscape:zoom="0.46311557"
-     inkscape:cx="-114.95727"
-     inkscape:cy="70.932062"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="layer1" />
-  <defs
-     id="defs3364" />
-  <g
-     transform="translate(-449.88641,-505.46578)"
-     id="layer1">
-    <path
-       d="m 709.97094,570.75354 28.82473,0 0,28.82473 -28.82473,0 z m -86.46935,0 28.8199,0 0,28.82473 -28.8199,0 z m -86.47418,0 28.82473,0 0,28.82473 -28.82473,0 z m -18.34804,46.24869 c 0,9.14413 1.33452,15.07963 4.0132,17.81612 2.26435,2.3318 6.12337,3.7675 11.53374,4.30227 1.60433,0.13497 4.35527,0.19734 8.2384,0.19734 l 0,8.01195 -69.453,0 0,-8.01195 c 5.57898,0 9.68853,-0.26479 12.34796,-0.79976 5.38143,-1.13217 8.77315,-4.26854 10.16548,-9.40909 0.72749,-2.66425 1.09846,-6.70153 1.09846,-12.10706 l 0,-104.72395 c -11.78427,0.33263 -21.00065,4.23482 -27.65401,11.71201 -6.32091,7.15437 -10.17513,18.10518 -11.5771,32.85719 l -7.50609,-1.29598 1.39715,-50.08554 112.90929,0 1.40196,50.08554 -7.51573,1.29598 C 556.68195,542.09529 552.794,531.14448 546.449,523.99011 539.76194,516.51292 530.50219,512.61054 518.67937,512.2781 l 0,104.72395 z m -68.6561,-46.24869 28.82473,0 0,28.82473 -28.82473,0 z"
-       id="path108"
-       style="fill:#e2007a;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccccccccccccccsccccccccscccccccccccsccccc" />
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="svg3362" width="288.91" height="141.86" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <metadata id="metadata2999">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="layer1" transform="translate(-449.89 -505.47)">
+  <path id="path108" d="m709.97 570.75h28.825v28.825h-28.825zm-86.469 0h28.82v28.825h-28.82zm-86.474 0h28.825v28.825h-28.825zm-18.348 46.249c0 9.1441 1.3345 15.08 4.0132 17.816 2.2644 2.3318 6.1234 3.7675 11.534 4.3023 1.6043 0.13497 4.3553 0.19734 8.2384 0.19734v8.012h-69.453v-8.012c5.579 0 9.6885-0.26479 12.348-0.79976 5.3814-1.1322 8.7732-4.2685 10.165-9.4091 0.72749-2.6642 1.0985-6.7015 1.0985-12.107v-104.72c-11.784 0.33263-21.001 4.2348-27.654 11.712-6.3209 7.1544-10.175 18.105-11.577 32.857l-7.5061-1.296 1.3972-50.086h112.91l1.402 50.086-7.5157 1.296c-1.3971-14.752-5.2851-25.703-11.63-32.857-6.6871-7.4772-15.947-11.38-27.77-11.712v104.72zm-68.656-46.249h28.825v28.825h-28.825z" fill="#e2007a"/>
+ </g>
 </svg>
