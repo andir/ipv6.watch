@@ -134,7 +134,8 @@ def sort_target_into_categories(targets, categories):
     for current_category in categories:
         logger.debug("-> Current category: {:s}".format(current_category))
 
-        testresults[current_category] = {} # Add empty dict
+        # Add empty dict
+        testresults[current_category] = {}
 
         for current_target in targets:
             # Check if the current category is listed in the targets category
@@ -143,6 +144,7 @@ def sort_target_into_categories(targets, categories):
                 testresults[current_category][current_target] = targets[current_target]
 
     return testresults
+
 
 #
 # Adds category "Uncategorized" to each target if it has no assigned ones
@@ -154,7 +156,7 @@ def add_uncategorized_category(targets):
         # Check if element "categories" is in the current target
         if KEY_CATEGORIES not in targets[current_target]:
             # Oh no! Add list with single item "Uncategorized"
-            targets[current_target][KEY_CATEGORIES] = ( KEY_CATEGORY_UNCATEGORIZED )
+            targets[current_target][KEY_CATEGORIES] = (KEY_CATEGORY_UNCATEGORIZED)
             logger.debug("-> Added to {:s}".format(current_target))
 
 #
@@ -265,7 +267,7 @@ async def main():
     log_level = getattr(logging, args.log_level)
     logging.basicConfig(level=log_level)
 
-    config = yaml.full_load(args.config) # https://github.com/yaml/pyyaml/wiki/PyYAML-yaml.load(input)-Deprecation
+    config = yaml.safe_load(args.config) # https://github.com/yaml/pyyaml/wiki/PyYAML-yaml.load(input)-Deprecation
     # TODO: add item validation
     jsonschema.validate(config_schema, config)
 
