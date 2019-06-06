@@ -59,7 +59,14 @@ Some websites provide their official logos and their guidelins of how to use the
 If you find no good source try to contact the website owner (for example on Twitter) and ask them if they have guidelines and if you are allowed to use their logo.   
 Please add the image source near the `icon` key and (if available) a link to the licence, guideline and/or permission. Please don't manipulate images in any way if it's forbidden.
 
-Before you add the file to the repository make sure you optimize the file size to save bandwidth and speed up the page. For PNG files have a look at `optipng`. For JPG/JPEG files have a look at `jpegoptim`. Most images can be reduced by more than 80% in file size.
+Before you add the file to the repository make sure you optimize the file size to save bandwidth and speed up the page.   
+Here is a list of tools you can use:
+
+- `optipng` for PNG files
+- `jpegoptim` for JPG/JPEG files
+- [scour](https://github.com/scour-project/scour) for SVG files
+
+Most images can be reduced by more than 80% in file size.
 
 ### Formatting config.yml
 
