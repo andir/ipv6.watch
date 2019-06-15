@@ -214,8 +214,9 @@ targets:
   GitLab:
     href: https://about.gitlab.com
     hosts:
-      - gitlab.com
       - about.gitlab.com
+      - packages.gitlab.com
+      - docs.gitlab.com
     icon: images/gitlab.svg
     twitter: "@gitlab"
   Google:
