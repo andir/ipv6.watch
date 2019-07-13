@@ -60,7 +60,7 @@ targets:
     href: https://arstechnica.com
     hosts:
       - arstechnica.com
-      - cnd.arstechnica.net
+      - cdn.arstechnica.net
     twitter: "@arstechnica"
   BigPulse:
     href: https://www.bigpulse.com
