@@ -62,6 +62,14 @@ targets:
       - arstechnica.com
       - cdn.arstechnica.net
     twitter: "@arstechnica"
+  Arxes Tolina:
+    href: https://www.arxes-tolina.de
+    hosts:
+      - www.arxes-tolina.de
+      - arxes-tolina.de
+      - mx02.arxes-tolina.de.
+      - msbln02.arxes-berlin.de.
+    twitter: '@arxestolina'
   BigPulse:
     href: https://www.bigpulse.com
     hosts:
