@@ -139,6 +139,13 @@ targets:
       - digg.com
     icon: "fa:digg"
     twitter: "@digg"
+  DigitalOcean:
+    href: https://digitalocean.com
+    hosts:
+      - digitalocean.com
+      - cloud.digitalocean.com
+    icon: "fa:digital-ocean"
+    twitter: "@digitalocean"
   Discord:
     href: https://discordapp.com/
     hosts:
