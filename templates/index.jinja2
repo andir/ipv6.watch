@@ -70,7 +70,7 @@
                     <td>
                         {% if tt['twitter'] %}
                             <a target="_blank"
-                               href="http://twitter.com/home/?status={{ ( messages['twitter'][result['summary']] % ( tt['twitter'] ) ) | urlencode }}">
+                               href="https://twitter.com/intent/tweet?text={{ ( messages['twitter'][result['summary']] % ( tt['twitter'] ) ) | urlencode }}">
                                 <i class="fab fa-twitter" aria-hidden="true"></i>
                                 Twitter
                             </a>
