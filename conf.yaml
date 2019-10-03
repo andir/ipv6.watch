@@ -312,14 +312,15 @@ targets:
       - matrix.org
       - riot.im
     twitter: "@matrixdotorg"
-  MaxCDN:
-    href: https://www.maxcdn.com
+  StackPath:
+    href: https://www.stackpath.com
     hosts:
-      - maxcdn.com
-      - www.maxcdn.com
-      - maxcdn.bootstrapcdn.com
-    icon: "fa:maxcdn"
-    twitter: "@maxcdn"
+      - stackpath.com
+      - www.stackpath.com
+      - stackpath.bootstrapcdn.com
+      - code.jquery.com
+    icon: "fa:stackpath"
+    twitter: "@stackpath"
   Medium:
     href: https://medium.com
     hosts:
