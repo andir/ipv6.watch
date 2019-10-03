@@ -509,7 +509,9 @@ targets:
     hosts:
       - www.twitter.com
       - twitter.com
+      - api.twitter.com
       - tweetdeck.twitter.com
+      - pbs.twimg.com
     icon: "fa:twitter"
     twitter: "@twitter @tweetdeck"
   Ubuntu:
