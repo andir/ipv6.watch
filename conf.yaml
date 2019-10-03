@@ -526,12 +526,6 @@ targets:
       - vimeo.com
     icon: "fa:vimeo"
     twitter: "@vimeo"
-  Vine:
-    href: https://vine.co
-    hosts:
-      - vine.co
-    icon: "fa:vine"
-    twitter: "@vine"
   WhatsApp:
     href: https://www.whatsapp.com
     hosts:
