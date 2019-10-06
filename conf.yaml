@@ -8,6 +8,8 @@ nameservers:
   OpenDNS:
     - 208.67.220.220
     - 208.67.222.222
+    - 2620:119:35::35
+    - 2620:119:53::53
   Level3:
     - 4.2.2.2
     - 4.2.2.1
@@ -310,14 +312,15 @@ targets:
       - matrix.org
       - riot.im
     twitter: "@matrixdotorg"
-  MaxCDN:
-    href: https://www.maxcdn.com
+  StackPath:
+    href: https://www.stackpath.com
     hosts:
-      - maxcdn.com
-      - www.maxcdn.com
-      - maxcdn.bootstrapcdn.com
-    icon: "fa:maxcdn"
-    twitter: "@maxcdn"
+      - stackpath.com
+      - www.stackpath.com
+      - stackpath.bootstrapcdn.com
+      - code.jquery.com
+    icon: "fa:stackpath"
+    twitter: "@stackpath"
   Medium:
     href: https://medium.com
     hosts:
@@ -507,7 +510,9 @@ targets:
     hosts:
       - www.twitter.com
       - twitter.com
+      - api.twitter.com
       - tweetdeck.twitter.com
+      - pbs.twimg.com
     icon: "fa:twitter"
     twitter: "@twitter @tweetdeck"
   Ubuntu:
@@ -522,12 +527,6 @@ targets:
       - vimeo.com
     icon: "fa:vimeo"
     twitter: "@vimeo"
-  Vine:
-    href: https://vine.co
-    hosts:
-      - vine.co
-    icon: "fa:vine"
-    twitter: "@vine"
   WhatsApp:
     href: https://www.whatsapp.com
     hosts:
