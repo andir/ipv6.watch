@@ -633,3 +633,8 @@ targets:
     hosts:
       - www.wired.com
     twitter: "@WIRED"
+  Zwift:
+    href: https://zwift.com/
+    hosts:
+      - zwift.com
+    twitter: "@GoZwift"
