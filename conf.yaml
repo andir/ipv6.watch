@@ -638,3 +638,14 @@ targets:
     hosts:
       - zwift.com
     twitter: "@GoZwift"
+  Geizhals:
+    href: https://geizhals.de/
+    hosts:
+      - gh.de
+      - geizhals.net
+      - geizhals.at
+      - geizhals.de
+      - skinflint.co.uk
+      - cenowarka.pl
+      - geizhals.eu
+    twitter: "@geizhals"
