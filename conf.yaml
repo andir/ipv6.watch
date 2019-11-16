@@ -362,6 +362,7 @@ targets:
     hosts:
       - nixos.org
       - cache.nixos.org
+      - mobile.nixos.org
     icon: images/nixos.png
     twitter: "@nixos_org"
   O2:
