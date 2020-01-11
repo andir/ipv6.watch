@@ -306,6 +306,11 @@ targets:
       - de.linkedin.com
     icon: "fa:linkedin"
     twitter: "@linkedin"
+  Lobsters:
+    href: https://lobste.rs/
+    hosts:
+      - lobste.rs
+    twitter: "@lobsters"
   Matrix.org:
     href: https://matrix.org
     hosts:
