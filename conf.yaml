@@ -668,3 +668,10 @@ targets:
       - glovoapp.com
       - api.glovoapp.com
     twitter: "@Glovo_ES"
+  Uber:
+    href: https://uber.com
+    hosts:
+      - uber.com
+      - api.uber.com
+    twitter: "@Uber"
+    icon: "fa:uber"
