@@ -660,3 +660,9 @@ targets:
     hosts:
       - mixer.com
     twitter: "@WatchMixer"
+  Glovo:
+    href: https://glovoapp.com/
+    hosts:
+      - glovoapp.com
+      - api.glovoapp.com
+    twitter: "@Glovo_ES"
