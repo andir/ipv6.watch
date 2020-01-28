@@ -440,6 +440,8 @@ targets:
     href: https://www.spotify.com
     hosts:
       - www.spotify.com
+      - open.scdn.co
+      - www.scdn.co
     icon: "fa:spotify"
     twitter: "@spotify"
   "Stack Exchange":
