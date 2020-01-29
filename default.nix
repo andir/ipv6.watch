@@ -6,5 +6,6 @@ stdenv.mkDerivation {
     pyyaml
     jsonschema
     aiodns
+    prometheus_client
   ];
 }

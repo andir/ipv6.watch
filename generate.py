@@ -1,15 +1,22 @@
 #!/usr/bin/env python3
+
+from typing import Dict, Any
 import argparse
 import asyncio
 import datetime
 import logging
 import os
+import time
 from pprint import pformat
 
 import aiodns
 import jsonschema
 import yaml
 from jinja2 import Environment, FileSystemLoader, Template
+from prometheus_client import Gauge, CollectorRegistry
+from prometheus_client.exposition import generate_latest as\
+        prometheus_generate_latest
+
 
 logger = logging.getLogger(__name__)
 
@@ -129,6 +136,54 @@ async def handle_target(resolvers, name, target):
     return name, dict(hosts=result, summary=msg)
 
 
+def generate_prometheus_metrics(results) -> bytes:
+    """
+    Generate the prometheus representation of our measurments
+    """
+
+    registry = CollectorRegistry()
+
+    has_ipv6_gauage = Gauge('ipv6_watch_has_ipv6',
+                            'AAA resolve status',
+                            labelnames=("resolver",
+                                        "resolver_provider",
+                                        "site",
+                                        "host"),
+                            registry=registry)
+
+    summary_gauage = Gauge('ipv6_watch_summary',
+                           'AAA resolve status',
+                           labelnames=("site",),
+                           registry=registry)
+
+    update_timestamp = Gauge('ipv6_watch_last_update',
+                             'Unix timestamp of last update',
+                             registry=registry)
+
+    update_timestamp.set(int(time.time()))
+
+    for site, site_results in results.items():
+        summary_value = -1
+        if site_results['summary'] == 'none':
+            summary_value = 0
+        elif site_results['summary'] == 'some':
+            summary_value = 0.5
+        elif site_results['summary'] == 'all':
+            summary_value = 1
+
+        summary_gauage.labels(site=site).set(summary_value)
+
+        for host, host_results in site_results['hosts'].items():
+            for resolver_provider, resolve_results in host_results.items():
+                for resolver, res in resolve_results.items():
+                    has_ipv6_gauage.labels(site=site,
+                                           host=host,
+                                           resolver_provider=resolver_provider,
+                                           resolver=resolver).set(res)
+
+    return prometheus_generate_latest(registry)
+
+
 async def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -166,7 +221,7 @@ async def main():
 
     resolvers = prepare_resolvers(nameservers, loop)
 
-    results = {}
+    results: Dict[str, Any] = {}
     tasks = []
     for name, target in targets.items():
         tasks.append(handle_target(resolvers, name, target))
@@ -177,6 +232,7 @@ async def main():
             name, result = task.result()
             results[name] = result
 
+    prometheus_metrics = generate_prometheus_metrics(results)
     results = sorted(results.items(), key=lambda x: x[0].lower())
     logging.debug(pformat(results))
     jinja_env = Environment(loader=FileSystemLoader('templates/'))
@@ -190,6 +246,8 @@ async def main():
                 messages=config['messages'],
                 date=datetime.datetime.utcnow()))
 
+    with open(os.path.join(args.dest, 'metrics'), 'wb') as fh:
+        fh.write(prometheus_metrics)
 
 if __name__ == "__main__":
     asyncio.get_event_loop().run_until_complete(main())
