@@ -129,7 +129,6 @@ async def handle_target(resolvers, name, target):
     return name, dict(hosts=result, summary=msg)
 
 
-
 async def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -177,7 +176,6 @@ async def main():
         for task in task_list:
             name, result = task.result()
             results[name] = result
-
 
     results = sorted(results.items(), key=lambda x: x[0].lower())
     logging.debug(pformat(results))
