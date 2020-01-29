@@ -14,25 +14,18 @@ import jsonschema
 import yaml
 from jinja2 import Environment, FileSystemLoader, Template
 from prometheus_client import Gauge, CollectorRegistry
-from prometheus_client.exposition import generate_latest as\
-        prometheus_generate_latest
+from prometheus_client.exposition import generate_latest as prometheus_generate_latest
 
 
 logger = logging.getLogger(__name__)
 
 config_schema = {
-    'type': 'Object',
-    'attributes': {
-        'nameservers': {
-            'type': 'Object'
-        },
-        'targets': {
-            'type': 'Object'
-        },
-        'messages': {
-            'type': 'Object'
-        }
-    }
+    "type": "Object",
+    "attributes": {
+        "nameservers": {"type": "Object"},
+        "targets": {"type": "Object"},
+        "messages": {"type": "Object"},
+    },
 }
 
 
@@ -40,10 +33,12 @@ def writeable_dir(values):
     prospective_dir = values
     if not os.path.isdir(prospective_dir):
         raise argparse.ArgumentTypeError(
-            "writeable_dir:{0} is not a valid path".format(prospective_dir))
+            "writeable_dir:{0} is not a valid path".format(prospective_dir)
+        )
     if not os.access(prospective_dir, os.W_OK | os.R_OK):
         raise argparse.ArgumentTypeError(
-            "writeable_dir:{0} is not a writeable dir".format(prospective_dir))
+            "writeable_dir:{0} is not a writeable dir".format(prospective_dir)
+        )
     return prospective_dir
 
 
@@ -55,14 +50,15 @@ def prepare_resolvers(nameservers, loop=None):
     for name, servers in nameservers.items():
         resolvers[name] = list(
             (server, aiodns.DNSResolver(loop=loop, nameservers=[server]))
-            for server in servers)
+            for server in servers
+        )
 
     return resolvers
 
 
 async def resolve_host(target, resolver, context=None):
     try:
-        response = await resolver.query(target, 'AAAA')
+        response = await resolver.query(target, "AAAA")
     except aiodns.error.DNSError:
         return False, context
     if len(response) == 0:
@@ -72,13 +68,11 @@ async def resolve_host(target, resolver, context=None):
 
 async def resolve_target(target, resolvers):
     tasks = []
-    for host in target['hosts']:
+    for host in target["hosts"]:
         for name, r in resolvers.items():
             for resolver in r:
-                tasks.append(
-                    resolve_host(
-                        host, resolver[1],
-                        (host, name, resolver[0])))
+                resolver_params = (host, name, resolver[0])
+                tasks.append(resolve_host(host, resolver[1], resolver_params))
 
     results = {}
     r = await asyncio.wait(tasks)
@@ -90,9 +84,9 @@ async def resolve_target(target, resolvers):
             host, resolver_name, nameserver = context
 
             if response:
-                logger.info('\033[0;32m✓\033[0m\t%s @ %s', host, nameserver)
+                logger.info("\033[0;32m✓\033[0m\t%s @ %s", host, nameserver)
             else:
-                logger.info('\033[0;31m✗\033[0m\t%s @ %s', host, nameserver)
+                logger.info("\033[0;31m✗\033[0m\t%s @ %s", host, nameserver)
 
             h = results[host] = results.get(host, {})
             r = h[resolver_name] = h.get(resolver_name, {})
@@ -104,13 +98,12 @@ async def resolve_target(target, resolvers):
 def generate_message(media, target, conf, result):
     if media in conf:
         template = Template(media.get(result))
-        return template.render(
-            target=target,
-            conf=conf,
-            result=result,
-            media=media)
+        return template.render(target=target,
+                               conf=conf,
+                               result=result,
+                               media=media)
     else:
-        raise RuntimeError('Invalid media {} for {}'.format(media, target))
+        raise RuntimeError("Invalid media {} for {}".format(media, target))
 
 
 async def handle_target(resolvers, name, target):
@@ -118,18 +111,18 @@ async def handle_target(resolvers, name, target):
     msg = "none"
 
     if any(
-            success
-            for host, rs in result.items()
-            for resolver, servers in rs.items()
-            for server, success in servers.items()
+        success
+        for host, rs in result.items()
+        for resolver, servers in rs.items()
+        for server, success in servers.items()
     ):
         msg = "some"
 
     if all(
-            success
-            for host, rs in result.items()
-            for resolver, servers in rs.items()
-            for server, success in servers.items()
+        success
+        for host, rs in result.items()
+        for resolver, servers in rs.items()
+        for server, success in servers.items()
     ):
         msg = "all"
 
@@ -143,43 +136,48 @@ def generate_prometheus_metrics(results) -> bytes:
 
     registry = CollectorRegistry()
 
-    has_ipv6_gauage = Gauge('ipv6_watch_has_ipv6',
-                            'AAA resolve status',
-                            labelnames=("resolver",
-                                        "resolver_provider",
-                                        "site",
-                                        "host"),
-                            registry=registry)
+    has_ipv6_gauage = Gauge(
+        "ipv6_watch_has_ipv6",
+        "AAA resolve status",
+        labelnames=("resolver", "resolver_provider", "site", "host"),
+        registry=registry,
+    )
 
-    summary_gauage = Gauge('ipv6_watch_summary',
-                           'AAA resolve status',
-                           labelnames=("site",),
-                           registry=registry)
+    summary_gauage = Gauge(
+        "ipv6_watch_summary",
+        "AAA resolve status",
+        labelnames=("site",),
+        registry=registry,
+    )
 
-    update_timestamp = Gauge('ipv6_watch_last_update',
-                             'Unix timestamp of last update',
-                             registry=registry)
+    update_timestamp = Gauge(
+        "ipv6_watch_last_update",
+        "Unix timestamp of last update",
+        registry=registry
+    )
 
     update_timestamp.set(int(time.time()))
 
     for site, site_results in results.items():
         summary_value = -1
-        if site_results['summary'] == 'none':
+        if site_results["summary"] == "none":
             summary_value = 0
-        elif site_results['summary'] == 'some':
+        elif site_results["summary"] == "some":
             summary_value = 0.5
-        elif site_results['summary'] == 'all':
+        elif site_results["summary"] == "all":
             summary_value = 1
 
         summary_gauage.labels(site=site).set(summary_value)
 
-        for host, host_results in site_results['hosts'].items():
+        for host, host_results in site_results["hosts"].items():
             for resolver_provider, resolve_results in host_results.items():
                 for resolver, res in resolve_results.items():
-                    has_ipv6_gauage.labels(site=site,
-                                           host=host,
-                                           resolver_provider=resolver_provider,
-                                           resolver=resolver).set(res)
+                    has_ipv6_gauage.labels(
+                        site=site,
+                        host=host,
+                        resolver_provider=resolver_provider,
+                        resolver=resolver,
+                    ).set(res)
 
     return prometheus_generate_latest(registry)
 
@@ -187,23 +185,21 @@ def generate_prometheus_metrics(results) -> bytes:
 async def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        '-c',
-        '--config',
-        dest='config',
-        default='conf.yaml',
-        type=argparse.FileType('r'))
+        "-c",
+        "--config",
+        dest="config",
+        default="conf.yaml",
+        type=argparse.FileType("r"),
+    )
     parser.add_argument(
-        '-l',
-        '--log-level',
-        dest='log_level',
-        choices=[
-            'DEBUG',
-            'ERROR',
-            'INFO',
-            'WARN'],
-        help='Debug level',
-        default='INFO')
-    parser.add_argument('dest', default='dist', type=writeable_dir)
+        "-l",
+        "--log-level",
+        dest="log_level",
+        choices=["DEBUG", "ERROR", "INFO", "WARN"],
+        help="Debug level",
+        default="INFO",
+    )
+    parser.add_argument("dest", default="dist", type=writeable_dir)
 
     args = parser.parse_args()
 
@@ -214,8 +210,8 @@ async def main():
     # TODO: add item validation
     jsonschema.validate(config_schema, config)
 
-    nameservers = config['nameservers']
-    targets = config['targets']
+    nameservers = config["nameservers"]
+    targets = config["targets"]
 
     loop = asyncio.get_event_loop()
 
@@ -235,19 +231,22 @@ async def main():
     prometheus_metrics = generate_prometheus_metrics(results)
     results = sorted(results.items(), key=lambda x: x[0].lower())
     logging.debug(pformat(results))
-    jinja_env = Environment(loader=FileSystemLoader('templates/'))
-    template = jinja_env.get_template('index.jinja2')
-    with open(os.path.join(args.dest, 'index.html'), 'w') as fh:
+    jinja_env = Environment(loader=FileSystemLoader("templates/"))
+    template = jinja_env.get_template("index.jinja2")
+    with open(os.path.join(args.dest, "index.html"), "w") as fh:
         fh.write(
             template.render(
-                long_date=datetime.datetime.now().strftime('%B %Y'),
+                long_date=datetime.datetime.now().strftime("%B %Y"),
                 results=results,
                 targets=targets,
-                messages=config['messages'],
-                date=datetime.datetime.utcnow()))
+                messages=config["messages"],
+                date=datetime.datetime.utcnow(),
+            )
+        )
 
-    with open(os.path.join(args.dest, 'metrics'), 'wb') as fh:
+    with open(os.path.join(args.dest, "metrics"), "wb") as fh:
         fh.write(prometheus_metrics)
+
 
 if __name__ == "__main__":
     asyncio.get_event_loop().run_until_complete(main())
