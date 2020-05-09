@@ -671,7 +671,7 @@ targets:
       - glovoapp.com
       - api.glovoapp.com
     twitter: "@Glovo_ES"
-  Uber:
+  Kali Linux:
     href: https://uber.com
     hosts:
       - uber.com
