@@ -13,6 +13,11 @@ nameservers:
   Level3:
     - 4.2.2.2
     - 4.2.2.1
+  Cloudflare:
+    - 1.1.1.1
+    - 1.0.0.1
+    - 2606:4700:4700::1111
+    - 2606:4700:4700::1001
   LocalRecursor:
     - 127.0.1.53
 # The following DNS servers do currently not respond..
@@ -678,3 +683,8 @@ targets:
       - api.uber.com
     twitter: "@Uber"
     icon: "fa:uber"
+  Uber:
+    href: https://www.kali.org/
+    hosts:
+      - kali.org
+    twitter: "@kalilinux"
