@@ -678,3 +678,10 @@ targets:
       - api.uber.com
     twitter: "@Uber"
     icon: "fa:uber"
+  Netlify:
+    href: https://www.netlify.com/
+    hosts:
+      - www.netlify.com
+      - app.netlify.com
+      - netlify.app
+    twitter: "@Netlify"
