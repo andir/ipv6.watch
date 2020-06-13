@@ -691,4 +691,18 @@ targets:
       - www.aftonbladet.se
       - cis.schibsted.com
       - gfx.aftonbladet-cdn.se
-    twitter: "@Aftonbladet"  
+    twitter: "@Aftonbladet"
+  Playstation:
+    href: https://www.playstation.com/
+    hosts:
+      - www.playstation.com
+      - status.playstation.com
+      - static.playstation.com
+    twitter: "@PlayStation"
+  Xbox:
+    href: https://xbox.com/
+    hosts:
+      - www.xbox.com
+      - assets.xbox.com
+      - login.live.com
+    twitter: "@Xbox"
