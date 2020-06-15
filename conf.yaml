@@ -706,3 +706,8 @@ targets:
       - assets.xbox.com
       - login.live.com
     twitter: "@Xbox"
+  Flashback:
+    href: https://www.flashback.org/
+    hosts:
+      - www.flashback.org
+      - static.flashback.org
