@@ -155,7 +155,7 @@ targets:
     hosts:
       - discordapp.com
     icon: fa:discord
-    twitter: "@discordapp"
+    twitter: "@discord"
   Docker:
     href: https://www.docker.com/
     hosts:
