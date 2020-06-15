@@ -685,3 +685,9 @@ targets:
       - app.netlify.com
       - netlify.app
     twitter: "@Netlify"
+  Vultr:
+    href: https://www.vultr.com/
+    hosts:
+      - www.vultr.com
+      - my.vultr.com
+    twitter: "@Vultr"  
