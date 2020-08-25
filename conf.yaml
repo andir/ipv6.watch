@@ -685,3 +685,10 @@ targets:
       - app.netlify.com
       - netlify.app
     twitter: "@Netlify"
+  Aftonbladet:
+    href: https://www.aftonbladet.se/
+    hosts:
+      - www.aftonbladet.se
+      - cis.schibsted.com
+      - gfx.aftonbladet-cdn.se
+    twitter: "@Aftonbladet"  
