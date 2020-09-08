@@ -10,15 +10,15 @@ nameservers:
     - 208.67.222.222
     - 2620:119:35::35
     - 2620:119:53::53
-  Level3:
-    - 4.2.2.2
-    - 4.2.2.1
   LocalRecursor:
     - 127.0.1.53
 # The following DNS servers do currently not respond..
 #  CCC:
 #    - 213.73.91.35 # dnscache.berlin.ccc.de.
-
+# Level3 is continously dropping packets since >6m
+#  Level3:
+#    - 4.2.2.2
+#    - 4.2.2.1
 
 messages:
   twitter:
@@ -155,7 +155,7 @@ targets:
     hosts:
       - discordapp.com
     icon: fa:discord
-    twitter: "@discordapp"
+    twitter: "@discord"
   Docker:
     href: https://www.docker.com/
     hosts:
@@ -678,3 +678,31 @@ targets:
       - api.uber.com
     twitter: "@Uber"
     icon: "fa:uber"
+  Netlify:
+    href: https://www.netlify.com/
+    hosts:
+      - www.netlify.com
+      - app.netlify.com
+      - netlify.app
+    twitter: "@Netlify"
+  Aftonbladet:
+    href: https://www.aftonbladet.se/
+    hosts:
+      - www.aftonbladet.se
+      - cis.schibsted.com
+      - gfx.aftonbladet-cdn.se
+    twitter: "@Aftonbladet"
+  Playstation:
+    href: https://www.playstation.com/
+    hosts:
+      - www.playstation.com
+      - status.playstation.com
+      - static.playstation.com
+    twitter: "@PlayStation"
+  Xbox:
+    href: https://xbox.com/
+    hosts:
+      - www.xbox.com
+      - assets.xbox.com
+      - login.live.com
+    twitter: "@Xbox"
