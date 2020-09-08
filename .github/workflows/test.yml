@@ -1,0 +1,17 @@
+name: "Test Nix build"
+on:
+  pull_request:
+  push:
+jobs:
+  test-nixos-2003:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: cachix/install-nix-action@v10
+      - run: NIX_PATH=channel:nixos-20.03 nix-shell --run "mkdir tmp && python generate.py -l DEBUG -c conf.yaml tmp"
+  test-nixos-unstable:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: cachix/install-nix-action@v10
+      - run: NIX_PATH=channel:nixos-unstable nix-shell --run "mkdir tmp && python generate.py -l DEBUG -c conf.yaml tmp"
