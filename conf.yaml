@@ -409,6 +409,13 @@ targets:
       - www.paypal.com
     icon: "fa:paypal"
     twitter: "@AskPayPal"
+  Pinboard:
+    href: https://pinboard.in
+    hosts:
+      - pinboard.in
+      - www.pinboard.in
+    icon: "fa:pinboard"
+    twitter: "@pinboard"
   Pinterest:
     href: https://www.pinterest.com
     hosts:
