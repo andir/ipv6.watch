@@ -74,6 +74,19 @@ targets:
       - mx02.arxes-tolina.de.
       - msbln02.arxes-berlin.de.
     twitter: '@arxestolina'
+  BBC:
+    href: https://www.bbc.co.uk/
+    hosts:
+      - bbc.co.uk
+      - bbc.com
+      - bbci.co.uk
+      - live.bbc.co.uk
+      - live.bbc.com
+      - live.bbci.co.uk
+      - www.bbc.co.uk
+      - www.bbc.com
+    icon: "fa:bbc"
+    twitter: "@BBC"
   BigPulse:
     href: https://www.bigpulse.com
     hosts:
