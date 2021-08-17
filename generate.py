@@ -206,7 +206,7 @@ async def main():
     log_level = getattr(logging, args.log_level)
     logging.basicConfig(level=log_level)
 
-    config = yaml.load(args.config)
+    config = yaml.safe_load(args.config)
     # TODO: add item validation
     jsonschema.validate(config_schema, config)
 
