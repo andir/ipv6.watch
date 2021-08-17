@@ -1,0 +1,82 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "type": "object",
+    "properties": {
+        "nameservers": {
+            "type": "object",
+            "patternProperties": {
+                "^.+$": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "messages": {
+            "type": "object",
+            "patternProperties": {
+                "^.+$": {
+                    "type": "object",
+                    "properties": {
+                        "all": {
+                            "type": "string"
+                        },
+                        "some": {
+                            "type": "string"
+                        },
+                        "none": {
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "required": [
+                "twitter"
+            ]
+        },
+        "targets": {
+            "type": "object",
+            "patternProperties": {
+                "^.+$": {
+                    "type": "object",
+                    "properties": {
+                        "href": {
+                            "type": "string",
+                            "format": "^https?://.+$"
+                        },
+                        "hosts": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "icon": {
+                            "type": "string",
+                            "anyOf": [
+                                {
+                                    "pattern": "^fa:.+$"
+                                },
+                                {
+                                    "pattern": "^images/.+$"
+                                }
+                            ]
+                        },
+                        "twitter": {
+                            "type": "string",
+                            "pattern": "^@.+$"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            }
+        }
+    },
+    "required": [
+        "nameservers",
+        "messages",
+        "targets"
+    ],
+    "additionalProperties": false
+}
