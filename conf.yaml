@@ -45,7 +45,9 @@ targets:
     twitter: "@Aftonbladet"
   Amazon:
     hosts:
+      - amazon.co.jp
       - amazon.com
+      - amazon.in
       - www.amazon.com
     href: https://www.amazon.com
     icon: images/amazon.png
@@ -292,6 +294,8 @@ targets:
   Google:
     hosts:
       - google.com
+      - google.com.hk
+      - www.google.com
     href: https://www.google.com
     icon: images/google.png
     twitter: "@Google"
@@ -365,6 +369,7 @@ targets:
     twitter: "@lastfm"
   LinkedIn:
     hosts:
+      - linkedin.com
       - www.linkedin.com
       - de.linkedin.com
     href: https://www.linkedin.com
@@ -482,6 +487,7 @@ targets:
     twitter: "@PlayStation"
   Reddit:
     hosts:
+      - reddit.com
       - www.reddit.com
       - www.redditstatic.com
     href: https://www.reddit.com
@@ -605,6 +611,7 @@ targets:
     twitter: "@tumblr"
   Twitch:
     hosts:
+      - twitch.tv
       - www.twitch.com
     href: https://www.twitch.tv
     icon: "fa:twitch"
@@ -659,6 +666,7 @@ targets:
   Wikipedia:
     hosts:
       - www.wikipedia.org
+      - wikipedia.org
     href: https://www.wikipedia.org
     icon: images/wikipedia.png
     twitter: "@Wikipedia"
@@ -687,6 +695,7 @@ targets:
   Yahoo:
     hosts:
       - www.yahoo.com
+      - yahoo.co.jp
       - yahoo.com
       - mail.yahoo.com
       - finance.yahoo.com
@@ -701,6 +710,7 @@ targets:
   YouTube:
     hosts:
       - www.youtube.com
+      - youtube.com
     href: https://www.youtube.com
     icon: "fa:youtube"
     twitter: "@youtube"
