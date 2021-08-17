@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+import json
 from typing import Dict, Any
 import argparse
 import asyncio
@@ -18,15 +18,6 @@ from prometheus_client.exposition import generate_latest as prometheus_generate_
 
 
 logger = logging.getLogger(__name__)
-
-config_schema = {
-    "type": "Object",
-    "attributes": {
-        "nameservers": {"type": "Object"},
-        "targets": {"type": "Object"},
-        "messages": {"type": "Object"},
-    },
-}
 
 
 def writeable_dir(values):
@@ -207,8 +198,8 @@ async def main():
     logging.basicConfig(level=log_level)
 
     config = yaml.safe_load(args.config)
-    # TODO: add item validation
-    jsonschema.validate(config_schema, config)
+    with open("schema.json") as schema_file:
+        jsonschema.validate(config, json.load(schema_file))
 
     nameservers = config["nameservers"]
     targets = config["targets"]
