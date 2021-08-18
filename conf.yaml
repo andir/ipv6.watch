@@ -681,11 +681,6 @@ targets:
       - cenowarka.pl
       - geizhals.eu
     twitter: "@geizhals"
-  Mixer:
-    href: https://mixer.com/
-    hosts:
-      - mixer.com
-    twitter: "@WatchMixer"
   Glovo:
     href: https://glovoapp.com/
     hosts:
