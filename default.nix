@@ -7,5 +7,6 @@ stdenv.mkDerivation {
     jsonschema
     aiodns
     prometheus_client
+    yq-go
   ];
 }
