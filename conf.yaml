@@ -1,17 +1,21 @@
----
+messages:
+  twitter:
+    all: "Hey %s thank you for enabling #IPv6 @ipv6watch"
+    none: "Hey %s any plans to support #IPv6. Isn't it about time? @ipv6watch"
+    some: "Hey %s are you going to expand your #IPv6 support? @ipv6watch"
 nameservers:
   Google DNS:
     - 8.8.8.8
     - 8.8.4.4
     - 2001:4860:4860::8888
     - 2001:4860:4860::8844
+  LocalRecursor:
+    - 127.0.1.53
   OpenDNS:
     - 208.67.220.220
     - 208.67.222.222
     - 2620:119:35::35
     - 2620:119:53::53
-  LocalRecursor:
-    - 127.0.1.53
 # The following DNS servers do currently not respond..
 #  CCC:
 #    - 213.73.91.35 # dnscache.berlin.ccc.de.
@@ -20,62 +24,62 @@ nameservers:
 #    - 4.2.2.2
 #    - 4.2.2.1
 
-messages:
-  twitter:
-    all: "Hey %s thank you for enabling #IPv6 @ipv6watch"
-    some: "Hey %s are you going to expand your #IPv6 support? @ipv6watch"
-    none: "Hey %s any plans to support #IPv6. Isn't it about time? @ipv6watch"
-
 targets:
   500px:
-    href: https://500px.com/
     hosts:
       - 500px.com
+    href: https://500px.com/
     icon: "fa:500px"
     twitter: "@500px"
   9GAG:
-    href: http://9gag.com
     hosts:
       - 9gag.com
+    href: http://9gag.com
     twitter: "@9GAGTEAM"
+  Aftonbladet:
+    hosts:
+      - www.aftonbladet.se
+      - cis.schibsted.com
+      - gfx.aftonbladet-cdn.se
+    href: https://www.aftonbladet.se/
+    twitter: "@Aftonbladet"
   Amazon:
-    href: https://www.amazon.com
     hosts:
       - amazon.com
       - www.amazon.com
+    href: https://www.amazon.com
     icon: images/amazon.png
     twitter: "@amazon"
   Apple:
-    href: https://www.apple.com
     hosts:
       - apple.com
       - www.apple.com
       - itunes.apple.com
+    href: https://www.apple.com
     icon: "fa:apple"
     twitter: "@apple"
   Arch Linux:
-    href: https://www.archlinux.org
     hosts:
       - www.archlinux.org
       - aur.archlinux.org
+    href: https://www.archlinux.org
     icon: images/archlinux.png
     twitter: "@archlinux"
   Ars Technica:
-    href: https://arstechnica.com
     hosts:
       - arstechnica.com
       - cdn.arstechnica.net
+    href: https://arstechnica.com
     twitter: "@arstechnica"
   Arxes Tolina:
-    href: https://www.arxes-tolina.de
     hosts:
       - www.arxes-tolina.de
       - arxes-tolina.de
       - mx02.arxes-tolina.de.
       - msbln02.arxes-berlin.de.
+    href: https://www.arxes-tolina.de
     twitter: '@arxestolina'
   BBC:
-    href: https://www.bbc.co.uk/
     hosts:
       - bbc.co.uk
       - bbc.com
@@ -85,510 +89,602 @@ targets:
       - live.bbci.co.uk
       - www.bbc.co.uk
       - www.bbc.com
+    href: https://www.bbc.co.uk/
     icon: "fa:bbc"
     twitter: "@BBC"
+  Bandcamp:
+    hosts:
+      - bandcamp.com
+    href: https://bandcamp.com
+    icon: "fa:bandcamp"
+    twitter: "@bandcamp"
   BigPulse:
-    href: https://www.bigpulse.com
     hosts:
       - www.bigpulse.com
-  Bitbucket:
-    href: https://bitbucket.org
-    hosts:
-      - bitbucket.org
-    icon: "fa:bitbucket"
-    twitter: "@bitbucket"
+    href: https://www.bigpulse.com
   Bing:
-    href: https://bing.com
     hosts:
       - bing.com
       - www.bing.com
+    href: https://bing.com
     twitter: "@bing"
+  Bitbucket:
+    hosts:
+      - bitbucket.org
+    href: https://bitbucket.org
+    icon: "fa:bitbucket"
+    twitter: "@bitbucket"
   CenturyLink (formerly Level3):
-    href: https://www.centurylink.com
     hosts:
       - www.centurylink.com
+    href: https://www.centurylink.com
     twitter: "@CenturyLink @CenturyLinkHelp"
   CodePen:
-    href: https://codepen.io
     hosts:
       - codepen.io
+    href: https://codepen.io
     icon: "fa:codepen"
     twitter: "@codepen"
+  Codeship:
+    hosts:
+      - codeship.com
+    href: https://codeship.com
+    twitter: "@codeship @codeshipsupport"
   CoreOS:
-    href: https://coreos.com
     hosts:
       - coreos.com
+    href: https://coreos.com
     icon: images/coreos.png
     twitter: "@coreos"
   Coveralls:
-    href: https://coveralls.io/
     hosts:
       - coveralls.io
+    href: https://coveralls.io/
     twitter: "@CoverallsApp"
   Debian:
-    href: https://www.debian.org
     hosts:
       - www.debian.org
       - security.debian.org
+    href: https://www.debian.org
     icon: images/debian.png
     twitter: "@debian"
   Delicious:
-    href: https://del.icio.us
     hosts:
       - del.icio.us
+    href: https://del.icio.us
     icon: "fa:delicious"
     twitter: "@delicious"
   "Deutsche Welle":
-    href: http://www.dw.com
     hosts:
       - www.dw.com
+    href: http://www.dw.com
     icon: images/deutsche_welle.png
     twitter: "@deutschewelle"
   DeviantArt:
-    href: https://www.deviantart.com
     hosts:
       - www.deviantart.com
+    href: https://www.deviantart.com
     icon: "fa:deviantart"
     twitter: "@deviantart"
   Digg:
-    href: https://digg.com
     hosts:
       - digg.com
+    href: https://digg.com
     icon: "fa:digg"
     twitter: "@digg"
   DigitalOcean:
-    href: https://digitalocean.com
     hosts:
       - digitalocean.com
       - cloud.digitalocean.com
+    href: https://digitalocean.com
     icon: "fa:digital-ocean"
     twitter: "@digitalocean"
   Discord:
-    href: https://discordapp.com/
     hosts:
       - discordapp.com
+    href: https://discordapp.com/
     icon: fa:discord
     twitter: "@discord"
   Docker:
-    href: https://www.docker.com/
     hosts:
       - docker.com
       - hub.docker.com
       - registry-1.docker.io
       - registry.docker.io
+    href: https://www.docker.com/
     icon: fa:docker
     twitter: "@Docker"
   Dribbble:
-    href: https://dribbble.com
     hosts:
       - dribble.com
+    href: https://dribbble.com
     icon: "fa:dribbble"
     twitter: "@dribbble"
   Dropbox:
-    href: https://www.dropbox.com
     hosts:
       - www.dropbox.com
+    href: https://www.dropbox.com
     icon: "fa:dropbox"
     twitter: "@dropbox"
   Duckduckgo:
-    href: "https://Duckduckgo.com"
     hosts:
       - Duckduckgo.com
+    href: "https://Duckduckgo.com"
     icon: "images/duckduckgo.png"
     twitter: "@duckduckgo"
   Ebay:
-    href: http://www.ebay.com/
     hosts:
       - www.ebay.com
       - ebay.com
+    href: http://www.ebay.com/
     twitter: "@eBay"
   Facebook:
-    href: https://www.facebook.com
     hosts:
       - www.facebook.com
       - facebook.com
+    href: https://www.facebook.com
     icon: fa:facebook
     twitter: "@facebook"
   Fedora:
-    href: https://getfedora.org
     hosts:
       - getfedora.org
       - fedoraproject.org
+    href: https://getfedora.org
     icon: images/fedora.png
     twitter: "@fedora"
   Fiducia:
-    href: https://www.fiduciagad.de
     hosts:
       - finanzportal.fiducia.de
+    href: https://www.fiduciagad.de
     twitter: "@fiducia_gad"
+  Flickr:
+    hosts:
+      - www.flickr.com
+    href: https://www.flickr.com
+    icon: "fa:flickr"
+    twitter: "@flickr"
   Foursquare:
-    href: https://www.foursquare.com
     hosts:
       - www.foursquare.com
       - de.foursquare.com
+    href: https://www.foursquare.com
     icon: "fa:foursquare"
     twitter: "@Foursquare"
+  Geizhals:
+    hosts:
+      - gh.de
+      - geizhals.net
+      - geizhals.at
+      - geizhals.de
+      - skinflint.co.uk
+      - cenowarka.pl
+      - geizhals.eu
+    href: https://geizhals.de/
+    twitter: "@geizhals"
   Gentoo:
-    href: https://www.gentoo.org
     hosts:
       - www.gentoo.org
       - distfiles.gentoo.org
+    href: https://www.gentoo.org
     icon: images/gentoo.png
     twitter: "@gentoo"
   GitHub:
-    href: https://github.com
     hosts:
       - github.com
       - www.github.com
       - gist.github.com
+    href: https://github.com
     icon: "fa:github"
     twitter: "@GitHub"
   GitLab:
-    href: https://about.gitlab.com
     hosts:
       - gitlab.com
       - about.gitlab.com
+    href: https://about.gitlab.com
     icon: images/gitlab.svg
     twitter: "@gitlab"
+  Glovo:
+    hosts:
+      - glovoapp.com
+      - api.glovoapp.com
+    href: https://glovoapp.com/
+    twitter: "@Glovo_ES"
   Google:
-    href: https://www.google.com
     hosts:
       - google.com
+    href: https://www.google.com
     icon: images/google.png
     twitter: "@Google"
   Gravatar:
-    href: https://www.gravatar.com
     hosts:
       - gravatar.com
       - secure.gravatar.com
+    href: https://www.gravatar.com
     twitter: "@gravatar"
   "Hacker News":
-    href: https://news.ycombinator.com
     hosts:
       - news.ycombinator.com
+    href: https://news.ycombinator.com
     icon: "fa:hacker-news"
     twitter: "@hnstatus"
   Hastebin:
-    href: https://hastebin.com/
     hosts:
       - hastebin.com
+    href: https://hastebin.com/
     twitter: "@hastebin"
   "Hound CI":
-    href: https://houndci.com
     hosts:
       - houndci.com
+    href: https://houndci.com
     twitter: "@houndci"
   IFTTT:
-    href: https://ifttt.com/
     hosts:
       - ifttt.com
+    href: https://ifttt.com/
     twitter: "@IFTTT"
   IMDb:
-    href: http://www.imdb.com
     hosts:
       - www.imdb.com
       - media-imdb.com
+    href: http://www.imdb.com
     icon: "fa:imdb"
     twitter: "@imdb"
+  IPv6.com:
+    hosts:
+      - ipv6.com
+    href: http://ipv6.com
   Imgur:
-    href: https://imgur.com/
     hosts:
       - imgur.com
+    href: https://imgur.com/
     twitter: "@imgur"
   Instagram:
-    href: https://www.instagram.com
     hosts:
       - instagram.com
       - www.instagram.com
+    href: https://www.instagram.com
     icon: "fa:instagram"
     twitter: "@instagram"
   JSFiddle:
-    href: https://jsfiddle.net
     hosts:
       - jsfiddle.net
+    href: https://jsfiddle.net
     icon: "fa:jsfiddle"
     twitter: "@jsfiddle"
   JetBrains:
-    href: https://www.jetbrains.com
     hosts:
       - jetbrains.com
+    href: https://www.jetbrains.com
     icon: images/jetbrains.svg
     twitter: "@jetbrains"
+  Last.fm:
+    hosts:
+      - www.last.fm
+    href: http://www.last.fm
+    icon: "fa:lastfm"
+    twitter: "@lastfm"
   LinkedIn:
-    href: https://www.linkedin.com
     hosts:
       - www.linkedin.com
       - de.linkedin.com
+    href: https://www.linkedin.com
     icon: "fa:linkedin"
     twitter: "@linkedin"
   Lobsters:
-    href: https://lobste.rs/
     hosts:
       - lobste.rs
+    href: https://lobste.rs/
     twitter: "@lobsters"
   Matrix.org:
-    href: https://matrix.org
     hosts:
       - matrix.org
       - riot.im
+    href: https://matrix.org
     twitter: "@matrixdotorg"
-  StackPath:
-    href: https://www.stackpath.com
-    hosts:
-      - stackpath.com
-      - www.stackpath.com
-      - stackpath.bootstrapcdn.com
-      - code.jquery.com
-    icon: "fa:stackpath"
-    twitter: "@stackpath"
   Medium:
-    href: https://medium.com
     hosts:
       - medium.com
+    href: https://medium.com
     icon: "fa:medium"
     twitter: "@medium"
   Meetup:
-    href: https://www.meetup.com
     hosts:
       - www.meetup.com
+    href: https://www.meetup.com
     icon: "fa:meetup"
     twitter: "@meetup"
   Mixer:
-    href: https://mixer.com
     hosts:
       - mixer.com
-      - www.mixer.com
-    icon: images/mixer.png
+    href: https://mixer.com/
     twitter: "@WatchMixer"
+  "Mozilla Observatory":
+    hosts:
+      - observatory.mozilla.org
+    href: https://observatory.mozilla.org
+    twitter: "@mozilla"
   N26:
-    href: https://n26.com
     hosts:
       - my.number26.de
       - n26.com
+    href: https://n26.com
     twitter: "@n26"
   Netcologne:
-    href: https://www.netcologne.de
     hosts:
       - www.netcologne.de
+    href: https://www.netcologne.de
     twitter: "@NetCologne_GmbH"
   Netflix:
-    href: https://www.netflix.com/
     hosts:
       - netflix.com
       - www.netflix.com
+    href: https://www.netflix.com/
     twitter: "@Netflixhelps"
+  Netlify:
+    hosts:
+      - www.netlify.com
+      - app.netlify.com
+      - netlify.app
+    href: https://www.netlify.com/
+    twitter: "@Netlify"
   NixOS:
-    href: https://nixos.org
     hosts:
       - nixos.org
       - cache.nixos.org
       - mobile.nixos.org
       - status.nixos.org
       - search.nixos.org
+    href: https://nixos.org
     icon: images/nixos.png
     twitter: "@nixos_org"
   O2:
-    href: https://www.o2online.de/
     hosts:
       - www.o2online.de
+    href: https://www.o2online.de/
     icon: images/o2.svg
     twitter: "@o2de"
   Origin:
-    href: https://www.origin.com
     hosts:
       - www.origin.com
+    href: https://www.origin.com
     twitter: "@AskEASupport"
   Pastebin:
-    href: http://pastebin.com/
     hosts:
       - pastebin.com
+    href: http://pastebin.com/
     twitter: "@pastebin"
   PayPal:
-    href: https://www.paypal.com
     hosts:
       - www.paypal.com
+    href: https://www.paypal.com
     icon: "fa:paypal"
     twitter: "@AskPayPal"
   Pinboard:
-    href: https://pinboard.in
     hosts:
       - pinboard.in
       - www.pinboard.in
+    href: https://pinboard.in
     icon: "fa:pinboard"
     twitter: "@pinboard"
   Pinterest:
-    href: https://www.pinterest.com
     hosts:
       - www.pinterest.com
       - de.pinterest.com
+    href: https://www.pinterest.com
     icon: "fa:pinterest"
     twitter: "@pinterest"
+  Playstation:
+    hosts:
+      - www.playstation.com
+      - status.playstation.com
+      - static.playstation.com
+    href: https://www.playstation.com/
+    twitter: "@PlayStation"
   Reddit:
-    href: https://www.reddit.com
     hosts:
       - www.reddit.com
       - www.redditstatic.com
+    href: https://www.reddit.com
     icon: "fa:reddit-alien"
     twitter: "@reddit"
+  Rubygems:
+    hosts:
+      - rubygems.org
+    href: https://rubygems.org
+    icon: images/rubygems.png
+    twitter: "@rubygems"
   Scribd:
-    href: https://www.scribd.com
     hosts:
       - www.scribd.com
+    href: https://www.scribd.com
     icon: "fa:scribd"
     twitter: "@scribd"
   Skype:
-    href: https://www.skype.com
     hosts:
       - www.skype.com
+    href: https://www.skype.com
     icon: "fa:skype"
     twitter: "@skype"
   Slack:
-    href: https://slack.com
     hosts:
       - slack.com
+    href: https://slack.com
     icon: "fa:slack"
     twitter: "@slackhq"
   Snapchat:
-    href: https://snapchat.com
     hosts:
       - www.snapchat.com
+    href: https://snapchat.com
     icon: "fa:snapchat-ghost"
     twitter: "@snapchat"
   SoundCloud:
-    href: https://soundcloud.com
     hosts:
       - soundcloud.com
+    href: https://soundcloud.com
     icon: "fa:soundcloud"
     twitter: "@soundcloud"
   Spotify:
-    href: https://www.spotify.com
     hosts:
       - www.spotify.com
       - open.scdn.co
       - www.scdn.co
+    href: https://www.spotify.com
     icon: "fa:spotify"
     twitter: "@spotify"
   "Stack Exchange":
-    href: https://stackexchange.com
     hosts:
       - stackexchange.com
       - serverfault.com
       - stackoverflow.com
       - askubuntu.com
+    href: https://stackexchange.com
     icon: "fa:stack-exchange"
     twitter: "@stackexchange"
+  StackPath:
+    hosts:
+      - stackpath.com
+      - www.stackpath.com
+      - stackpath.bootstrapcdn.com
+      - code.jquery.com
+    href: https://www.stackpath.com
+    icon: "fa:stackpath"
+    twitter: "@stackpath"
   Steam:
-    href: http://store.steampowered.com
     hosts:
       - store.steampowered.com
       - steamcommunity.com
       - help.steampowered.com
+    href: http://store.steampowered.com
     icon: "fa:steam"
     twitter: "@steam_games"
   Strava:
-    href: https://www.strava.com
     hosts:
       - strava.com
+    href: https://www.strava.com
     icon: fa:strava
     twitter: "@Strava"
-  "Telegram Messenger":
-    href: https://telegram.org
-    hosts:
-      - telegram.org
-      - web.telegram.org
-    icon: "fa:telegram"
-    twitter: "@telegram"
-  TechChruch:
-    href: https://techcrunch.com
-    hosts:
-      - techcrunch.com
-    twitter: "@TechCrunch"
-  The Register:
-    href: https://www.theregister.co.uk
-    hosts:
-      - www.theregister.co.uk
-    twitter: "@TheRegister"
   TIDAL:
-    href: http://tidal.com
     hosts:
       - tidal.com
       - listen.tidal.com
+    href: http://tidal.com
     twitter: "@TIDAL"
+  TechChruch:
+    hosts:
+      - techcrunch.com
+    href: https://techcrunch.com
+    twitter: "@TechCrunch"
+  "Telegram Messenger":
+    hosts:
+      - telegram.org
+      - web.telegram.org
+    href: https://telegram.org
+    icon: "fa:telegram"
+    twitter: "@telegram"
+  The Register:
+    hosts:
+      - www.theregister.co.uk
+    href: https://www.theregister.co.uk
+    twitter: "@TheRegister"
   Travis-CI:
-    href: https://travis-ci.org
     hosts:
       - travis-ci.org
+    href: https://travis-ci.org
     twitter: "@travisci"
   Trello:
-    href: https://trello.com
     hosts:
       - trello.com
+    href: https://trello.com
     icon: "fa:trello"
     twitter: "@trello"
   Tumblr:
-    href: https://www.tumblr.com
     hosts:
       - www.tumblr.com
+    href: https://www.tumblr.com
     icon: "fa:tumblr"
     twitter: "@tumblr"
   Twitch:
-    href: https://www.twitch.tv
     hosts:
       - www.twitch.com
+    href: https://www.twitch.tv
     icon: "fa:twitch"
     twitter: "@Twitch @TwitchSupport"
   Twitter:
-    href: https://twitter.com
     hosts:
       - www.twitter.com
       - twitter.com
       - api.twitter.com
       - tweetdeck.twitter.com
       - pbs.twimg.com
+    href: https://twitter.com
     icon: "fa:twitter"
     twitter: "@twitter @tweetdeck"
+  Uber:
+    hosts:
+      - uber.com
+      - api.uber.com
+    href: https://uber.com
+    icon: "fa:uber"
+    twitter: "@Uber"
   Ubuntu:
-    href: https://www.ubuntu.com
     hosts:
       - www.ubuntu.com
+    href: https://www.ubuntu.com
     icon: images/ubuntu.png
     twitter: "@ubuntu"
+  Vapiano:
+    hosts:
+      - vapiano.com
+      - de.vapiano.com
+    href: http://vapiano.com
+    twitter: '@vapiano'
   Vimeo:
-    href: https://vimeo.com
     hosts:
       - vimeo.com
+    href: https://vimeo.com
     icon: "fa:vimeo"
     twitter: "@vimeo"
+  WIRED:
+    hosts:
+      - www.wired.com
+    href: https://www.wired.com
+    twitter: "@WIRED"
   WhatsApp:
-    href: https://www.whatsapp.com
     hosts:
       - www.whatsapp.com
       - web.whatsapp.com
+    href: https://www.whatsapp.com
     icon: "fa:whatsapp"
     twitter: "@whatsapp"
   Wikipedia:
-    href: https://www.wikipedia.org
     hosts:
       - www.wikipedia.org
+    href: https://www.wikipedia.org
     icon: images/wikipedia.png
     twitter: "@Wikipedia"
   Wordpress:
-    href: https://wordpress.org
     hosts:
       - wordpress.org
       - de.wordpress.org
       - codex.wordpress.org
       - make.wordpress.org
+    href: https://wordpress.org
     icon: "fa:wordpress"
     twitter: "@wordpress"
+  Xbox:
+    hosts:
+      - www.xbox.com
+      - assets.xbox.com
+      - login.live.com
+    href: https://xbox.com/
+    twitter: "@Xbox"
   Xing:
-    href: https://www.xing.com
     hosts:
       - www.xing.com
+    href: https://www.xing.com
     icon: "fa:xing"
     twitter: "@xing_com @xingdevs"
   Yahoo:
-    href: https://www.yahoo.com
     hosts:
       - www.yahoo.com
       - yahoo.com
@@ -599,131 +695,26 @@ targets:
       - mobile.yahoo.com
       - groups.yahoo.com
       - answers.yahoo.com
+    href: https://www.yahoo.com
     icon: fa:yahoo
     twitter: "@Yahoo"
   YouTube:
-    href: https://www.youtube.com
     hosts:
       - www.youtube.com
+    href: https://www.youtube.com
     icon: "fa:youtube"
     twitter: "@youtube"
-  bandcamp:
-    href: https://bandcamp.com
+  Zwift:
     hosts:
-      - bandcamp.com
-    icon: "fa:bandcamp"
-    twitter: "@bandcamp"
-  flickr:
-    href: https://www.flickr.com
-    hosts:
-      - www.flickr.com
-    icon: "fa:flickr"
-    twitter: "@flickr"
+      - zwift.com
+    href: https://zwift.com/
+    twitter: "@GoZwift"
   mailbox.org:
-    href: https://mailbox.org
     hosts:
       - mailbox.org
       - mx1.mailbox.org
       - mx2.mailbox.org
       - mx3.mailbox.org
       - mx-n.mailbox.org
+    href: https://mailbox.org
     twitter: "@mailbox_org"
-  last.fm:
-    href: http://www.last.fm
-    hosts:
-      - www.last.fm
-    icon: "fa:lastfm"
-    twitter: "@lastfm"
-  "Mozilla Observatory":
-    href: https://observatory.mozilla.org
-    hosts:
-      - observatory.mozilla.org
-    twitter: "@mozilla"
-  Codeship:
-    href: https://codeship.com
-    hosts:
-      - codeship.com
-    twitter: "@codeship @codeshipsupport"
-  ipv6.com:
-    href: http://ipv6.com
-    hosts:
-      - ipv6.com
-  Rubygems:
-    href: https://rubygems.org
-    hosts:
-       - rubygems.org
-    twitter: "@rubygems"
-    icon: images/rubygems.png
-  Vapiano:
-    href: http://vapiano.com
-    hosts:
-       - vapiano.com
-       - de.vapiano.com
-    twitter: '@vapiano'
-  WIRED:
-    href: https://www.wired.com
-    hosts:
-      - www.wired.com
-    twitter: "@WIRED"
-  Zwift:
-    href: https://zwift.com/
-    hosts:
-      - zwift.com
-    twitter: "@GoZwift"
-  Geizhals:
-    href: https://geizhals.de/
-    hosts:
-      - gh.de
-      - geizhals.net
-      - geizhals.at
-      - geizhals.de
-      - skinflint.co.uk
-      - cenowarka.pl
-      - geizhals.eu
-    twitter: "@geizhals"
-  Mixer:
-    href: https://mixer.com/
-    hosts:
-      - mixer.com
-    twitter: "@WatchMixer"
-  Glovo:
-    href: https://glovoapp.com/
-    hosts:
-      - glovoapp.com
-      - api.glovoapp.com
-    twitter: "@Glovo_ES"
-  Uber:
-    href: https://uber.com
-    hosts:
-      - uber.com
-      - api.uber.com
-    twitter: "@Uber"
-    icon: "fa:uber"
-  Netlify:
-    href: https://www.netlify.com/
-    hosts:
-      - www.netlify.com
-      - app.netlify.com
-      - netlify.app
-    twitter: "@Netlify"
-  Aftonbladet:
-    href: https://www.aftonbladet.se/
-    hosts:
-      - www.aftonbladet.se
-      - cis.schibsted.com
-      - gfx.aftonbladet-cdn.se
-    twitter: "@Aftonbladet"
-  Playstation:
-    href: https://www.playstation.com/
-    hosts:
-      - www.playstation.com
-      - status.playstation.com
-      - static.playstation.com
-    twitter: "@PlayStation"
-  Xbox:
-    href: https://xbox.com/
-    hosts:
-      - www.xbox.com
-      - assets.xbox.com
-      - login.live.com
-    twitter: "@Xbox"
