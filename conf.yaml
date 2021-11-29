@@ -25,6 +25,14 @@ nameservers:
 #    - 4.2.2.1
 
 targets:
+  360.cn:
+    hosts:
+      - 360.cn
+      - www.360.cn
+      - www.360totalsecurity.com
+    href: https://www.360.cn/
+    icon: "fa:360"
+    twitter: "@360TotalSec"
   500px:
     hosts:
       - 500px.com
@@ -36,6 +44,13 @@ targets:
       - 9gag.com
     href: http://9gag.com
     twitter: "@9GAGTEAM"
+  Adobe:
+    hosts:
+      - adobe.com
+      - www.adobe.com
+    href: https://www.adobe.com/
+    icon: "fa:Adobe"
+    twitter: "@AdobeCare"
   Aftonbladet:
     hosts:
       - www.aftonbladet.se
@@ -43,13 +58,37 @@ targets:
       - gfx.aftonbladet-cdn.se
     href: https://www.aftonbladet.se/
     twitter: "@Aftonbladet"
+  AliExpress:
+    hosts:
+      - aliexpress.com
+      - www.aliexpress.com/
+    href: https://www.aliexpress.com/
+    icon: "fa:aliexpress"
+    twitter: "@AliExpress_EN"
+  Alipay:
+    hosts:
+      - alipay.com
+      - global.alipay.com
+      - www.alipay.com
+    href: https://www.alipay.com/
+    icon: "fa:alipay"
+    twitter: "@Alipay"
   Amazon:
     hosts:
+      - amazon.co.jp
       - amazon.com
+      - amazon.in
       - www.amazon.com
     href: https://www.amazon.com
     icon: images/amazon.png
     twitter: "@amazon"
+  Aparat:
+    hosts:
+      - aparat.com
+      - www.aparat.com
+    href: https://www.aparat.com/
+    icon: "fa:aparat"
+    twitter: "@aparatcom"
   Apple:
     hosts:
       - apple.com
@@ -92,6 +131,13 @@ targets:
     href: https://www.bbc.co.uk/
     icon: "fa:bbc"
     twitter: "@BBC"
+  Baidu:
+    hosts:
+      - baidu.com
+      - www.baidu.com
+    href: https://www.baidu.com/
+    icon: "fa:baidu"
+    twitter: "@Baidu"
   Bandcamp:
     hosts:
       - bandcamp.com
@@ -114,11 +160,23 @@ targets:
     href: https://bitbucket.org
     icon: "fa:bitbucket"
     twitter: "@bitbucket"
+  CSDN:
+    hosts:
+      - csdn.net
+      - www.csdn.net
+    href: https://www.csdn.net/
+    icon: "fa:csdn"
   CenturyLink (formerly Level3):
     hosts:
       - www.centurylink.com
     href: https://www.centurylink.com
     twitter: "@CenturyLink @CenturyLinkHelp"
+  Chaturbate:
+    hosts:
+      - chaturbate.com
+    href: https://chaturbate.com/
+    icon: "fa:chaturbate"
+    twitter: "@Chaturbate"
   CodePen:
     hosts:
       - codepen.io
@@ -292,6 +350,8 @@ targets:
   Google:
     hosts:
       - google.com
+      - google.com.hk
+      - www.google.com
     href: https://www.google.com
     icon: images/google.png
     twitter: "@Google"
@@ -317,6 +377,11 @@ targets:
       - houndci.com
     href: https://houndci.com
     twitter: "@houndci"
+  Huanqiu:
+    hosts:
+      - huanqiu.com
+    href: https://www.huanqiu.com/
+    icon: "fa:huanqiu"
   IFTTT:
     hosts:
       - ifttt.com
@@ -345,6 +410,13 @@ targets:
     href: https://www.instagram.com
     icon: "fa:instagram"
     twitter: "@instagram"
+  JD:
+    hosts:
+      - global.jd.com
+      - jd.com
+    href: https://global.jd.com/
+    icon: "fa:jd"
+    twitter: "@JD_Corporate"
   JSFiddle:
     hosts:
       - jsfiddle.net
@@ -365,6 +437,7 @@ targets:
     twitter: "@lastfm"
   LinkedIn:
     hosts:
+      - linkedin.com
       - www.linkedin.com
       - de.linkedin.com
     href: https://www.linkedin.com
@@ -393,6 +466,16 @@ targets:
     href: https://www.meetup.com
     icon: "fa:meetup"
     twitter: "@meetup"
+  Microsoft:
+    hosts:
+      - live.com
+      - microsoft.com
+      - microsoftonline.com
+      - office.com
+      - www.office.com
+    href: https://www.microsoft.com/
+    icon: "fa:microsoft"
+    twitter: "@Microsoft"
   Mixer:
     hosts:
       - mixer.com
@@ -409,6 +492,12 @@ targets:
       - n26.com
     href: https://n26.com
     twitter: "@n26"
+  Naver:
+    hosts:
+      - naver.com
+      - www.naver.com
+    href: https://www.naver.com/
+    icon: "fa:naver"
   Netcologne:
     hosts:
       - www.netcologne.de
@@ -443,6 +532,13 @@ targets:
     href: https://www.o2online.de/
     icon: images/o2.svg
     twitter: "@o2de"
+  Okezone:
+    hosts:
+      - okezone.com
+      - www.okezone.com
+    href: https://www.okezone.com/
+    icon: "fa:okezone"
+    twitter: "@okezonenews"
   Origin:
     hosts:
       - www.origin.com
@@ -482,6 +578,7 @@ targets:
     twitter: "@PlayStation"
   Reddit:
     hosts:
+      - reddit.com
       - www.reddit.com
       - www.redditstatic.com
     href: https://www.reddit.com
@@ -499,6 +596,20 @@ targets:
     href: https://www.scribd.com
     icon: "fa:scribd"
     twitter: "@scribd"
+  Shopify:
+    hosts:
+      - myshopify.com
+      - shopify.com
+      - www.shopify.com
+    href: https://www.shopify.com/
+    icon: "fa:shopify"
+    twitter: "@Shopify"
+  Sina:
+    hosts:
+      - sina.com.cn
+      - www.sina.com.cn
+    href: https://www.sina.com.cn/
+    icon: "fa:sina"
   Skype:
     hosts:
       - www.skype.com
@@ -517,6 +628,12 @@ targets:
     href: https://snapchat.com
     icon: "fa:snapchat-ghost"
     twitter: "@snapchat"
+  Sohu:
+    hosts:
+      - sohu.com
+      - www.sohu.com
+    href: https://www.sohu.com/
+    icon: "fa:sohu"
   SoundCloud:
     hosts:
       - soundcloud.com
@@ -569,6 +686,12 @@ targets:
       - listen.tidal.com
     href: http://tidal.com
     twitter: "@TIDAL"
+  Taobao:
+    hosts:
+      - taobao.com
+      - world.taobao.com
+    href: https://world.taobao.com/
+    icon: "fa:taobao"
   TechChruch:
     hosts:
       - techcrunch.com
@@ -581,11 +704,24 @@ targets:
     href: https://telegram.org
     icon: "fa:telegram"
     twitter: "@telegram"
+  Tencent:
+    hosts:
+      - qq.com
+      - www.qq.com
+    href: https://www.qq.com/
+    icon: "fa:tencent"
+    twitter: "@TencentGlobal"
   The Register:
     hosts:
       - www.theregister.co.uk
     href: https://www.theregister.co.uk
     twitter: "@TheRegister"
+  Tmall:
+    hosts:
+      - tmall.com
+      - www.tmall.com
+    href: https://www.tmall.com/
+    icon: "fa:tmall"
   Travis-CI:
     hosts:
       - travis-ci.org
@@ -605,6 +741,7 @@ targets:
     twitter: "@tumblr"
   Twitch:
     hosts:
+      - twitch.tv
       - www.twitch.com
     href: https://www.twitch.tv
     icon: "fa:twitch"
@@ -632,6 +769,11 @@ targets:
     href: https://www.ubuntu.com
     icon: images/ubuntu.png
     twitter: "@ubuntu"
+  VK:
+    hosts:
+      - vk.com
+    href: https://vk.com/
+    icon: "fa:vk"
   Vapiano:
     hosts:
       - vapiano.com
@@ -649,6 +791,11 @@ targets:
       - www.wired.com
     href: https://www.wired.com
     twitter: "@WIRED"
+  Weibo:
+    hosts:
+      - weibo.com
+    href: https://weibo.com/
+    icon: "fa:weibo"
   WhatsApp:
     hosts:
       - www.whatsapp.com
@@ -659,6 +806,7 @@ targets:
   Wikipedia:
     hosts:
       - www.wikipedia.org
+      - wikipedia.org
     href: https://www.wikipedia.org
     icon: images/wikipedia.png
     twitter: "@Wikipedia"
@@ -684,9 +832,16 @@ targets:
     href: https://www.xing.com
     icon: "fa:xing"
     twitter: "@xing_com @xingdevs"
+  YY:
+    hosts:
+      - yy.com
+      - www.yy.com
+    href: https://www.yy.com/
+    icon: "fa:yy"
   Yahoo:
     hosts:
       - www.yahoo.com
+      - yahoo.co.jp
       - yahoo.com
       - mail.yahoo.com
       - finance.yahoo.com
@@ -698,17 +853,41 @@ targets:
     href: https://www.yahoo.com
     icon: fa:yahoo
     twitter: "@Yahoo"
+  Yandex:
+    hosts:
+      - yandex.ru
+    href: https://yandex.ru/
+    icon: "fa:yandex"
   YouTube:
     hosts:
       - www.youtube.com
+      - youtube.com
     href: https://www.youtube.com
     icon: "fa:youtube"
     twitter: "@youtube"
+  Zhanqi:
+    hosts:
+      - zhanqi.tv
+    href: https://zhanqi.tv
+    icon: "fa:zhanqi"
+  Zoom:
+    hosts:
+      - zoom.us
+    href: https://zoom.us/
+    icon: "fa:zoom"
+    twitter: "@Zoom"
   Zwift:
     hosts:
       - zwift.com
     href: https://zwift.com/
     twitter: "@GoZwift"
+  bongacams.com:
+    hosts:
+      - bongacams.com
+      - www.bongacams.com
+    href: https://bongacams.com/
+    icon: "fa:bongacams"
+    twitter: "@BongaCams"
   mailbox.org:
     hosts:
       - mailbox.org
@@ -718,3 +897,20 @@ targets:
       - mx-n.mailbox.org
     href: https://mailbox.org
     twitter: "@mailbox_org"
+  panda.tv:
+    hosts:
+      - panda.tv
+    href: https://panda.tv/
+    icon: "fa:panda"
+  tianya.cn:
+    hosts:
+      - tianya.cn
+      - www.tianya.cn
+    href: https://www.tianya.cn/
+    icon: "fa:tianya"
+  xinhuanet:
+    hosts:
+      - xinhuanet.com
+    href: https://xinhuanet.com/
+    icon: "fa:xinhuanet"
+    twitter: "@XinhuanetNews"
