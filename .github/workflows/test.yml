@@ -3,12 +3,12 @@ on:
   pull_request:
   push:
 jobs:
-  test-nixos-2105:
+  test-nixos-2205:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.4
       - uses: cachix/install-nix-action@v13
-      - run: NIX_PATH=channel:nixos-21.05 nix-shell --run "mkdir tmp && python generate.py -l DEBUG -c conf.yaml tmp"
+      - run: NIX_PATH=channel:nixos-22.05 nix-shell --run "mkdir tmp && python generate.py -l DEBUG -c conf.yaml tmp"
   test-nixos-unstable:
     runs-on: ubuntu-latest
     steps:
@@ -20,4 +20,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
       - uses: cachix/install-nix-action@v13
-      - run: NIX_PATH=channel:nixos-21.05 nix-shell --packages yq-go --run "diff conf.yaml <(yq eval 'sortKeys(..)' conf.yaml)"
+      - run: NIX_PATH=channel:nixos-22.05 nix-shell --packages yq-go --run "diff conf.yaml <(yq eval 'sortKeys(..)' conf.yaml)"
